@@ -1,0 +1,111 @@
+/**
+ * Types for the AI Car Marketplace Applet
+ */
+
+export interface Car {
+  id: number;
+  make: string;
+  model: string;
+  variant: string;
+  year: number;
+  city: string;
+  price: number; // in PKR
+  engine_cc: number;
+  transmission: 'Automatic' | 'Manual';
+  fuel: 'Petrol' | 'Diesel' | 'Hybrid' | 'Electric';
+  mileage: number; // in km
+  color: string;
+  body_type: 'Sedan' | 'Hatchback' | 'SUV' | 'Crossover' | 'Compact' | 'Van' | 'Luxury';
+  registered_city: string;
+  condition: 'Excellent' | 'Good' | 'Fair' | 'Need Work';
+  seller_name: string;
+  phone: string;
+  description: string;
+  features: string[]; // JSON array of features
+  images: string[]; // JSON array of image URLs
+  created_at: string;
+}
+
+export interface AISearchResponse {
+  filters: Partial<Record<keyof Car, any>> & {
+    priceMin?: number;
+    priceMax?: number;
+    yearMin?: number;
+    yearMax?: number;
+    mileageMax?: number;
+  };
+  results: Car[];
+  reasoning: string;
+  confidence: number;
+  suggestedQueries?: string[];
+}
+
+export interface AIAnalysisResponse {
+  make: string;
+  model: string;
+  variant: string;
+  estimated_year: number;
+  body_type: string;
+  fuel: string;
+  transmission: 'Automatic' | 'Manual';
+  mileage_estimate: number;
+  color: string;
+  condition: 'Excellent' | 'Good' | 'Fair' | 'Need Work';
+  features: string[];
+  suggested_price: {
+    estimatedPrice: number;
+    marketRangeMin: number;
+    marketRangeMax: number;
+    confidence: number;
+  };
+  seo_title: string;
+  description: string;
+  market_analysis: string;
+  confidence_score: number;
+  inspection: {
+    engine: number; // 0-100
+    body: number; // 0-100
+    interior: number; // 0-100
+    exterior: number; // 0-100
+    tyres: number; // 0-100
+    overallScore: number; // 0-100
+    grade: string; // e.g. "Excellent Vehicle"
+  };
+}
+
+export interface SellerDashboardStats {
+  posted_cars_count: number;
+  views_count: number;
+  favorites_count: number;
+  messages_count: number;
+  lead_count: number;
+  recent_leads: Array<{
+    id: number;
+    car_id: number;
+    car_title: string;
+    buyer_name: string;
+    buyer_phone: string;
+    message: string;
+    created_at: string;
+  }>;
+}
+
+export interface AdminDashboardStats {
+  total_cars: number;
+  average_price: number;
+  active_listings: number;
+  most_popular_brand: string;
+  most_popular_city: string;
+  brand_distribution: Array<{ name: string; value: number }>;
+  year_distribution: Array<{ name: string; value: number }>;
+  city_distribution: Array<{ name: string; value: number }>;
+  price_distribution: Array<{ name: string; value: number }>;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: 'user' | 'assistant';
+  text: string;
+  timestamp: string;
+  suggestedPrompts?: string[];
+}

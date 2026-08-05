@@ -1,0 +1,6 @@
+{
+  "name": "AI Car Market Place",
+  "description": "An AI-powered Pakistani car marketplace prototype featuring natural-language search, automated car listing generation from images, pricing analysis, car comparison, and seller/admin dashboards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

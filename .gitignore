@@ -1,0 +1,15 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Local / large artifacts
+.venv/
+**/__pycache__/
+*.pyc
+car scraper/data.zip
+car scraper/data/images/
