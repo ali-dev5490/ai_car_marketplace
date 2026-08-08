@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Search, SlidersHorizontal, ArrowUpDown, RefreshCw, Milestone, Fuel, Gauge, MapPin, Heart, Sparkles, ChevronDown } from 'lucide-react';
 import { Car } from '../types';
+import { fetchCars } from '../lib/api';
 
 interface BrowseProps {
   toggleFavorite: (id: number) => void;
@@ -44,8 +45,7 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
     const query = new URLSearchParams(searchParams);
     query.delete('favorites');
     
-    fetch(`/api/cars?${query.toString()}`)
-      .then(res => res.json())
+    fetchCars(query.toString())
       .then((data: Car[]) => {
         if (data && Array.isArray(data)) {
           // Client-side filtering & sorting

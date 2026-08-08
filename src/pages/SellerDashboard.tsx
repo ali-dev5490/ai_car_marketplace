@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, BarChart2, MessageSquare, Phone, MapPin, CheckCircle2, ChevronRight, TrendingUp, AlertCircle, ShoppingBag } from 'lucide-react';
 import { Car } from '../types';
+import { fetchCars } from '../lib/api';
 
 export default function SellerDashboard() {
   const [sellerCars, setSellerCars] = useState<Car[]>([]);
@@ -9,8 +10,7 @@ export default function SellerDashboard() {
 
   useEffect(() => {
     // Fetch all listings
-    fetch('/api/cars')
-      .then(res => res.json())
+    fetchCars()
       .then((data: Car[]) => {
         if (data && Array.isArray(data)) {
           // Filter out listings belonging to seller Muhammad Usman or similar,

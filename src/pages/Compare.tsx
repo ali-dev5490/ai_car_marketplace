@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Trash2, ArrowRight, Check, X, ShieldCheck, HelpCircle, GitCompare } from 'lucide-react';
 import { Car } from '../types';
+import { fetchCars } from '../lib/api';
 
 interface CompareProps {
   compareList: Car[];
@@ -21,8 +22,7 @@ export default function Compare({ compareList, removeFromCompare, clearCompare }
 
   // Load all cars for dropdown selection
   useEffect(() => {
-    fetch('/api/cars')
-      .then(res => res.json())
+    fetchCars()
       .then((data: Car[]) => {
         if (data && Array.isArray(data)) {
           setAllCars(data);

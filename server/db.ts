@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { Car } from '../src/types';
 import { buildScrapedCarDatabase } from './scrapedDataGenerator';
+import bundledCars from './db.json';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -568,15 +569,26 @@ class Database {
         const data = fs.readFileSync(DB_FILE, 'utf-8');
         this.cars = JSON.parse(data);
         console.log(`Database loaded with ${this.cars.length} cars from file.`);
-      } else {
-        console.log('Database file not found, seeding from scraped data...');
-        this.cars = seedFromScrapedData();
-        this.save();
-        console.log(`Database seeded with ${this.cars.length} cars.`);
+        return;
       }
+
+      if (Array.isArray(bundledCars) && bundledCars.length > 0) {
+        this.cars = bundledCars as Car[];
+        console.log(`Database loaded with ${this.cars.length} cars from bundled JSON.`);
+        return;
+      }
+
+      console.log('Database file not found, seeding from scraped data...');
+      this.cars = seedFromScrapedData();
+      this.save();
+      console.log(`Database seeded with ${this.cars.length} cars.`);
     } catch (err) {
       console.error('Error loading database, generating in-memory seed...', err);
-      this.cars = seedFromScrapedData();
+      if (Array.isArray(bundledCars) && bundledCars.length > 0) {
+        this.cars = bundledCars as Car[];
+      } else {
+        this.cars = seedFromScrapedData();
+      }
     }
   }
 

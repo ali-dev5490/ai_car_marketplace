@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Search, Sparkles, TrendingUp, ShieldCheck, Milestone, Fuel, Gauge, Heart, CheckCircle2, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Car } from '../types';
+import { fetchCars } from '../lib/api';
 
 interface HomeProps {
   toggleFavorite: (id: number) => void;
@@ -17,22 +18,23 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch featured and latest cars from server
-    fetch('/api/cars')
-      .then(res => res.json())
+    // Fetch featured and latest cars from server (API or static fallback)
+    fetchCars()
       .then((data: Car[]) => {
         if (data && Array.isArray(data)) {
           // Sort or pick specifically for featuring
           const sortedByPrice = [...data].sort((a,b) => b.price - a.price);
           setFeaturedCars(sortedByPrice.slice(25, 29)); // Pick mid-high range for featuring
           setLatestCars(data.slice(0, 4)); // First 4 are newest
+          const avg = Math.round(data.reduce((s, c) => s + c.price, 0) / data.length);
+          setStats({ total_cars: data.length, average_price: avg || 4350000 });
         }
       })
       .catch(err => console.error(err));
 
     // Fetch stats
     fetch('/api/analytics/admin')
-      .then(res => res.json())
+      .then(res => (res.ok ? res.json() : Promise.reject()))
       .then(data => {
         if (data) {
           setStats({
@@ -41,7 +43,7 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
           });
         }
       })
-      .catch(err => console.error(err));
+      .catch(() => undefined);
   }, []);
 
   const handleTraditionalSearch = (e: React.FormEvent) => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Phone, Heart, Share2, MapPin, CheckCircle2, AlertTriangle, ArrowLeft, BarChart2, Star, ShieldCheck, HelpCircle, Activity } from 'lucide-react';
 import { Car } from '../types';
+import { fetchCarById, fetchCars } from '../lib/api';
 
 interface CarDetailsProps {
   toggleFavorite: (id: number) => void;
@@ -29,29 +30,41 @@ export default function CarDetails({
     setLoading(true);
     setPhoneRevealed(false);
 
-    // Fetch primary car details
-    fetch(`/api/cars/${id}`)
-      .then(res => {
-        if (!res.ok) throw new Error('Car not found');
-        return res.json();
-      })
+    // Fetch primary car details (API or static fallback)
+    fetchCarById(id)
       .then((data: Car) => {
         setCar(data);
         setActiveImage(data.images[0]);
         addRecentlyViewed(data.id);
 
-        // Fetch AI recommendations
+        // Fetch AI recommendations (best-effort; fall back to local similar cars)
         fetch('/api/ai/recommend', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ carId: data.id })
         })
-          .then(res => res.json())
+          .then(res => res.ok ? res.json() : Promise.reject())
           .then(recData => {
             setSimilarCars(recData.similar || []);
             setBetterValueCars(recData.betterValue || []);
           })
-          .catch(err => console.error(err));
+          .catch(() => {
+            fetchCars()
+              .then(all => {
+                setSimilarCars(
+                  all
+                    .filter(c => c.id !== data.id && (c.body_type === data.body_type || c.make === data.make))
+                    .sort((a, b) => Math.abs(a.price - data.price) - Math.abs(b.price - data.price))
+                    .slice(0, 4)
+                );
+                setBetterValueCars(
+                  all
+                    .filter(c => c.id !== data.id && c.body_type === data.body_type && c.price < data.price && c.year >= data.year)
+                    .slice(0, 3)
+                );
+              })
+              .catch(() => undefined);
+          });
 
         // Fetch AI inspection report
         fetch('/api/ai/inspection', {
@@ -59,7 +72,7 @@ export default function CarDetails({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ car: data })
         })
-          .then(res => res.json())
+          .then(res => (res.ok ? res.json() : Promise.reject()))
           .then(report => setAiReport(report))
           .catch(err => console.error(err));
       })
