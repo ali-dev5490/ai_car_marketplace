@@ -1,0 +1,16 @@
+# Keep Vercel uploads small — local images are not needed (remote URLs in db).
+node_modules
+.git
+dist
+coverage
+.venv
+.env
+.env.*
+!.env.example
+car scraper
+data/images
+**/*.zip
+**/*.pyc
+**/__pycache__
+.DS_Store
+*.log
