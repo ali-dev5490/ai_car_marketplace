@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from '@google/genai';
-import { Car, AISearchResponse, AIAnalysisResponse } from '../src/types';
+import { Car, AISearchResponse, AIAnalysisResponse } from '../src/types.js';
 
 // Helper to sanitize base64 data URLs for Gemini inlineData
 function parseImageData(base64Input: string): { mimeType: string; data: string } {

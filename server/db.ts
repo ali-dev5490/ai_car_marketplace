@@ -1,19 +1,21 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { Car } from '../src/types';
-import { buildScrapedCarDatabase } from './scrapedDataGenerator';
-import bundledCars from './db.json';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { Car } from '../src/types.js';
+import { buildScrapedCarDatabase } from './scrapedDataGenerator.js';
+import bundledCars from './db.json' with { type: 'json' };
 
 function resolveDbFile(): string {
   const candidates = [
     path.join(process.cwd(), 'server', 'db.json'),
-    path.join(__dirname, 'db.json'),
+    // Bundled serverless layout
+    path.join(process.cwd(), 'db.json'),
   ];
   for (const candidate of candidates) {
-    if (fs.existsSync(candidate)) return candidate;
+    try {
+      if (fs.existsSync(candidate)) return candidate;
+    } catch {
+      // ignore
+    }
   }
   return candidates[0];
 }

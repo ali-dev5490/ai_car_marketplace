@@ -1,6 +1,4 @@
-import '../server/loadEnv';
-import { createApp } from '../server/createApp';
+import { createApp } from '../server/createApp.js';
 
-const app = createApp({ serveLocalData: false });
-
-export default app;
+// Vercel injects GEMINI_API_KEY into process.env — no dotenv needed here.
+export default createApp({ serveLocalData: false });

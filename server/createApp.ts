@@ -1,7 +1,7 @@
 import express, { Express } from 'express';
 import path from 'path';
-import { db } from './db';
-import { aiService } from './aiService';
+import { db } from './db.js';
+import { aiService } from './aiService.js';
 
 /** Shared Express app (API + optional local /data static). Used by local server and Vercel. */
 export function createApp(options: { serveLocalData?: boolean } = {}): Express {

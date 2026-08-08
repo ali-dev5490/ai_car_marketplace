@@ -1,8 +1,8 @@
-import './server/loadEnv';
+import './server/loadEnv.js';
 import path from 'path';
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
-import { createApp } from './server/createApp';
+import { createApp } from './server/createApp.js';
 
 async function startServer() {
   const app = createApp({ serveLocalData: true });
