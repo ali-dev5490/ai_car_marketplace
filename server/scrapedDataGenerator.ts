@@ -113,6 +113,34 @@ function resolveLocalImagePaths(imagePaths: string[] | undefined): string[] {
   return resolved;
 }
 
+/** Prefer remote CDN URLs so deploys (Vercel) work without shipping ~385MB of local images. */
+function resolveImages(item: any): string[] {
+  const images: string[] = [];
+  const maxImages = 12;
+
+  if (Array.isArray(item.image_urls)) {
+    for (const u of item.image_urls) {
+      if (typeof u === 'string' && u.startsWith('http') && !images.includes(u)) {
+        images.push(u);
+      }
+      if (images.length >= maxImages) break;
+    }
+  }
+
+  if (images.length === 0) {
+    images.push(...resolveLocalImagePaths(item.image_paths).slice(0, maxImages));
+  }
+
+  if (images.length === 0) {
+    images.push(
+      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=800',
+      'https://images.unsplash.com/photo-1555219507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800'
+    );
+  }
+
+  return images;
+}
+
 function pickCity(item: any, idx: number): string {
   const location = (item.location || '').trim();
   if (location) {
@@ -127,7 +155,7 @@ function pickCity(item: any, idx: number): string {
   return PAKISTAN_CITIES[idx % PAKISTAN_CITIES.length];
 }
 
-/** Convert scraped listings into marketplace Car objects (local images preferred). */
+/** Convert scraped listings into marketplace Car objects (remote image URLs preferred). */
 export function buildScrapedCarDatabase(): any[] {
   const rawList = loadScrapedListings();
   const allFormattedCars: any[] = [];
@@ -150,21 +178,12 @@ export function buildScrapedCarDatabase(): any[] {
     const fuel = normalizeFuel(item.fuel);
     const cc = estimateEngineCc(item);
 
-    // Prefer local scraped images; fall back to remote URLs only if needed
-    const images: string[] = resolveLocalImagePaths(item.image_paths);
-
-    if (images.length === 0 && Array.isArray(item.image_urls)) {
-      for (const u of item.image_urls) {
-        if (u && !images.includes(u)) images.push(u);
-      }
-    }
-
-    if (images.length === 0) {
+    const images = resolveImages(item);
+    if (
+      images.length > 0 &&
+      images.every((u) => u.includes('unsplash.com'))
+    ) {
       missingImages++;
-      images.push(
-        'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=800',
-        'https://images.unsplash.com/photo-1555219507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800'
-      );
     }
 
     const make = item.brand || 'Toyota';
@@ -208,7 +227,7 @@ export function buildScrapedCarDatabase(): any[] {
 
   console.log(
     `Imported ${allFormattedCars.length} scraped cars` +
-      (missingImages ? ` (${missingImages} without local images)` : '')
+      (missingImages ? ` (${missingImages} using placeholder images)` : '')
   );
 
   return allFormattedCars;

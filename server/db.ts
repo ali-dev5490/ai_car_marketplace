@@ -1,14 +1,32 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { Car } from '../src/types';
 import { buildScrapedCarDatabase } from './scrapedDataGenerator';
 
-const DB_FILE = path.join(process.cwd(), 'server', 'db.json');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Ensure directory exists
+function resolveDbFile(): string {
+  const candidates = [
+    path.join(process.cwd(), 'server', 'db.json'),
+    path.join(__dirname, 'db.json'),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return candidates[0];
+}
+
+const DB_FILE = resolveDbFile();
+
+// Ensure directory exists (local only; serverless FS may be read-only)
 const serverDir = path.dirname(DB_FILE);
-if (!fs.existsSync(serverDir)) {
-  fs.mkdirSync(serverDir, { recursive: true });
+try {
+  if (!fs.existsSync(serverDir)) {
+    fs.mkdirSync(serverDir, { recursive: true });
+  }
+} catch {
+  // ignore on read-only hosts (e.g. Vercel)
 }
 
 // Lists for deterministic seed data generation
