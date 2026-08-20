@@ -3,6 +3,81 @@ import path from 'path';
 import { db } from './db.js';
 import { aiService } from './aiService.js';
 
+const NOMINATIM_USER_AGENT = 'PakCarMarketplace/1.0 (ai-car-marketplace geo proxy)';
+let lastNominatimAt = 0;
+
+interface NominatimAddress {
+  country?: string;
+  state?: string;
+  province?: string;
+  region?: string;
+  city?: string;
+  town?: string;
+  village?: string;
+  municipality?: string;
+  county?: string;
+  suburb?: string;
+  neighbourhood?: string;
+  city_district?: string;
+  road?: string;
+  house_number?: string;
+  [key: string]: string | undefined;
+}
+
+interface NominatimPlace {
+  error?: string;
+  display_name?: string;
+  address?: NominatimAddress;
+}
+
+export interface GeoPlace {
+  country: string;
+  state: string;
+  city: string;
+  address: string;
+  label: string;
+}
+
+function parseNominatimPlace(place: NominatimPlace): GeoPlace {
+  const a = place.address || {};
+  const country = a.country || '';
+  const state = a.state || a.province || a.region || '';
+  const city = a.city || a.town || a.village || a.municipality || '';
+  const skip = new Set(
+    [country, state, city, a.county, a.postcode, a.country_code]
+      .filter(Boolean)
+      .map(s => s.toLowerCase())
+  );
+  const fromDisplay = (place.display_name || '')
+    .split(',')
+    .map(p => p.trim())
+    .filter(p => p && !skip.has(p.toLowerCase()));
+  const address = fromDisplay.length > 0
+    ? fromDisplay.join(', ')
+    : [a.house_number, a.road, a.suburb, a.neighbourhood, a.city_district].filter(Boolean).join(', ');
+  const label = place.display_name || [city, state, country].filter(Boolean).join(', ');
+  return { country, state, city, address, label };
+}
+
+async function nominatimFetch(url: string): Promise<any> {
+  const wait = 1100 - (Date.now() - lastNominatimAt);
+  if (wait > 0) {
+    await new Promise(resolve => setTimeout(resolve, wait));
+  }
+  lastNominatimAt = Date.now();
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': NOMINATIM_USER_AGENT,
+      'Accept': 'application/json',
+      'Accept-Language': 'en',
+    },
+  });
+  if (!res.ok) {
+    throw new Error(`Nominatim returned ${res.status}`);
+  }
+  return res.json();
+}
+
 /** Shared Express app (API + optional local /data static). Used by local server and Vercel. */
 export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   const app = express();
@@ -136,6 +211,60 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
     }
   });
 
+  // --- GEO (Nominatim proxy; OSM usage policy requires a User-Agent) ---
+
+  app.get('/api/geo/reverse', async (req, res) => {
+    try {
+      const lat = parseFloat(String(req.query.lat ?? ''));
+      const lon = parseFloat(String(req.query.lon ?? ''));
+      if (!Number.isFinite(lat) || !Number.isFinite(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+        return res.status(400).json({ error: 'Valid lat and lon are required' });
+      }
+      const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=18&lat=${encodeURIComponent(String(lat))}&lon=${encodeURIComponent(String(lon))}`;
+      const data = await nominatimFetch(url);
+      if (!data || data.error) {
+        return res.status(502).json({ error: data?.error || 'Reverse geocode failed' });
+      }
+      res.json(parseNominatimPlace(data));
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'Reverse geocode failed' });
+    }
+  });
+
+  app.get('/api/geo/search', async (req, res) => {
+    try {
+      const q = String(req.query.q || '').trim();
+      if (q.length < 2) {
+        return res.json([]);
+      }
+      const country = String(req.query.country || '').trim().toLowerCase();
+      const params = new URLSearchParams({
+        format: 'jsonv2',
+        addressdetails: '1',
+        limit: '8',
+        q,
+      });
+      if (country && /^[a-z]{2}$/.test(country)) {
+        params.set('countrycodes', country);
+      }
+      const url = `https://nominatim.openstreetmap.org/search?${params.toString()}`;
+      const data = await nominatimFetch(url);
+      const places = Array.isArray(data) ? data : [];
+      const seen = new Set<string>();
+      const results = [];
+      for (const place of places) {
+        const parsed = parseNominatimPlace(place);
+        const key = `${parsed.city}|${parsed.state}|${parsed.country}`.toLowerCase();
+        if (!parsed.city || seen.has(key)) continue;
+        seen.add(key);
+        results.push(parsed);
+      }
+      res.json(results);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message || 'City search failed' });
+    }
+  });
+
   // --- AI LAYER ENDPOINTS ---
 
   app.post('/api/ai/search', async (req, res) => {
@@ -151,6 +280,21 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
       }
       const allCars = db.getCars();
       const aiResponse = await aiService.aiSearch(prompt, allCars);
+      res.json(aiResponse);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/ai/chat', async (req, res) => {
+    try {
+      const { prompt, history } = req.body;
+      if (!prompt || typeof prompt !== 'string') {
+        return res.status(400).json({ error: 'Prompt is required' });
+      }
+      const allCars = db.getCars();
+      const turns = Array.isArray(history) ? history : [];
+      const aiResponse = await aiService.chatConcierge(prompt, turns, allCars);
       res.json(aiResponse);
     } catch (err: any) {
       res.status(500).json({ error: err.message });
@@ -288,6 +432,14 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
       const brand_distribution = Object.entries(brandCounts).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
       const most_popular_brand = brand_distribution[0]?.name || 'Toyota';
 
+      const bodyCounts: Record<string, number> = {};
+      cars.forEach(c => {
+        const raw = (c.body_type || 'Other').trim();
+        const key = raw.toLowerCase() === 'suv' ? 'SUV' : raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+        bodyCounts[key] = (bodyCounts[key] || 0) + 1;
+      });
+      const body_type_distribution = Object.entries(bodyCounts).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
+
       const cityCounts: Record<string, number> = {};
       cars.forEach(c => {
         cityCounts[c.city] = (cityCounts[c.city] || 0) + 1;
@@ -321,10 +473,20 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
         active_listings: total_cars,
         most_popular_brand,
         most_popular_city,
-        brand_distribution: brand_distribution.slice(0, 6),
+        brand_distribution,
+        body_type_distribution,
         year_distribution,
-        city_distribution: city_distribution.slice(0, 5),
-        price_distribution
+        city_distribution: city_distribution.slice(0, 8),
+        price_distribution,
+        all_cars: cars.map(c => ({
+          id: c.id,
+          year: c.year,
+          make: c.make,
+          model: c.model,
+          variant: c.variant,
+          price: c.price,
+          city: c.city
+        }))
       });
     } catch (err: any) {
       res.status(500).json({ error: err.message });

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Search, SlidersHorizontal, ArrowUpDown, RefreshCw, Milestone, Fuel, Gauge, MapPin, Heart, Sparkles, ChevronDown } from 'lucide-react';
 import { Car } from '../types';
 import { fetchCars } from '../lib/api';
 
 interface BrowseProps {
+  favorites: number[];
   toggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
 }
@@ -16,7 +17,7 @@ const TRANSMISSIONS = ['Automatic', 'Manual'];
 const BODY_TYPES = ['Sedan', 'Hatchback', 'SUV', 'Crossover', 'Luxury'];
 const CONDITIONS = ['Excellent', 'Good', 'Fair', 'Need Work'];
 
-export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
+export default function Browse({ favorites, toggleFavorite, isFavorite }: BrowseProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,31 +39,48 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
   const searchFilter = searchParams.get('search') || '';
   const favoritesFilter = searchParams.get('favorites') === 'true';
 
+  const hasLoadedRef = useRef(false);
+
   useEffect(() => {
-    setLoading(true);
-    
-    // Construct the query URL (omit client-side favorites flag)
+    let cancelled = false;
+
+    // Saved-cars is session-side. Fetch the full inventory so every saved id can appear,
+    // even if other browse filters are still in the URL.
     const query = new URLSearchParams(searchParams);
     query.delete('favorites');
-    
-    fetchCars(query.toString())
+    const fetchQuery = favoritesFilter ? '' : query.toString();
+
+    if (!hasLoadedRef.current) setLoading(true);
+
+    fetchCars(fetchQuery)
       .then((data: Car[]) => {
-        if (data && Array.isArray(data)) {
-          // Client-side filtering & sorting
-          let filtered = [...data];
-          if (favoritesFilter) {
-            filtered = filtered.filter(c => isFavorite(c.id));
-          }
-          if (sortBy === 'price_asc') filtered.sort((a,b) => a.price - b.price);
-          else if (sortBy === 'price_desc') filtered.sort((a,b) => b.price - a.price);
-          else if (sortBy === 'year_desc') filtered.sort((a,b) => b.year - a.year);
-          else if (sortBy === 'mileage_asc') filtered.sort((a,b) => a.mileage - b.mileage);
-          setCars(filtered);
-        }
+        if (cancelled || !Array.isArray(data)) return;
+        const filtered = [...data];
+        if (sortBy === 'price_asc') filtered.sort((a, b) => a.price - b.price);
+        else if (sortBy === 'price_desc') filtered.sort((a, b) => b.price - a.price);
+        else if (sortBy === 'year_desc') filtered.sort((a, b) => b.year - a.year);
+        else if (sortBy === 'mileage_asc') filtered.sort((a, b) => a.mileage - b.mileage);
+        setCars(filtered);
+        hasLoadedRef.current = true;
       })
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false));
-  }, [searchParams, sortBy, isFavorite]);
+      .catch((err) => {
+        if (!cancelled) console.error(err);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [searchParams, sortBy, favoritesFilter]);
+
+  const favoriteIds = useMemo(() => new Set(favorites.map(Number)), [favorites]);
+
+  const visibleCars = useMemo(() => {
+    if (!favoritesFilter) return cars;
+    return cars.filter((car) => favoriteIds.has(Number(car.id)));
+  }, [cars, favoriteIds, favoritesFilter]);
 
   const updateFilter = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
@@ -88,10 +106,11 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
               <h1 className="text-3xl font-extrabold text-[#0F172A] tracking-tight flex items-center gap-2">
                 {favoritesFilter ? 'Saved Car Listings' : 'Browse Used Cars'}
                 <span className="text-xs bg-[#2563EB]/10 text-[#2563EB] px-2.5 py-1 rounded-full font-bold border border-[#2563EB]/20">
-                  {cars.length} {favoritesFilter ? 'Saved' : 'Listings Match'}
+                  {visibleCars.length} {favoritesFilter ? 'Saved' : 'Listings Match'}
                 </span>
               </h1>
               <button
+                type="button"
                 onClick={() => updateFilter('favorites', favoritesFilter ? '' : 'true')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all border shadow-sm ${
                   favoritesFilter
@@ -104,8 +123,8 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
               </button>
             </div>
             <p className="text-slate-500 mt-1 text-sm">
-              {favoritesFilter 
-                ? 'Your bookmarked vehicles saved permanently in local state.' 
+              {favoritesFilter
+                ? 'Your bookmarked vehicles for this browsing session. Closing the tab clears the list.'
                 : 'Filter through 300+ realistic Pakistani listings using manual or traditional searches.'}
             </p>
           </div>
@@ -137,9 +156,10 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
           {/* 1. FILTER SIDEBAR */}
-          <aside className={`lg:block ${showFiltersMobile ? 'block' : 'hidden'} lg:col-span-1 glass-panel rounded-2xl p-5 shadow-lg space-y-6 h-fit backdrop-blur-xl`}>
+          <div className={`${showFiltersMobile ? 'block' : 'hidden'} lg:block lg:col-span-1 lg:sticky lg:top-20 lg:z-20 self-start`}>
+          <aside className="glass-panel rounded-2xl p-5 shadow-lg space-y-6 max-h-[calc(100vh-6rem)] overflow-y-auto backdrop-blur-xl">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h2 className="font-extrabold text-base text-[#0F172A] flex items-center gap-1.5">
                 <SlidersHorizontal className="h-4 w-4 text-[#2563EB]" /> Filters
@@ -299,6 +319,7 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
               </select>
             </div>
           </aside>
+          </div>
 
           {/* 2. MAIN RESULTS PANEL */}
           <main className="lg:col-span-3">
@@ -315,13 +336,13 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
                   </div>
                 ))}
               </div>
-            ) : cars.length === 0 ? (
+            ) : visibleCars.length === 0 ? (
               <div className="glass-card border border-white/40 rounded-2xl p-12 text-center max-w-lg mx-auto mt-10 shadow-lg backdrop-blur-xl">
                 {favoritesFilter ? (
                   <>
                     <Heart className="h-12 w-12 text-red-400 mx-auto mb-4" />
                     <h3 className="text-lg font-bold text-[#0F172A] mb-1">No Saved Cars Yet</h3>
-                    <p className="text-slate-500 text-sm mb-6">You haven&apos;t saved any cars to your list yet. Click the heart icon on any vehicle card to save it permanently!</p>
+                    <p className="text-slate-500 text-sm mb-6">You haven&apos;t saved any cars this session. Click the heart icon on any vehicle card to save it here.</p>
                     <button
                       onClick={() => updateFilter('favorites', '')}
                       className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-blue-500/20"
@@ -345,7 +366,7 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {cars.map((car) => (
+                {visibleCars.map((car) => (
                   <div
                     key={car.id}
                     className="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col h-full"
@@ -363,7 +384,12 @@ export default function Browse({ toggleFavorite, isFavorite }: BrowseProps) {
                         className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <button
-                        onClick={() => toggleFavorite(car.id)}
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleFavorite(car.id);
+                        }}
                         className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/40 hover:bg-white/60 text-slate-800 flex items-center justify-center transition-colors shadow-sm backdrop-blur-md border border-white/45"
                       >
                         <Heart className={`h-4 w-4 ${isFavorite(car.id) ? 'fill-red-500 text-red-500' : 'text-slate-600'}`} />

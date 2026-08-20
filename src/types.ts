@@ -9,6 +9,9 @@ export interface Car {
   variant: string;
   year: number;
   city: string;
+  country?: string;
+  state?: string;
+  address?: string;
   price: number; // in PKR
   engine_cc: number;
   transmission: 'Automatic' | 'Manual';
@@ -97,6 +100,7 @@ export interface AdminDashboardStats {
   most_popular_brand: string;
   most_popular_city: string;
   brand_distribution: Array<{ name: string; value: number }>;
+  body_type_distribution: Array<{ name: string; value: number }>;
   year_distribution: Array<{ name: string; value: number }>;
   city_distribution: Array<{ name: string; value: number }>;
   price_distribution: Array<{ name: string; value: number }>;
@@ -108,4 +112,17 @@ export interface ChatMessage {
   text: string;
   timestamp: string;
   suggestedPrompts?: string[];
+  results?: Car[];
+}
+
+export interface ChatHistoryTurn {
+  role: 'user' | 'assistant';
+  text: string;
+}
+
+export interface AIChatResponse {
+  reply: string;
+  suggestedPrompts: string[];
+  results?: Car[];
+  includeListings?: boolean;
 }

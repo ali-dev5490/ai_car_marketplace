@@ -58,24 +58,20 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-blue-500" />
-                <span>+92 42 111-PAK-CAR</span>
+                <span>+923036938555</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-500" />
-                <span>sales@mrsolution.tech</span>
+                <span>contact@mrsolutiontech.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom copyright */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs">
-          <p>&copy; {new Date().getFullYear()} PakCar AI Prototype. Built with React, Tailwind & Gemini API.</p>
-          <div className="flex space-x-4 mt-4 sm:mt-0">
-            <span className="text-slate-500 flex items-center gap-1">
-              <Sparkles className="h-3 w-3 text-orange-500" /> Developed by Mr Solution Tech
-            </span>
-          </div>
+        <div className="border-t border-slate-800 pt-8 flex justify-end items-center text-xs">
+          <span className="text-slate-500 flex items-center gap-1">
+            <Sparkles className="h-3 w-3 text-orange-500" /> Developed by Mr Solution Tech
+          </span>
         </div>
       </div>
     </footer>

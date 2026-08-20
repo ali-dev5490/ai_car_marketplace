@@ -34,6 +34,7 @@ export default function AISearch() {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const initialQueryRan = useRef(false);
 
   // Auto-scroll to bottom of chat
   useEffect(() => {
@@ -45,7 +46,8 @@ export default function AISearch() {
   // Check for home-page preloaded query
   useEffect(() => {
     const preloadedQuery = searchParams.get('q');
-    if (preloadedQuery && turns.length === 1) {
+    if (preloadedQuery && !initialQueryRan.current) {
+      initialQueryRan.current = true;
       handleSearchSubmit(preloadedQuery);
     }
   }, [searchParams]);

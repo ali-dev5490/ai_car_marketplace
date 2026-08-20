@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Sparkles, Terminal, ShieldAlert, Check, X, RefreshCw, Layers, Database, Cpu, Activity } from 'lucide-react';
-import { Car } from '../types';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LabelList } from 'recharts';
+import { ShieldAlert, Check, Layers, Database, Cpu, Activity, MapPin } from 'lucide-react';
+import { AdminDashboardStats, Car } from '../types';
 
 const COLORS = ['#3b82f6', '#10b981', '#6366f1', '#f59e0b', '#ec4899', '#8b5cf6', '#14b8a6'];
 
 export default function AdminDashboard() {
   const [cars, setCars] = useState<Car[]>([]);
-  const [adminStats, setAdminStats] = useState<any>(null);
+  const [adminStats, setAdminStats] = useState<AdminDashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
-  const [logs, setLogs] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch statistics and cars list
     fetch('/api/analytics/admin')
       .then(res => res.json())
       .then(data => {
@@ -23,29 +21,6 @@ export default function AdminDashboard() {
       })
       .catch(err => console.error(err))
       .finally(() => setLoading(false));
-
-    // Seed realistic system terminal logs
-    setLogs([
-      '[SYSTEM] Booting PakCar Admin Core V2.4...',
-      '[SQLITE] SQLite database indexes loaded. 300 active rows scanned successfully.',
-      '[AI SERVICE] Switching AI parser context to model: @google/genai (Gemini Flash).',
-      '[ROUTER] Mounted development Vite middleware pipeline on localhost:3000.',
-      '[METRICS] Ready for API endpoint requests. CPU: 2.1%, Mem: 124MB / 512MB.'
-    ]);
-
-    // Live logging interval
-    const interval = setInterval(() => {
-      const messages = [
-        `[SQLITE] Query executed: SELECT * FROM cars WHERE price <= 4500000; (0.24ms)`,
-        `[AI SERVICE] Completed prompt parsing of "white automatic civic". Status: OK. Confidence: 94%`,
-        `[METRIC] Recorded new lead interest for car ID: ${Math.floor(Math.random() * 200) + 1}`,
-        `[SYSTEM] SQLite backup completed. Saved: /server/db_backup.json`
-      ];
-      const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-      setLogs(prev => [...prev.slice(-8), `[${new Date().toLocaleTimeString()}] ${randomMsg}`]);
-    }, 4500);
-
-    return () => clearInterval(interval);
   }, []);
 
   const handleApprove = (id: number) => {
@@ -58,20 +33,19 @@ export default function AdminDashboard() {
     }
   };
 
-  // Process charting data safely
-  const makeDistributionData = adminStats?.make_distribution 
-    ? Object.keys(adminStats.make_distribution).map(key => ({
-        name: key,
-        value: adminStats.make_distribution[key]
-      }))
+  const makeDistributionData = Array.isArray(adminStats?.brand_distribution)
+    ? adminStats.brand_distribution
     : [];
 
-  const bodyTypeData = adminStats?.body_type_distribution
-    ? Object.keys(adminStats.body_type_distribution).map(key => ({
-        name: key,
-        count: adminStats.body_type_distribution[key]
-      }))
+  const bodyTypeData = Array.isArray(adminStats?.body_type_distribution)
+    ? adminStats.body_type_distribution
     : [];
+
+  const cityData = Array.isArray(adminStats?.city_distribution)
+    ? adminStats.city_distribution
+    : [];
+
+  const makeChartHeight = Math.max(360, makeDistributionData.length * 28);
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-transparent text-[#0F172A]">
@@ -118,47 +92,34 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* CHARTING ANALYSIS BLOCK */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Brand Distribution Chart */}
-              <div className="glass-panel rounded-3xl p-6 border border-white/40 shadow-xl backdrop-blur-xl space-y-4">
+            {/* CARS BY MAKE — every brand with total listings */}
+            <div className="glass-panel rounded-3xl p-6 border border-white/40 shadow-xl backdrop-blur-xl space-y-4">
+              <div className="flex items-end justify-between gap-3">
                 <h3 className="font-bold text-[#0F172A] text-sm uppercase tracking-wider flex items-center gap-1.5">
-                  <Database className="h-4.5 w-4.5 text-[#2563EB]" /> Brand Distribution Share
+                  <Database className="h-4.5 w-4.5 text-[#2563EB]" /> Total Cars by Make
                 </h3>
-                
-                <div className="h-64 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={makeDistributionData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        paddingAngle={4}
-                        dataKey="value"
-                      >
-                        {makeDistributionData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip formatter={(value) => [`${value} Vehicles`, 'Distribution Share']} />
-                    </PieChart>
-                  </ResponsiveContainer>
-                </div>
-                
-                {/* Custom Legend */}
-                <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs">
-                  {makeDistributionData.slice(0, 7).map((entry, idx) => (
-                    <span key={idx} className="flex items-center gap-1">
-                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }}></span>
-                      <span className="text-slate-600 font-semibold">{entry.name}: {entry.value}</span>
-                    </span>
-                  ))}
-                </div>
+                <span className="text-xs text-slate-500 font-semibold">
+                  {makeDistributionData.length} brands · {adminStats.total_cars.toLocaleString()} listings
+                </span>
               </div>
 
-              {/* Body Type Distribution Chart */}
+              <div className="w-full" style={{ height: makeChartHeight }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={makeDistributionData} layout="vertical" margin={{ top: 4, right: 36, left: 8, bottom: 4 }}>
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="rgba(0,0,0,0.06)" />
+                    <XAxis type="number" stroke="#475569" fontSize={10} tickLine={false} allowDecimals={false} />
+                    <YAxis type="category" dataKey="name" width={110} stroke="#475569" fontSize={11} tickLine={false} interval={0} />
+                    <Tooltip formatter={(value) => [`${value} cars`, 'Total']} />
+                    <Bar dataKey="value" fill="#2563EB" radius={[0, 6, 6, 0]} barSize={16}>
+                      <LabelList dataKey="value" position="right" className="fill-slate-600" fontSize={11} fontWeight={700} />
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
+            {/* BODY TYPE + CITY */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="glass-panel rounded-3xl p-6 border border-white/40 shadow-xl backdrop-blur-xl space-y-4">
                 <h3 className="font-bold text-[#0F172A] text-sm uppercase tracking-wider flex items-center gap-1.5">
                   <Layers className="h-4.5 w-4.5 text-[#2563EB]" /> Body Type Distribution
@@ -166,37 +127,52 @@ export default function AdminDashboard() {
 
                 <div className="h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={bodyTypeData}>
+                    <PieChart>
+                      <Pie
+                        data={bodyTypeData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={58}
+                        outerRadius={86}
+                        paddingAngle={3}
+                        dataKey="value"
+                        nameKey="name"
+                      >
+                        {bodyTypeData.map((_, index) => (
+                          <Cell key={`body-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip formatter={(value, name) => [`${value} cars`, name]} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center text-xs">
+                  {bodyTypeData.map((entry, idx) => (
+                    <span key={entry.name} className="flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS[idx % COLORS.length] }}></span>
+                      <span className="text-slate-600 font-semibold">{entry.name}: {entry.value}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="glass-panel rounded-3xl p-6 border border-white/40 shadow-xl backdrop-blur-xl space-y-4">
+                <h3 className="font-bold text-[#0F172A] text-sm uppercase tracking-wider flex items-center gap-1.5">
+                  <MapPin className="h-4.5 w-4.5 text-[#2563EB]" /> Listings by City
+                </h3>
+
+                <div className="h-72 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={cityData} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(0,0,0,0.06)" />
                       <XAxis dataKey="name" stroke="#475569" fontSize={10} tickLine={false} />
-                      <YAxis stroke="#475569" fontSize={10} tickLine={false} />
-                      <Tooltip formatter={(value) => [`${value} cars`, 'Count']} />
-                      <Bar dataKey="count" fill="#2563EB" radius={[6, 6, 0, 0]} />
+                      <YAxis stroke="#475569" fontSize={10} tickLine={false} allowDecimals={false} />
+                      <Tooltip formatter={(value) => [`${value} cars`, 'Total']} />
+                      <Bar dataKey="value" fill="#10b981" radius={[6, 6, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-              </div>
-            </div>
-
-            {/* LIVE SYSTEM TERMINAL LOGS */}
-            <div className="bg-slate-950/90 border border-white/10 text-slate-300 p-5 rounded-3xl font-mono text-xs space-y-4 shadow-xl backdrop-blur-xl">
-              <div className="flex justify-between items-center border-b border-slate-800 pb-3">
-                <div className="flex items-center space-x-2">
-                  <Terminal className="h-4.5 w-4.5 text-teal-400" />
-                  <span className="text-slate-200 font-bold">PakCar Core System Monitor</span>
-                </div>
-                <div className="flex items-center space-x-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">LIVE FEED</span>
-                </div>
-              </div>
-
-              <div className="space-y-1.5 max-h-48 overflow-y-auto leading-relaxed">
-                {logs.map((log, idx) => (
-                  <p key={idx} className={log.includes('[SQLITE]') ? 'text-blue-300' : log.includes('[AI SERVICE]') ? 'text-amber-300' : 'text-slate-400'}>
-                    {log}
-                  </p>
-                ))}
               </div>
             </div>
 

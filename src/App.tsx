@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AIAssistantWidget from './components/AIAssistantWidget';
@@ -16,22 +16,34 @@ import AdminDashboard from './pages/AdminDashboard';
 
 import { Car } from './types';
 
+const FAVORITES_KEY = 'pakcar_favorites';
+
+function loadSessionFavorites(): number[] {
+  try {
+    const raw = sessionStorage.getItem(FAVORITES_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map(Number).filter((n) => Number.isFinite(n));
+  } catch {
+    return [];
+  }
+}
+
+function saveSessionFavorites(ids: number[]) {
+  try {
+    sessionStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
+  } catch {
+    // ignore quota / private-mode errors
+  }
+}
+
 export default function App() {
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useState<number[]>(loadSessionFavorites);
   const [compareList, setCompareList] = useState<Car[]>([]);
   const [recentlyViewed, setRecentlyViewed] = useState<number[]>([]);
 
-  // Load state from localStorage on init
   useEffect(() => {
-    const savedFavorites = localStorage.getItem('pakcar_favorites');
-    if (savedFavorites) {
-      try {
-        setFavorites(JSON.parse(savedFavorites));
-      } catch (e) {
-        console.error(e);
-      }
-    }
-
     const savedViewed = localStorage.getItem('pakcar_recently_viewed');
     if (savedViewed) {
       try {
@@ -42,15 +54,17 @@ export default function App() {
     }
   }, []);
 
-  const toggleFavorite = (id: number) => {
-    setFavorites(prev => {
-      const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
-      localStorage.setItem('pakcar_favorites', JSON.stringify(next));
+  const toggleFavorite = useCallback((id: number) => {
+    const carId = Number(id);
+    if (!Number.isFinite(carId)) return;
+    setFavorites((prev) => {
+      const next = prev.includes(carId) ? prev.filter((x) => x !== carId) : [...prev, carId];
+      saveSessionFavorites(next);
       return next;
     });
-  };
+  }, []);
 
-  const isFavorite = (id: number) => favorites.includes(id);
+  const isFavorite = useCallback((id: number) => favorites.includes(Number(id)), [favorites]);
 
   const addRecentlyViewed = (id: number) => {
     setRecentlyViewed(prev => {
@@ -77,7 +91,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className="relative flex flex-col min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans overflow-x-hidden">
+      <div className="relative flex flex-col min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans overflow-x-clip">
         {/* Ambient mesh background blobs */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30 overflow-hidden">
           <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] bg-[#2563EB] rounded-full blur-[140px]"></div>
@@ -93,7 +107,7 @@ export default function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
-              <Route path="/browse" element={<Browse toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
+              <Route path="/browse" element={<Browse favorites={favorites} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
               <Route path="/cars/:id" element={
                 <CarDetails 
                   toggleFavorite={toggleFavorite} 

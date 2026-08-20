@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, Upload, Image as ImageIcon, CheckCircle2, ShieldCheck, Activity, Edit3, Save, RefreshCw, BarChart2, Plus, Trash2 } from 'lucide-react';
+import { Sparkles, Upload, Image as ImageIcon, CheckCircle2, ShieldCheck, Activity, Edit3, Save, RefreshCw, BarChart2, Plus, Trash2, MapPin, LocateFixed } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Car } from '../types';
+import { COUNTRIES, findPakistanCity, searchPakistanCities } from '../data/pakistanCities';
+
+type LocationStatus = 'idle' | 'locating' | 'filled' | 'denied' | 'error';
+
+type CitySuggestion = {
+  city: string;
+  state: string;
+  country: string;
+  address?: string;
+  label: string;
+};
 
 // Preset demo base64 images/data so the user can test the scanner with multi-image clicks
 const DEMO_PRESETS = [
@@ -78,15 +89,135 @@ export default function AIPosting() {
   const [year, setYear] = useState(2022);
   const [price, setPrice] = useState(3000000);
   const [mileage, setMileage] = useState(20000);
-  const [city, setCity] = useState('Lahore');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('Pakistan');
+  const [state, setState] = useState('');
+  const [address, setAddress] = useState('');
+  const [locationStatus, setLocationStatus] = useState<LocationStatus>('idle');
+  const [citySuggestions, setCitySuggestions] = useState<CitySuggestion[]>([]);
+  const [showCitySuggestions, setShowCitySuggestions] = useState(false);
+  const askedLocationRef = useRef(false);
+  const cityBoxRef = useRef<HTMLDivElement>(null);
   const [transmission, setTransmission] = useState<'Automatic' | 'Manual'>('Automatic');
   const [fuel, setFuel] = useState<'Petrol' | 'Diesel' | 'Hybrid' | 'Electric'>('Petrol');
   const [color, setColor] = useState('White');
   const [condition, setCondition] = useState<'Excellent' | 'Good' | 'Fair' | 'Need Work'>('Excellent');
   const [description, setDescription] = useState('');
   const [seoTitle, setSeoTitle] = useState('');
-  const [sellerName, setSellerName] = useState('Muhammad Usman');
-  const [phone, setPhone] = useState('0300-4592031');
+  const [sellerName, setSellerName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const applyPlace = (place: { country?: string; state?: string; city?: string; address?: string }) => {
+    const nextCountry = place.country || 'Pakistan';
+    setCountry(nextCountry);
+    let nextCity = (place.city || '').trim();
+    let nextState = (place.state || '').trim();
+    if (nextCountry === 'Pakistan' && nextCity) {
+      const local = findPakistanCity(nextCity);
+      if (local) {
+        nextCity = local.name;
+        nextState = local.province;
+      }
+    }
+    setCity(nextCity);
+    setState(nextState);
+    setAddress((place.address || '').trim());
+  };
+
+  const requestLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus('error');
+      return;
+    }
+    setLocationStatus('locating');
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const res = await fetch(`/api/geo/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`);
+          if (!res.ok) throw new Error('reverse failed');
+          const place = await res.json();
+          applyPlace(place);
+          setLocationStatus('filled');
+        } catch {
+          setLocationStatus('error');
+        }
+      },
+      (err) => {
+        setLocationStatus(err.code === err.PERMISSION_DENIED ? 'denied' : 'error');
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
+    );
+  };
+
+  useEffect(() => {
+    if (stage !== 'results' || askedLocationRef.current) return;
+    askedLocationRef.current = true;
+    requestLocation();
+  }, [stage]);
+
+  useEffect(() => {
+    const onDoc = (e: MouseEvent) => {
+      if (cityBoxRef.current && !cityBoxRef.current.contains(e.target as Node)) {
+        setShowCitySuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', onDoc);
+    return () => document.removeEventListener('mousedown', onDoc);
+  }, []);
+
+  useEffect(() => {
+    if (!showCitySuggestions) return;
+    const q = city.trim();
+    const isPakistan = country === 'Pakistan';
+
+    if (isPakistan && q.length >= 1) {
+      const local = searchPakistanCities(q).map(c => ({
+        city: c.name,
+        state: c.province,
+        country: 'Pakistan',
+        label: `${c.name}, ${c.province}`,
+      }));
+      if (local.length > 0) {
+        setCitySuggestions(local);
+        return;
+      }
+    }
+
+    if (q.length < 2) {
+      setCitySuggestions([]);
+      return;
+    }
+
+    const countryMeta = COUNTRIES.find(c => c.name === country);
+    const handle = window.setTimeout(async () => {
+      try {
+        const params = new URLSearchParams({ q });
+        if (countryMeta?.code) params.set('country', countryMeta.code);
+        const res = await fetch(`/api/geo/search?${params.toString()}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        setCitySuggestions((Array.isArray(data) ? data : []).map((p: CitySuggestion) => ({
+          city: p.city,
+          state: p.state,
+          country: p.country || country,
+          address: p.address,
+          label: p.label || [p.city, p.state, p.country].filter(Boolean).join(', '),
+        })));
+      } catch {
+        setCitySuggestions([]);
+      }
+    }, 300);
+
+    return () => window.clearTimeout(handle);
+  }, [city, country, showCitySuggestions]);
+
+  const pickCitySuggestion = (suggestion: CitySuggestion) => {
+    setCity(suggestion.city);
+    setState(suggestion.state);
+    if (suggestion.country) setCountry(suggestion.country);
+    if (suggestion.address) setAddress(suggestion.address);
+    setShowCitySuggestions(false);
+  };
 
   const startScanningLogs = async (imgs: string[]) => {
     setUploadedImages(imgs);
@@ -236,6 +367,14 @@ export default function AIPosting() {
       alert('Please upload at least 1 image.');
       return;
     }
+    if (!sellerName.trim()) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (!phone.trim()) {
+      alert('Please enter your contact phone.');
+      return;
+    }
     
     const carListingData: Omit<Car, 'id' | 'created_at'> = {
       make,
@@ -244,13 +383,16 @@ export default function AIPosting() {
       year: parseInt(year as any),
       price: parseInt(price as any),
       mileage: parseInt(mileage as any),
-      city,
+      city: city.trim(),
+      country: country.trim() || 'Pakistan',
+      state: state.trim(),
+      address: address.trim(),
       transmission,
       fuel,
       color,
       body_type: specs?.body_type || 'Sedan',
       engine_cc: model.toLowerCase().includes('alto') ? 660 : model.toLowerCase().includes('civic') ? 1800 : model.toLowerCase().includes('sportage') ? 2000 : 1300,
-      registered_city: city,
+      registered_city: city.trim(),
       condition,
       seller_name: sellerName,
       phone,
@@ -551,19 +693,6 @@ export default function AIPosting() {
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Location City</label>
-                    <select
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                      className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner cursor-pointer"
-                    >
-                      <option value="Lahore">Lahore</option>
-                      <option value="Karachi">Karachi</option>
-                      <option value="Islamabad">Islamabad</option>
-                      <option value="Rawalpindi">Rawalpindi</option>
-                    </select>
-                  </div>
-                  <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Transmission</label>
                     <select
                       value={transmission}
@@ -615,22 +744,134 @@ export default function AIPosting() {
                 {/* Contact Section */}
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200/50">
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Seller Name</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Seller Name *</label>
                     <input
                       type="text"
+                      required
+                      placeholder="Enter your name"
                       value={sellerName}
                       onChange={(e) => setSellerName(e.target.value)}
                       className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Contact Phone</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Contact Phone *</label>
                     <input
-                      type="text"
+                      type="tel"
+                      required
+                      placeholder="03XX-XXXXXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner"
                     />
+                  </div>
+                </div>
+
+                {/* Location Section */}
+                <div className="space-y-3 pt-4 border-t border-slate-200/50">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-[#2563EB]" />
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Seller Location</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={requestLocation}
+                      disabled={locationStatus === 'locating'}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2563EB] bg-[#2563EB]/10 hover:bg-[#2563EB]/15 border border-[#2563EB]/20 px-3 py-1.5 rounded-lg transition-all disabled:opacity-60"
+                    >
+                      <LocateFixed className={`h-3.5 w-3.5 ${locationStatus === 'locating' ? 'animate-pulse' : ''}`} />
+                      {locationStatus === 'locating' ? 'Detecting...' : 'Use current location'}
+                    </button>
+                  </div>
+                  {locationStatus === 'filled' && (
+                    <p className="text-[11px] text-emerald-600 font-medium">Location filled from GPS. You can edit it.</p>
+                  )}
+                  {locationStatus === 'denied' && (
+                    <p className="text-[11px] text-amber-600 font-medium">Location access denied. Enter location manually.</p>
+                  )}
+                  {locationStatus === 'error' && (
+                    <p className="text-[11px] text-amber-600 font-medium">Could not detect location. Enter it manually.</p>
+                  )}
+
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Address line (optional)</label>
+                      <input
+                        type="text"
+                        placeholder="Street, area, or landmark from current location"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner"
+                      />
+                    </div>
+                    <div className="space-y-1" ref={cityBoxRef}>
+                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">City (optional)</label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          placeholder={country === 'Pakistan' ? 'Search Pakistani cities' : 'Search city'}
+                          value={city}
+                          onChange={(e) => {
+                            setCity(e.target.value);
+                            setShowCitySuggestions(true);
+                          }}
+                          onFocus={() => setShowCitySuggestions(true)}
+                          autoComplete="off"
+                          className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner"
+                        />
+                        {showCitySuggestions && citySuggestions.length > 0 && (
+                          <ul className="absolute z-20 mt-1 w-full max-h-48 overflow-auto rounded-xl border border-slate-200 bg-white shadow-lg">
+                            {citySuggestions.map((suggestion) => (
+                              <li key={suggestion.label}>
+                                <button
+                                  type="button"
+                                  onMouseDown={(e) => e.preventDefault()}
+                                  onClick={() => pickCitySuggestion(suggestion)}
+                                  className="w-full text-left px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-[#2563EB] font-medium"
+                                >
+                                  {suggestion.label}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">State / Province (optional)</label>
+                        <input
+                          type="text"
+                          placeholder={country === 'Pakistan' ? 'Punjab, Sindh, ...' : 'State or province'}
+                          value={state}
+                          onChange={(e) => setState(e.target.value)}
+                          className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Country</label>
+                        <select
+                          value={country}
+                          onChange={(e) => {
+                            const next = e.target.value;
+                            setCountry(next);
+                            if (next === 'Pakistan' && city) {
+                              const local = findPakistanCity(city);
+                              if (local) setState(local.province);
+                            }
+                          }}
+                          className="w-full border border-slate-200/60 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-500/20 focus:outline-none rounded-xl px-3 py-2 text-sm text-slate-800 font-semibold bg-white/70 backdrop-blur-sm shadow-inner cursor-pointer"
+                        >
+                          {!COUNTRIES.some(c => c.name === country) && country && (
+                            <option value={country}>{country}</option>
+                          )}
+                          {COUNTRIES.map(c => (
+                            <option key={c.code} value={c.name}>{c.name}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

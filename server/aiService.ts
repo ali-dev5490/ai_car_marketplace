@@ -1,5 +1,44 @@
-import { GoogleGenAI, Type } from '@google/genai';
-import { Car, AISearchResponse, AIAnalysisResponse } from '../src/types.js';
+import { GoogleGenAI } from '@google/genai';
+import { Car, AISearchResponse, AIAnalysisResponse, ChatHistoryTurn, AIChatResponse } from '../src/types.js';
+
+function parseModelJson(text: string): any {
+  const raw = (text || '').trim();
+  if (!raw) return {};
+  try {
+    return JSON.parse(raw);
+  } catch {
+    // continue
+  }
+  const fenced = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenced) {
+    try {
+      return JSON.parse(fenced[1].trim());
+    } catch {
+      // continue
+    }
+  }
+  const start = raw.indexOf('{');
+  const end = raw.lastIndexOf('}');
+  if (start >= 0 && end > start) {
+    try {
+      return JSON.parse(raw.slice(start, end + 1));
+    } catch {
+      // continue
+    }
+  }
+  return {};
+}
+
+function formatCarLine(car: Car): string {
+  return `${car.year} ${car.make} ${car.model} ${car.variant} — ${(car.price / 100000).toFixed(1)} Lakh PKR (${car.city}, ${car.transmission}, ${car.fuel})`;
+}
+
+function looksLikeListingQuery(prompt: string): boolean {
+  const p = prompt.toLowerCase();
+  if (/\b(loan|lease|finance|interest|insurance|emi|installment)\b/.test(p)) return false;
+  if (/\b(compare| vs |versus)\b/.test(p) && !/\b(find|show|under|budget)\b/.test(p)) return false;
+  return true;
+}
 
 // Helper to sanitize base64 data URLs for Gemini inlineData
 function parseImageData(base64Input: string): { mimeType: string; data: string } {
@@ -42,9 +81,41 @@ if (process.env.GEMINI_API_KEY) {
   console.log('No GEMINI_API_KEY found. AI services will run on MockAIProvider.');
 }
 
+const GEMINI_MODELS = ['gemini-3.6-flash', 'gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest'];
+const modelCooldownUntil = new Map<string, number>();
+
+async function geminiGenerate(contents: any, config?: any) {
+  if (!ai) throw new Error('Gemini client not initialized');
+  const now = Date.now();
+  const available = GEMINI_MODELS.filter((model) => (modelCooldownUntil.get(model) || 0) <= now);
+  if (available.length === 0) {
+    throw new Error('Gemini models temporarily unavailable');
+  }
+
+  let lastErr: unknown;
+  for (const model of available) {
+    try {
+      return await ai.models.generateContent({ model, contents, config });
+    } catch (err: any) {
+      lastErr = err;
+      const status = err?.status;
+      const message = String(err?.message || '');
+      const retryable = status === 429 || status === 404 || status === 503
+        || /RESOURCE_EXHAUSTED|NOT_FOUND|quota|UNAVAILABLE|high demand/i.test(message);
+      if (status === 429) modelCooldownUntil.set(model, now + 45_000);
+      else if (status === 503) modelCooldownUntil.set(model, now + 20_000);
+      else if (status === 404) modelCooldownUntil.set(model, now + 10 * 60_000);
+      console.warn(`Gemini model ${model} failed (${status || 'error'}).${retryable ? ' Trying fallback model.' : ''}`);
+      if (!retryable) throw err;
+    }
+  }
+  throw lastErr || new Error('No Gemini model available');
+}
+
 // Interface for AI operations
 export interface IAIProvider {
   aiSearch(prompt: string, allCars: Car[]): Promise<AISearchResponse>;
+  chatConcierge(prompt: string, history: ChatHistoryTurn[], allCars: Car[]): Promise<AIChatResponse>;
   analyzeCarImage(images: string | string[]): Promise<AIAnalysisResponse>;
   getInspection(car: Car): Promise<any>;
   getSellerAssistant(car: Car): Promise<any>;
@@ -132,16 +203,37 @@ class MockAIProvider implements IAIProvider {
     }
 
     // Parse specific needs
-    if (p.includes('family') || p.includes('space') || p.includes('tour')) {
+    if (p.includes('hatch')) {
+      filters.body_type = ['Hatchback', 'Compact'];
+      reasoning += ` Focusing on hatchbacks.`;
+    } else if (p.includes('suv') || p.includes('crossover')) {
+      filters.body_type = ['SUV', 'Crossover'];
+      reasoning += ` Focusing on SUVs and crossovers.`;
+    } else if (p.includes('sedan')) {
+      filters.body_type = ['Sedan'];
+      reasoning += ` Focusing on sedans.`;
+    } else if (p.includes('family') || p.includes('space') || p.includes('tour')) {
       filters.body_type = ['Sedan', 'SUV', 'Crossover'];
       reasoning += ` Screened for spacious family vehicles (Sedans, SUVs, Crossovers).`;
     } else if (p.includes('student') || p.includes('daily') || p.includes('office') || p.includes('small') || p.includes('university')) {
       filters.body_type = ['Hatchback', 'Compact'];
       reasoning += ` Recommended compact, highly fuel-efficient hatchbacks ideal for students and daily city commutes.`;
-    } else if (p.includes('fuel') || p.includes('average') || p.includes('mileage') || p.includes('hybrid') || p.includes('saving')) {
-      filters.fuel = ['Hybrid', 'Electric', 'Petrol'];
-      filters.mileageMax = 120000;
-      reasoning += ` Optimized for maximum fuel average (Hybrids and small-engine hatchbacks selected).`;
+    }
+
+    if (p.includes('hybrid')) {
+      filters.fuel = 'Hybrid';
+      reasoning += ` Hybrid fuel type selected.`;
+    } else if (p.includes('diesel')) {
+      filters.fuel = 'Diesel';
+    } else if (p.includes('fuel') || p.includes('average') || p.includes('mileage') || p.includes('saving')) {
+      if (!filters.body_type) filters.body_type = ['Hatchback', 'Compact'];
+      reasoning += ` Optimized for maximum fuel average.`;
+    }
+
+    if (p.includes('reliable') || p.includes('resale')) {
+      filters.preferredMakes = ['Toyota', 'Honda', 'Suzuki'];
+      filters.yearMin = 2010;
+      reasoning += ` Preferring Toyota, Honda, and Suzuki (2010+) for reliability and resale.`;
     }
 
     // Apply filters on the list
@@ -152,7 +244,9 @@ class MockAIProvider implements IAIProvider {
       if (filters.color && !car.color.toLowerCase().includes(filters.color.toLowerCase())) return false;
       if (filters.transmission && car.transmission !== filters.transmission) return false;
       if (filters.priceMax && car.price > filters.priceMax) return false;
+      if (filters.yearMin && car.year < filters.yearMin) return false;
       if (filters.mileageMax && car.mileage > filters.mileageMax) return false;
+      if (filters.preferredMakes && !filters.preferredMakes.includes(car.make)) return false;
       if (filters.fuel) {
         if (Array.isArray(filters.fuel)) {
           if (!filters.fuel.includes(car.fuel)) return false;
@@ -165,6 +259,17 @@ class MockAIProvider implements IAIProvider {
       }
       return true;
     });
+
+    if (p.includes('fuel') || p.includes('average') || p.includes('hatch')) {
+      filteredCars.sort((a, b) => a.engine_cc - b.engine_cc || a.price - b.price);
+    } else if (p.includes('reliable') || p.includes('resale')) {
+      const rank = ['corolla', 'civic', 'city', 'yaris', 'alto', 'cultus', 'swift', 'wagon'];
+      filteredCars.sort((a, b) => {
+        const ia = rank.findIndex(m => a.model.toLowerCase().includes(m));
+        const ib = rank.findIndex(m => b.model.toLowerCase().includes(m));
+        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || a.price - b.price;
+      });
+    }
 
     // If no direct match found, relax constraints but KEEP THE BUDGET if specified
     if (filteredCars.length === 0) {
@@ -216,6 +321,49 @@ class MockAIProvider implements IAIProvider {
       reasoning,
       confidence: 95,
       suggestedQueries
+    };
+  }
+
+  async chatConcierge(prompt: string, _history: ChatHistoryTurn[], allCars: Car[]): Promise<AIChatResponse> {
+    const search = await this.aiSearch(prompt, allCars);
+    const p = prompt.toLowerCase();
+    let reply = '';
+    let includeListings = looksLikeListingQuery(prompt);
+
+    if (p.includes('compare') || /\bvs\b/.test(p)) {
+      includeListings = false;
+      reply = `In the Pakistani market, Toyota Corolla is usually the safer long-term pick: softer suspension, cheap parts, and the strongest resale. Honda Civic feels sharper at speed, looks more modern, and has stronger engine performance, but parts and insurance cost more.\n\nIf you tell me your budget and city, I can point you to specific variants worth inspecting.`;
+    } else if (/\b(loan|lease|finance|interest|emi|installment)\b/.test(p)) {
+      includeListings = false;
+      reply = `Typical Pakistani car finance in 2026:\n\n• Banks usually price around KIBOR, so effective rates often land near 15%–21% (Meezan, HBL, Bank Alfalah, etc.).\n• Down payment is commonly 30% for locally assembled cars.\n• Tenure is often up to 5 years for engines under 1000cc, and about 3 years above that.\n• Example: a 25 Lakh car with 30% down (7.5 Lakh) over 3 years is roughly 55,000–65,000 PKR per month.\n\nShare your budget and down payment and I can estimate a tighter EMI.`;
+    } else if (p.includes('insurance')) {
+      includeListings = false;
+      reply = `Comprehensive car insurance in Pakistan is typically about 1.5%–2.5% of market value per year. Common providers include TPL, Jubilee, and EFU.\n\nExample: a 30 Lakh Cultus often costs 45,000–60,000 PKR a year for theft, accident, and third-party cover. Tracker installation is usually required.`;
+    } else if (/\b(fuel|average|mileage|hybrid)\b/.test(p)) {
+      const pick = search.results[0];
+      reply = `For city fuel average in Pakistan, small hatchbacks still win. Suzuki Alto and Cultus are the usual daily-drive picks (often 16–22 km/L depending on traffic). A used Toyota Aqua/Prius hybrid beats them on mixed driving if your budget stretches.\n\n${pick ? `From live listings, start with the ${pick.year} ${pick.make} ${pick.model}.` : 'Tell me your budget in Lakh and I will shortlist actual listings.'}`;
+    } else if (search.results.length > 0) {
+      const pick = search.results[0];
+      const budgetNote = search.filters?.priceMax
+        ? ` under ${(search.filters.priceMax / 100000).toFixed(0)} Lakh`
+        : '';
+      reply = `Here are solid options${budgetNote} from current listings. I would start with the ${pick.year} ${pick.make} ${pick.model}${pick.variant ? ` ${pick.variant}` : ''} in ${pick.city} if you want a practical mix of price and demand.\n\nTell me a city or automatic/manual preference and I can tighten the shortlist.`;
+    } else {
+      includeListings = false;
+      reply = `I could not find a close match for that. Tell me a budget in Lakh and a city (Lahore, Karachi, Islamabad) and I will search again.`;
+    }
+
+    const suggestedPrompts = (search.suggestedQueries || [])
+      .filter((q) => !/you need car/i.test(q))
+      .slice(0, 4);
+
+    return {
+      reply,
+      suggestedPrompts: suggestedPrompts.length >= 2
+        ? suggestedPrompts
+        : ['Show cars under 25 Lakh', 'Best fuel-efficient hatchbacks', 'Compare Civic vs Corolla'],
+      results: includeListings ? search.results.slice(0, 5) : [],
+      includeListings
     };
   }
 
@@ -315,7 +463,6 @@ class GeminiAIProvider implements IAIProvider {
     if (!ai) return new MockAIProvider().aiSearch(prompt, allCars);
 
     try {
-      const model = 'gemini-3.6-flash';
       const systemInstruction = `You are an AI assistant for a Pakistani car marketplace called PakCar AI.
 Your job is to parse a natural language query from a user and convert it into structured search filters.
 Analyze the prompt carefully for brand, model, price limits in "Lakh" or "Crore" (1 Lakh = 100,000 PKR, 1 Crore = 10,000,000 PKR), year, transmission, city, body type, fuel type, or mileage.
@@ -340,14 +487,10 @@ Respond strictly in JSON format matching the following schema. No extra text or 
   "suggestedQueries": ["array of 2-4 strings of clarifying questions or related search queries to help the user refine, e.g. 'You need car for sale in Lahore?', 'Show Suzuki and Honda options under 20 Lakh'"]
 }`;
 
-      const response = await ai.models.generateContent({
-        model,
-        contents: `Parse this query: "${prompt}"`,
-        config: {
-          systemInstruction,
-          responseMimeType: 'application/json',
-          temperature: 0.1
-        }
+      const response = await geminiGenerate(`Parse this query: "${prompt}"`, {
+        systemInstruction,
+        responseMimeType: 'application/json',
+        temperature: 0.1
       });
 
       const parsed = JSON.parse(response.text?.trim() || '{}');
@@ -418,13 +561,81 @@ Respond strictly in JSON format matching the following schema. No extra text or 
     }
   }
 
+  async chatConcierge(prompt: string, history: ChatHistoryTurn[], allCars: Car[]): Promise<AIChatResponse> {
+    if (!ai) return new MockAIProvider().chatConcierge(prompt, history, allCars);
+
+    try {
+      const snapshotSearch = await new MockAIProvider().aiSearch(prompt, allCars);
+      const snapshot = snapshotSearch.results.slice(0, 8).map((car, i) =>
+        `${i + 1}. ${formatCarLine(car)}`
+      ).join('\n');
+
+      const systemInstruction = `You are PakCar AI Concierge for a Pakistani used-car marketplace.
+Answer the user's actual question as a helpful car advisor. Be specific to Pakistan (PKR, Lakh, Crore, local banks, popular models like Corolla, Civic, Alto, Cultus, Sportage).
+
+Rules:
+- Do NOT describe JSON filters or say you "parsed the query".
+- Give a direct recommendation first, then a short why.
+- If live listings are provided and the user wants cars, cite 1-3 of those exact cars.
+- For loans/lease/insurance, explain Pakistan-typical terms. Do not invent bank approval.
+- Keep the reply under 160 words. Use **bold** only for key figures or model names.
+- Return STRICT JSON with no markdown fences:
+{
+  "reply": "string",
+  "suggestedPrompts": ["3 short follow-up questions or searches"],
+  "includeListings": true
+}
+Set includeListings true only when the user is looking for cars to buy/browse. False for comparisons, finance, insurance, or general advice.`;
+
+      const contents = [
+        ...history.slice(-8).map((turn) => ({
+          role: turn.role === 'assistant' ? 'model' : 'user',
+          parts: [{ text: turn.text }]
+        })),
+        {
+          role: 'user',
+          parts: [{
+            text: `User question: ${prompt}\n\nLive listings you may cite (ignore if not relevant):\n${snapshot || 'No close matches in inventory.'}`
+          }]
+        }
+      ];
+
+      const response = await geminiGenerate(contents, {
+        systemInstruction,
+        responseMimeType: 'application/json',
+        temperature: 0.45
+      });
+
+      const parsed = parseModelJson(response.text || '');
+      const includeListings = typeof parsed.includeListings === 'boolean'
+        ? parsed.includeListings
+        : looksLikeListingQuery(prompt);
+      const suggestedPrompts = Array.isArray(parsed.suggestedPrompts)
+        ? parsed.suggestedPrompts.filter((s: unknown) => typeof s === 'string' && s.trim()).slice(0, 4)
+        : (snapshotSearch.suggestedQueries || []).slice(0, 4);
+
+      const reply = typeof parsed.reply === 'string' && parsed.reply.trim()
+        ? parsed.reply.trim()
+        : snapshotSearch.reasoning;
+
+      return {
+        reply,
+        suggestedPrompts,
+        results: includeListings ? snapshotSearch.results.slice(0, 5) : [],
+        includeListings
+      };
+    } catch (err) {
+      console.error('Gemini chat failed, falling back to Mock AI:', err);
+      return new MockAIProvider().chatConcierge(prompt, history, allCars);
+    }
+  }
+
   async analyzeCarImage(images: string | string[]): Promise<AIAnalysisResponse> {
     if (!ai) return new MockAIProvider().analyzeCarImage(images);
 
     try {
-      const model = 'gemini-3.6-flash';
       const imgArray = Array.isArray(images) ? images : [images];
-      
+
       const imageParts = imgArray.map(img => {
         const { mimeType, data } = parseImageData(img);
         return {
@@ -473,13 +684,9 @@ Return ONLY a JSON object matching this schema (no markdown wrappers):
   }
 }`;
 
-      const response = await ai.models.generateContent({
-        model,
-        contents: [...imageParts, { text: promptText }],
-        config: {
-          responseMimeType: 'application/json',
-          temperature: 0.2
-        }
+      const response = await geminiGenerate([...imageParts, { text: promptText }], {
+        responseMimeType: 'application/json',
+        temperature: 0.2
       });
 
       const jsonText = response.text?.trim() || '{}';
@@ -498,7 +705,6 @@ Return ONLY a JSON object matching this schema (no markdown wrappers):
     if (!ai) return new MockAIProvider().getSellerAssistant(car);
 
     try {
-      const model = 'gemini-3.6-flash';
       const prompt = `For a ${car.year} ${car.make} ${car.model} ${car.variant} priced at ${car.price} PKR in ${car.city}:
 Generate:
 1. An improved marketplace title.
@@ -518,13 +724,9 @@ Return strictly as JSON matching this schema:
   }
 }`;
 
-      const response = await ai.models.generateContent({
-        model,
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-          temperature: 0.3
-        }
+      const response = await geminiGenerate(prompt, {
+        responseMimeType: 'application/json',
+        temperature: 0.3
       });
 
       return JSON.parse(response.text?.trim() || '{}');

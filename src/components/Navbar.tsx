@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Car, Sparkles, PlusCircle, BarChart3, Heart, GitCompare, MessageSquare } from 'lucide-react';
+import { Car, Home, Sparkles, PlusCircle, BarChart3, Heart, GitCompare, MessageSquare } from 'lucide-react';
 
 interface NavbarProps {
   favoritesCount: number;
@@ -11,7 +11,7 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home', icon: Car },
+    { path: '/', label: 'Home', icon: Home },
     { path: '/browse', label: 'Browse', icon: Car },
     { path: '/ai-search', label: 'AI Search', icon: Sparkles, badge: 'New' },
     { path: '/ai-posting', label: 'Sell with AI', icon: PlusCircle },
@@ -22,9 +22,9 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
 
   return (
     <header id="app-header" className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0F172A]/85 text-white backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="flex h-16 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link id="logo-link" to="/" className="flex items-center space-x-2 text-xl font-bold tracking-tight">
+        <Link id="logo-link" to="/" className="flex shrink-0 items-center space-x-2 text-xl font-bold tracking-tight">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2563EB] shadow-lg shadow-blue-500/20">
             <Car className="h-6 w-6 text-white animate-pulse" />
           </div>
@@ -38,7 +38,7 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
         </Link>
 
         {/* Navigation Items */}
-        <nav id="desktop-nav" className="hidden lg:flex items-center space-x-1">
+        <nav id="desktop-nav" className="hidden lg:flex flex-1 items-center justify-center gap-1 min-w-0">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
@@ -47,10 +47,10 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
                 key={item.path}
                 id={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
                 to={item.path}
-                className={`relative flex items-center space-x-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+                className={`relative flex items-center space-x-1.5 whitespace-nowrap px-3 py-2 text-sm font-semibold transition-colors ${
                   isActive 
-                    ? 'bg-[#2563EB] text-white shadow-lg shadow-blue-500/20' 
-                    : 'text-slate-300 hover:bg-white/10 hover:text-white'
+                    ? 'text-[#60A5FA] underline underline-offset-8 decoration-2' 
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -66,11 +66,15 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
         </nav>
 
         {/* Right Action Bar */}
-        <div className="flex items-center space-x-3">
+        <div className="flex shrink-0 items-center space-x-3">
           <Link
             id="nav-favorites-link"
             to="/browse?favorites=true"
-            className="relative flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-slate-300 hover:bg-white/15 hover:text-white transition-all"
+            className={`relative flex h-10 w-10 items-center justify-center rounded-lg border transition-all ${
+              new URLSearchParams(location.search).get('favorites') === 'true'
+                ? 'border-red-400/40 bg-red-500/20 text-white'
+                : 'border-white/15 bg-white/5 text-slate-300 hover:bg-white/15 hover:text-white'
+            }`}
           >
             <Heart className={`h-5 w-5 ${favoritesCount > 0 ? 'fill-red-500 text-red-500' : ''}`} />
             {favoritesCount > 0 && (
@@ -102,8 +106,8 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
               key={item.path}
               id={`mobile-nav-${item.label.toLowerCase().replace(' ', '-')}`}
               to={item.path}
-              className={`flex flex-col items-center py-1 px-3 rounded-md transition-colors ${
-                isActive ? 'text-[#2563EB] font-bold' : 'text-slate-400 hover:text-white'
+              className={`flex flex-col items-center py-1 px-3 transition-colors ${
+                isActive ? 'text-[#60A5FA] font-bold underline underline-offset-4 decoration-2' : 'text-slate-400 hover:text-white'
               }`}
             >
               <Icon className="h-5 w-5 mb-0.5" />

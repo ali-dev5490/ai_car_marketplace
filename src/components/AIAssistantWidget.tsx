@@ -1,97 +1,176 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Sparkles, HelpCircle, ArrowRight, DollarSign, ShieldCheck } from 'lucide-react';
+import { MessageSquare, X, Send, Sparkles, HelpCircle, ExternalLink, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChatMessage } from '../types';
+import { ChatMessage, Car } from '../types';
+
+const CHAT_STORAGE_KEY = 'pakcar_ai_concierge_chat';
+
+function nowTime() {
+  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function welcomeMessage(): ChatMessage {
+  return {
+    id: 'welcome',
+    sender: 'assistant',
+    text: "As-salamu alaykum! I am your PakCar AI Assistant. I can help you find cars, compare specifications, calculate estimated car finance loans, suggest insurance, and provide expert buying advice. What are you looking for today?",
+    timestamp: nowTime(),
+    suggestedPrompts: [
+      "Find a reliable car under 25 Lakh",
+      "Compare Honda Civic vs Toyota Corolla",
+      "Explain Car Loan / Lease options",
+      "What is the best fuel average hatchback?"
+    ]
+  };
+}
+
+function loadSessionChat(): ChatMessage[] {
+  try {
+    const raw = sessionStorage.getItem(CHAT_STORAGE_KEY);
+    if (!raw) return [welcomeMessage()];
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+  } catch {
+    // ignore broken storage
+  }
+  return [welcomeMessage()];
+}
+
+function saveSessionChat(messages: ChatMessage[]) {
+  try {
+    sessionStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages.slice(-40)));
+  } catch {
+    // ignore quota errors
+  }
+}
+
+function carPageHref(id: number) {
+  return `/cars/${id}`;
+}
+
+function stripListingDump(text: string) {
+  return text
+    .replace(/\n*(?:Top Matches|Live listings|Recommended live listings)[:\s]*[\s\S]*$/i, '')
+    .trim();
+}
+
+function renderMessageText(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    const bold = part.match(/^\*\*([^*]+)\*\*$/);
+    if (bold) return <strong key={i}>{bold[1]}</strong>;
+    return <React.Fragment key={i}>{part}</React.Fragment>;
+  });
+}
+
+function localConciergeReply(prompt: string): { reply: string; suggestedPrompts: string[] } {
+  const p = prompt.toLowerCase();
+  if (p.includes('compare') || /\bvs\b/.test(p) || p.includes('versus')) {
+    return {
+      reply: `In the Pakistani market, **Toyota Corolla** is usually the safer long-term pick: softer suspension, cheap parts, and the strongest resale. **Honda Civic** feels sharper at speed, looks more modern, and has stronger engine performance, but parts and insurance cost more.\n\nIf you tell me your budget and city, I can point you to specific variants worth inspecting.`,
+      suggestedPrompts: ['Find a reliable car under 25 Lakh', 'Compare Suzuki Alto vs Cultus', 'Explain Car Loan / Lease options']
+    };
+  }
+  if (/\b(loan|lease|finance|interest|emi|installment)\b/.test(p)) {
+    return {
+      reply: `Typical Pakistani car finance in 2026:\n\n• Banks usually price around KIBOR, so effective rates often land near **15%–21%** (Meezan, HBL, Bank Alfalah, etc.).\n• Down payment is commonly **30%** for locally assembled cars.\n• Tenure is often up to **5 years** for engines under 1000cc, and about **3 years** above that.\n• Example: a 25 Lakh car with 30% down (7.5 Lakh) over 3 years is roughly **55,000–65,000 PKR** per month.\n\nShare your budget and down payment and I can estimate a tighter EMI.`,
+      suggestedPrompts: ['Find a reliable car under 25 Lakh', 'Best fuel-efficient hatchbacks']
+    };
+  }
+  if (p.includes('insurance')) {
+    return {
+      reply: `Comprehensive car insurance in Pakistan is typically about **1.5%–2.5%** of market value per year. Common providers include TPL, Jubilee, and EFU.\n\nExample: a 30 Lakh Cultus often costs **45,000–60,000 PKR** a year for theft, accident, and third-party cover. Tracker installation is usually required.`,
+      suggestedPrompts: ['Find cars under 30 Lakh', 'Explain Car Loan / Lease options']
+    };
+  }
+  if (/\b(fuel|average|mileage|hybrid|hatch)\b/.test(p)) {
+    return {
+      reply: `For city fuel average in Pakistan, small hatchbacks still win. **Suzuki Alto** and **Cultus** are the usual daily-drive picks (often 16–22 km/L depending on traffic). A used **Toyota Aqua/Prius** hybrid beats them on mixed driving if your budget stretches.\n\nTell me your budget in Lakh and city and I will shortlist live listings.`,
+      suggestedPrompts: ['Find a reliable car under 25 Lakh', 'Show automatic cars under 35 Lakh']
+    };
+  }
+  return {
+    reply: `I can help with that. Tell me your **budget in Lakh**, preferred **city**, and whether you want a hatchback, sedan, or SUV — I will recommend options from the marketplace.`,
+    suggestedPrompts: ['Find a reliable car under 25 Lakh', 'Compare Honda Civic vs Toyota Corolla', 'Explain Car Loan / Lease options']
+  };
+}
 
 export default function AIAssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: 'welcome',
-      sender: 'assistant',
-      text: "As-salamu alaykum! I am your PakCar AI Assistant. I can help you find cars, compare specifications, calculate estimated car finance loans, suggest insurance, and provide expert buying advice. What are you looking for today?",
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      suggestedPrompts: [
-        "Find a reliable car under 25 Lakh",
-        "Compare Honda Civic vs Toyota Corolla",
-        "Explain Car Loan / Lease options",
-        "What is the best fuel average hatchback?"
-      ]
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>(loadSessionChat);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const hasRealHistory = messages.some(m => m.id !== 'welcome');
 
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [messages, isOpen]);
+    saveSessionChat(messages);
+  }, [messages]);
+
+  useEffect(() => {
+    if (!isOpen || !messagesEndRef.current) return;
+    if (messages.length === 1 && messages[0]?.id === 'welcome') return;
+    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isOpen, isLoading]);
+
+  const handleClearChat = () => {
+    const next = [welcomeMessage()];
+    setMessages(next);
+    saveSessionChat(next);
+  };
 
   const handleSend = async (textToSend: string) => {
-    if (!textToSend.trim()) return;
+    if (!textToSend.trim() || isLoading) return;
 
     const userMsg: ChatMessage = {
       id: Math.random().toString(),
       sender: 'user',
       text: textToSend,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: nowTime()
     };
+
+    const history = messages
+      .filter(m => m.id !== 'welcome')
+      .slice(-8)
+      .map(m => ({ role: m.sender, text: m.text }));
 
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setIsLoading(true);
 
     try {
-      // Simulate/call AI response
-      const response = await fetch('/api/ai/search', {
+      const response = await fetch('/api/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: textToSend })
+        body: JSON.stringify({ prompt: textToSend, history })
       });
-      
-      const data = await response.json();
-      let aiText = '';
-      let suggestedPrompts: string[] = [];
 
-      const query = textToSend.toLowerCase();
-      if (query.includes('compare') || query.includes('vs')) {
-        aiText = `Comparison recommendation:\n\nBased on Pakistani market values, **Toyota Corolla** offers unmatched suspension durability and highest resale liquidity in rural/urban areas. However, **Honda Civic** provides superior high-speed handling, modern cosmetic styling, and higher engine performance.\n\nLet me know if you would like to compare specific variants on our Compare tab!`;
-        suggestedPrompts = ["Compare Suzuki Alto vs Cultus", "Show cars under 45 Lakh"];
-      } else if (query.includes('loan') || query.includes('lease') || query.includes('finance') || query.includes('interest')) {
-        aiText = `For Pakistani car financing (as of 2026):\n\n- **KIBOR Rates**: Typically 15% - 21% depending on the commercial bank (Meezan, HBL, Bank Alfalah).\n- **Down Payment**: Minimum 30% required for local assembled vehicles.\n- **Tenure**: Maximum 5 years for engines under 1000cc, and 3 years for vehicles above 1000cc.\n- **Estimated Monthly Installment (EMI)**: For a 25 Lakh car with 30% down payment (7.5 Lakh) over 3 years, expected monthly payment is roughly **55,000 - 65,000 PKR**.\n\nWould you like me to find cars matching a specific budget?`;
-        suggestedPrompts = ["Show cars under 25 Lakh", "Best hybrid cars in Pakistan"];
-      } else if (query.includes('insurance')) {
-        aiText = `Car Insurance in Pakistan typically costs **1.5% to 2.5%** of the vehicle market value annually. Key providers include TPL Insurance, Jubilee, and EFU.\n\nFor a **30 Lakh PKR Suzuki Cultus**, yearly premium would range between **45,000 and 60,000 PKR**, offering comprehensive theft, third-party damage, and accidental coverage.`;
-        suggestedPrompts = ["Find cars under 30 Lakh", "Toyota Yaris options"];
-      } else {
-        // Direct search result conversion from AI search
-        const carCount = data.results?.length || 0;
-        aiText = `${data.reasoning}\n\nI found **${carCount} matching vehicles** in our database right now. You can check them on the main Browse listings page!`;
-        
-        if (data.results && data.results.length > 0) {
-          aiText += `\n\nTop Matches:\n` + data.results.slice(0, 3).map((c: any) => `• **${c.year} ${c.make} ${c.model} ${c.variant}** - ${c.price.toLocaleString()} PKR (${c.city})`).join('\n');
-        }
-        suggestedPrompts = ["Show white automatic Civic", "Under 15 Lakh hatchbacks"];
-      }
+      if (!response.ok) throw new Error('Chat API failed');
+      const data = await response.json();
+      const listings: Car[] = Array.isArray(data.results) ? data.results.slice(0, 3) : [];
+      const rawReply = typeof data.reply === 'string' && data.reply.trim()
+        ? data.reply.trim()
+        : 'I could not build a full answer just now. Tell me your budget in Lakh and preferred city, and I will recommend cars.';
 
       const assistantMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: 'assistant',
-        text: aiText,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        suggestedPrompts
+        text: listings.length > 0 ? stripListingDump(rawReply) || rawReply : rawReply,
+        timestamp: nowTime(),
+        suggestedPrompts: Array.isArray(data.suggestedPrompts) ? data.suggestedPrompts.slice(0, 4) : [],
+        results: listings
       };
 
       setMessages(prev => [...prev, assistantMsg]);
     } catch (err) {
       console.error(err);
+      const fallback = localConciergeReply(textToSend);
       const errorMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: 'assistant',
-        text: "I experienced a connection issue, but here is a tip: In Pakistan, fuel efficiency is key! Small 660cc cars like the Suzuki Alto can yield up to 18-22 km/L in city traffic.",
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        text: fallback.reply,
+        timestamp: nowTime(),
+        suggestedPrompts: fallback.suggestedPrompts
       };
       setMessages(prev => [...prev, errorMsg]);
     } finally {
@@ -101,7 +180,6 @@ export default function AIAssistantWidget() {
 
   return (
     <>
-      {/* Floating Button */}
       <div className="fixed bottom-6 right-6 z-40">
         <button
           id="floating-ai-widget-btn"
@@ -118,7 +196,6 @@ export default function AIAssistantWidget() {
         </button>
       </div>
 
-      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -128,7 +205,6 @@ export default function AIAssistantWidget() {
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             className="fixed bottom-24 right-6 z-40 w-[380px] max-w-[calc(100vw-2rem)] h-[500px] rounded-2xl border border-slate-200 bg-white shadow-2xl flex flex-col overflow-hidden"
           >
-            {/* Header */}
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
@@ -141,14 +217,29 @@ export default function AIAssistantWidget() {
                   <span className="text-[10px] text-emerald-400 font-medium">● Online Agent</span>
                 </div>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white transition-colors">
-                <X className="h-5 w-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                {hasRealHistory && (
+                  <button
+                    type="button"
+                    onClick={handleClearChat}
+                    title="Clear chat"
+                    className="text-slate-400 hover:text-white transition-colors p-1"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="text-slate-400 hover:text-white transition-colors p-1"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
             </div>
 
-            {/* Messages Body */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
-              {messages.map((msg) => (
+              {messages.map((msg, index) => (
                 <div
                   key={msg.id}
                   className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
@@ -160,18 +251,43 @@ export default function AIAssistantWidget() {
                         : 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-sm'
                     }`}
                   >
-                    <p className="whitespace-pre-line">{msg.text}</p>
+                    <p className="whitespace-pre-line">{renderMessageText(msg.text)}</p>
                     <span className={`block text-[9px] mt-1 text-right ${msg.sender === 'user' ? 'text-blue-200' : 'text-slate-400'}`}>
                       {msg.timestamp}
                     </span>
                   </div>
 
-                  {/* Render suggested prompts if available and last message */}
-                  {msg.sender === 'assistant' && msg.suggestedPrompts && (
+                  {msg.sender === 'assistant' && msg.results && msg.results.length > 0 && (
+                    <div className="mt-2 w-full max-w-[90%] space-y-1.5">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400 px-0.5">Top matches</p>
+                      {msg.results.map((car) => (
+                        <a
+                          key={car.id}
+                          href={carPageHref(car.id)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between gap-2 bg-white border border-slate-200 hover:border-blue-400 hover:bg-blue-50 rounded-xl px-3 py-2 text-left shadow-sm transition-colors"
+                        >
+                          <div className="min-w-0">
+                            <p className="text-[11px] font-semibold text-slate-900 truncate">
+                              {car.year} {car.make} {car.model} {car.variant}
+                            </p>
+                            <p className="text-[10px] text-blue-600 font-bold">
+                              {(car.price / 100000).toFixed(1)} Lakh PKR
+                              <span className="text-slate-400 font-medium"> · {car.city}</span>
+                            </p>
+                          </div>
+                          <ExternalLink className="h-3.5 w-3.5 shrink-0 text-blue-500" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
+
+                  {msg.sender === 'assistant' && msg.suggestedPrompts && index === messages.length - 1 && !isLoading && (
                     <div className="flex flex-wrap gap-1.5 mt-2 max-w-[90%]">
-                      {msg.suggestedPrompts.map((prompt, index) => (
+                      {msg.suggestedPrompts.map((prompt, promptIndex) => (
                         <button
-                          key={index}
+                          key={promptIndex}
                           onClick={() => handleSend(prompt)}
                           className="text-left text-[11px] font-medium bg-white text-blue-600 hover:bg-blue-50 border border-blue-100 hover:border-blue-200 px-2.5 py-1.5 rounded-full transition-all flex items-center gap-1 shadow-sm"
                         >
@@ -196,7 +312,6 @@ export default function AIAssistantWidget() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Chat Footer Input */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();

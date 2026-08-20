@@ -135,7 +135,12 @@ export default function CarDetails({
                   className="h-full w-full object-cover"
                 />
                 <button
-                  onClick={() => toggleFavorite(car.id)}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleFavorite(car.id);
+                  }}
                   className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/40 text-slate-800 flex items-center justify-center shadow-md backdrop-blur-sm border border-white/45 hover:scale-105 active:scale-95 transition-all"
                 >
                   <Heart className={`h-5 w-5 ${isFavorite(car.id) ? 'fill-red-500 text-red-500' : 'text-slate-600'}`} />
@@ -320,7 +325,10 @@ export default function CarDetails({
                 <MapPin className="h-5 w-5 text-red-500 shrink-0" />
                 <div>
                   <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Vehicle Location</span>
-                  <p className="text-sm font-bold text-[#0F172A]">{car.city}, Pakistan</p>
+                  <p className="text-sm font-bold text-[#0F172A]">
+                    {car.address ? `${car.address} · ` : ''}
+                    {[car.city, car.state, car.country || 'Pakistan'].filter(Boolean).join(', ')}
+                  </p>
                 </div>
               </div>
 

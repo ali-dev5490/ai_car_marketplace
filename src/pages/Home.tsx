@@ -46,12 +46,21 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
       .catch(() => undefined);
   }, []);
 
-  const handleTraditionalSearch = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleTraditionalSearch = (e?: React.FormEvent) => {
+    e?.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/browse?search=${encodeURIComponent(searchQuery)}`);
     } else {
       navigate('/browse');
+    }
+  };
+
+  const handleAskAI = () => {
+    const prompt = searchQuery.trim();
+    if (prompt) {
+      navigate(`/ai-search?q=${encodeURIComponent(prompt)}`);
+    } else {
+      navigate('/ai-search');
     }
   };
 
@@ -138,13 +147,14 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
                 Search
               </button>
               
-              <Link
-                to="/ai-search"
+              <button
+                type="button"
+                onClick={handleAskAI}
                 className="w-full md:w-auto bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold text-sm px-5 py-3 rounded-xl shadow-lg shadow-blue-500/20 flex items-center justify-center space-x-1.5 transition-all transform active:scale-95 shrink-0"
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Ask AI</span>
-              </Link>
+              </button>
             </div>
           </motion.div>
 
@@ -259,7 +269,12 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
                     <span>AI Hot Deal</span>
                   </div>
                   <button
-                    onClick={() => toggleFavorite(car.id)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleFavorite(car.id);
+                    }}
                     className="absolute top-3 right-3 h-8 w-8 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white flex items-center justify-center transition-colors shadow-md backdrop-blur-sm"
                   >
                     <Heart className={`h-4 w-4 ${isFavorite(car.id) ? 'fill-red-500 text-red-500' : 'text-slate-200'}`} />
@@ -349,7 +364,12 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
                   NEW LISTING
                 </div>
                 <button
-                  onClick={() => toggleFavorite(car.id)}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleFavorite(car.id);
+                  }}
                   className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/40 hover:bg-white/60 text-slate-800 flex items-center justify-center transition-colors shadow-sm backdrop-blur-md border border-white/45"
                 >
                   <Heart className={`h-4 w-4 ${isFavorite(car.id) ? 'fill-red-500 text-red-500' : 'text-slate-600'}`} />
