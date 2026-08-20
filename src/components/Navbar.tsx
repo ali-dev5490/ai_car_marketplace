@@ -16,7 +16,6 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
     { path: '/ai-search', label: 'AI Search', icon: Sparkles, badge: 'New' },
     { path: '/ai-posting', label: 'Sell with AI', icon: PlusCircle },
     { path: '/compare', label: 'Compare', icon: GitCompare },
-    { path: '/seller', label: 'Seller Panel', icon: BarChart3 },
     { path: '/admin', label: 'Market Analytics', icon: BarChart3 },
   ];
 
