@@ -8,6 +8,7 @@ coverage/
 !.env.example
 
 # Local / large artifacts
+.vercel/
 .venv/
 **/__pycache__/
 *.pyc
@@ -15,3 +16,4 @@ car scraper/data.zip
 car scraper/data/images/
 public/cars-data.json
 api/index.cjs
+
