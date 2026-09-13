@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Car, Home, Sparkles, PlusCircle, BarChart3, Heart, GitCompare, MessageSquare } from 'lucide-react';
+import { Car, Home, Sparkles, PlusCircle, Heart, GitCompare, UserRound, LogIn } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 interface NavbarProps {
   favoritesCount: number;
@@ -9,6 +10,7 @@ interface NavbarProps {
 
 export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps) {
   const location = useLocation();
+  const { user, isAdmin } = useAuth();
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
@@ -16,13 +18,11 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
     { path: '/ai-search', label: 'AI Search', icon: Sparkles, badge: 'New' },
     { path: '/ai-posting', label: 'Sell with AI', icon: PlusCircle },
     { path: '/compare', label: 'Compare', icon: GitCompare },
-    { path: '/admin', label: 'Market Analytics', icon: BarChart3 },
   ];
 
   return (
     <header id="app-header" className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0F172A]/85 text-white backdrop-blur-xl">
       <div className="flex h-16 w-full items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link id="logo-link" to="/" className="flex shrink-0 items-center space-x-2 text-xl font-bold tracking-tight">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2563EB] shadow-lg shadow-blue-500/20">
             <Car className="h-6 w-6 text-white animate-pulse" />
@@ -36,7 +36,6 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
           </div>
         </Link>
 
-        {/* Navigation Items */}
         <nav id="desktop-nav" className="hidden lg:flex flex-1 items-center justify-center gap-1 min-w-0">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -47,8 +46,8 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
                 id={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
                 to={item.path}
                 className={`relative flex items-center space-x-1.5 whitespace-nowrap px-3 py-2 text-sm font-semibold transition-colors ${
-                  isActive 
-                    ? 'text-[#60A5FA] underline underline-offset-8 decoration-2' 
+                  isActive
+                    ? 'text-[#60A5FA] underline underline-offset-8 decoration-2'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -64,8 +63,7 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
           })}
         </nav>
 
-        {/* Right Action Bar */}
-        <div className="flex shrink-0 items-center space-x-3">
+        <div className="flex shrink-0 items-center space-x-2 sm:space-x-3">
           <Link
             id="nav-favorites-link"
             to="/browse?favorites=true"
@@ -83,11 +81,28 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
             )}
           </Link>
 
-          {/* Quick Post button */}
+          {user ? (
+            <Link
+              to={isAdmin ? '/admin' : '/account'}
+              className="flex items-center space-x-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-white/15"
+            >
+              <UserRound className="h-4 w-4" />
+              <span className="hidden sm:inline max-w-[100px] truncate">{user.name.split(' ')[0]}</span>
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center space-x-1.5 rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-slate-200 hover:bg-white/15"
+            >
+              <LogIn className="h-4 w-4" />
+              <span className="hidden sm:inline">Log in</span>
+            </Link>
+          )}
+
           <Link
             id="nav-quick-post"
             to="/ai-posting"
-            className="flex items-center space-x-1.5 rounded-lg bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1D4ED8] shadow-lg shadow-blue-500/20 transition-all transform active:scale-95"
+            className="flex items-center space-x-1.5 rounded-lg bg-[#2563EB] px-3 sm:px-4 py-2 text-sm font-semibold text-white hover:bg-[#1D4ED8] shadow-lg shadow-blue-500/20 transition-all transform active:scale-95"
           >
             <Sparkles className="h-4 w-4" />
             <span className="hidden sm:inline">Post with AI</span>
@@ -95,7 +110,6 @@ export default function Navbar({ favoritesCount, compareCount = 0 }: NavbarProps
         </div>
       </div>
 
-      {/* Mobile Sticky Bar */}
       <div id="mobile-nav" className="lg:hidden flex border-t border-white/10 bg-[#0F172A]/90 text-xs text-slate-400 justify-around py-2 px-1 backdrop-blur-lg">
         {navItems.slice(0, 5).map((item) => {
           const Icon = item.icon;

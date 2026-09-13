@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AIAssistantWidget from './components/AIAssistantWidget';
+import RequireAuth from './components/RequireAuth';
+import { AuthProvider } from './context/AuthContext';
 
-// Pages
 import Home from './pages/Home';
 import Browse from './pages/Browse';
 import CarDetails from './pages/CarDetails';
@@ -13,6 +14,13 @@ import AIPosting from './pages/AIPosting';
 import Compare from './pages/Compare';
 import SellerDashboard from './pages/SellerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/AdminLogin';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Account from './pages/Account';
+import MyListings from './pages/MyListings';
+import Payments from './pages/Payments';
+import Enquiries from './pages/Enquiries';
 
 import { Car } from './types';
 
@@ -34,7 +42,7 @@ function saveSessionFavorites(ids: number[]) {
   try {
     sessionStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
   } catch {
-    // ignore quota / private-mode errors
+    // ignore
   }
 }
 
@@ -67,77 +75,128 @@ export default function App() {
   const isFavorite = useCallback((id: number) => favorites.includes(Number(id)), [favorites]);
 
   const addRecentlyViewed = (id: number) => {
-    setRecentlyViewed(prev => {
-      const filtered = prev.filter(x => x !== id);
-      const next = [id, ...filtered].slice(0, 8); // Keep last 8 viewed
+    setRecentlyViewed((prev) => {
+      const filtered = prev.filter((x) => x !== id);
+      const next = [id, ...filtered].slice(0, 8);
       localStorage.setItem('pakcar_recently_viewed', JSON.stringify(next));
       return next;
     });
   };
 
   const addToCompare = (car: Car) => {
-    setCompareList(prev => {
-      // Avoid duplicate comparison targets
-      if (prev.some(c => c.id === car.id)) return prev;
-      return [car, ...prev].slice(0, 2); // Keep only last 2 selected
+    setCompareList((prev) => {
+      if (prev.some((c) => c.id === car.id)) return prev;
+      return [car, ...prev].slice(0, 2);
     });
   };
 
   const removeFromCompare = (id: number) => {
-    setCompareList(prev => prev.filter(c => c.id !== id));
+    setCompareList((prev) => prev.filter((c) => c.id !== id));
   };
 
   const clearCompare = () => setCompareList([]);
 
   return (
-    <Router>
-      <div className="relative flex flex-col min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans overflow-x-clip">
-        {/* Ambient mesh background blobs */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-30 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] bg-[#2563EB] rounded-full blur-[140px]"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#EA580C] rounded-full blur-[120px]"></div>
-          <div className="absolute top-[40%] right-[20%] w-[35%] h-[35%] bg-indigo-500 rounded-full blur-[120px] opacity-40"></div>
-        </div>
+    <AuthProvider>
+      <Router>
+        <div className="relative flex flex-col min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans overflow-x-clip">
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-30 overflow-hidden">
+            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[50%] bg-[#2563EB] rounded-full blur-[140px]"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#EA580C] rounded-full blur-[120px]"></div>
+            <div className="absolute top-[40%] right-[20%] w-[35%] h-[35%] bg-indigo-500 rounded-full blur-[120px] opacity-40"></div>
+          </div>
 
-        <div className="relative z-10 flex flex-col min-h-screen flex-grow">
-          {/* Navigation Bar */}
-          <Navbar favoritesCount={favorites.length} compareCount={compareList.length} />
+          <div className="relative z-10 flex flex-col min-h-screen flex-grow">
+            <Navbar favoritesCount={favorites.length} compareCount={compareList.length} />
 
-          {/* Primary Page Layout viewports */}
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
-              <Route path="/browse" element={<Browse favorites={favorites} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
-              <Route path="/cars/:id" element={
-                <CarDetails 
-                  toggleFavorite={toggleFavorite} 
-                  isFavorite={isFavorite} 
-                  addToCompare={addToCompare}
-                  recentlyViewed={recentlyViewed}
-                  addRecentlyViewed={addRecentlyViewed}
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
+                <Route path="/browse" element={<Browse favorites={favorites} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />} />
+                <Route
+                  path="/cars/:id"
+                  element={
+                    <CarDetails
+                      toggleFavorite={toggleFavorite}
+                      isFavorite={isFavorite}
+                      addToCompare={addToCompare}
+                      recentlyViewed={recentlyViewed}
+                      addRecentlyViewed={addRecentlyViewed}
+                    />
+                  }
                 />
-              } />
-              <Route path="/ai-search" element={<AISearch />} />
-              <Route path="/ai-posting" element={<AIPosting />} />
-              <Route path="/compare" element={
-                <Compare 
-                  compareList={compareList} 
-                  removeFromCompare={removeFromCompare} 
-                  clearCompare={clearCompare} 
+                <Route path="/ai-search" element={<AISearch />} />
+                <Route
+                  path="/ai-posting"
+                  element={
+                    <RequireAuth>
+                      <AIPosting />
+                    </RequireAuth>
+                  }
                 />
-              } />
-              <Route path="/seller" element={<SellerDashboard />} />
-              <Route path="/admin" element={<AdminDashboard />} />
-            </Routes>
-          </main>
+                <Route
+                  path="/compare"
+                  element={
+                    <Compare
+                      compareList={compareList}
+                      removeFromCompare={removeFromCompare}
+                      clearCompare={clearCompare}
+                    />
+                  }
+                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route
+                  path="/account"
+                  element={
+                    <RequireAuth>
+                      <Account />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="/account/listings"
+                  element={
+                    <RequireAuth>
+                      <MyListings />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="/account/payments"
+                  element={
+                    <RequireAuth>
+                      <Payments />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="/account/enquiries"
+                  element={
+                    <RequireAuth>
+                      <Enquiries />
+                    </RequireAuth>
+                  }
+                />
+                <Route path="/seller" element={<SellerDashboard />} />
+                <Route
+                  path="/admin"
+                  element={
+                    <RequireAuth adminOnly>
+                      <AdminDashboard />
+                    </RequireAuth>
+                  }
+                />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </main>
 
-          {/* Global Floating AI Helper concierges */}
-          <AIAssistantWidget />
-
-          {/* Platform Footer */}
-          <Footer />
+            <AIAssistantWidget />
+            <Footer />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }

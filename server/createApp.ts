@@ -1,7 +1,9 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import { db } from './db.js';
 import { aiService } from './aiService.js';
+import { LISTING_FEE_PKR, platformStore } from './platformStore.js';
+import type { Car, PublicUser } from '../src/types.js';
 
 const NOMINATIM_USER_AGENT = 'PakCarMarketplace/1.0 (ai-car-marketplace geo proxy)';
 let lastNominatimAt = 0;
@@ -38,6 +40,38 @@ export interface GeoPlace {
   label: string;
 }
 
+type AuthedRequest = Request & { user?: PublicUser };
+
+function parseBearer(req: Request): string | null {
+  const header = req.headers.authorization;
+  if (header?.startsWith('Bearer ')) return header.slice(7).trim();
+  const alt = req.headers['x-auth-token'];
+  if (typeof alt === 'string' && alt.trim()) return alt.trim();
+  return null;
+}
+
+function attachUser(req: AuthedRequest, _res: Response, next: NextFunction) {
+  const token = parseBearer(req);
+  req.user = platformStore.getUserByToken(token) || undefined;
+  next();
+}
+
+function requireAuth(req: AuthedRequest, res: Response, next: NextFunction) {
+  if (!req.user) return res.status(401).json({ error: 'Login required' });
+  next();
+}
+
+function requireAdmin(req: AuthedRequest, res: Response, next: NextFunction) {
+  if (!req.user) return res.status(401).json({ error: 'Login required' });
+  if (req.user.role !== 'admin') return res.status(403).json({ error: 'Admin access required' });
+  next();
+}
+
+function isPublicListing(car: Car): boolean {
+  const status = car.status || 'active';
+  return status === 'active';
+}
+
 function parseNominatimPlace(place: NominatimPlace): GeoPlace {
   const a = place.address || {};
   const country = a.country || '';
@@ -46,7 +80,7 @@ function parseNominatimPlace(place: NominatimPlace): GeoPlace {
   const skip = new Set(
     [country, state, city, a.county, a.postcode, a.country_code]
       .filter(Boolean)
-      .map(s => s.toLowerCase())
+      .map(s => s!.toLowerCase())
   );
   const fromDisplay = (place.display_name || '')
     .split(',')
@@ -85,21 +119,99 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
 
   app.use(express.json({ limit: '15mb' }));
   app.use(express.urlencoded({ extended: true, limit: '15mb' }));
+  app.use(attachUser);
 
   if (serveLocalData) {
     app.use('/data', express.static(path.join(process.cwd(), 'data')));
   }
 
-  // --- API ROUTES ---
+  // --- AUTH ---
 
-  app.get('/api/cars', (req, res) => {
+  app.post('/api/auth/signup', (req, res) => {
+    try {
+      const { name, email, phone, password, city } = req.body || {};
+      if (!name || !email || !password) {
+        return res.status(400).json({ error: 'Name, email, and password are required' });
+      }
+      if (String(password).length < 6) {
+        return res.status(400).json({ error: 'Password must be at least 6 characters' });
+      }
+      const result = platformStore.signup({
+        name: String(name),
+        email: String(email),
+        phone: String(phone || ''),
+        password: String(password),
+        city: String(city || 'Lahore'),
+      });
+      res.status(201).json(result);
+    } catch (err: any) {
+      res.status(err.status || 500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/auth/login', (req, res) => {
+    try {
+      const { email, password } = req.body || {};
+      if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required' });
+      }
+      const result = platformStore.login(String(email), String(password));
+      res.json(result);
+    } catch (err: any) {
+      res.status(err.status || 500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/auth/logout', (req, res) => {
+    const token = parseBearer(req);
+    if (token) platformStore.logout(token);
+    res.json({ ok: true });
+  });
+
+  app.get('/api/auth/me', (req: AuthedRequest, res) => {
+    if (!req.user) return res.status(401).json({ error: 'Not authenticated' });
+    res.json({ user: req.user, listing_fee_pkr: LISTING_FEE_PKR });
+  });
+
+  app.put('/api/auth/profile', requireAuth, (req: AuthedRequest, res) => {
+    try {
+      const { name, phone, city } = req.body || {};
+      const updated = platformStore.updateUser(req.user!.id, {
+        name: name != null ? String(name) : undefined,
+        phone: phone != null ? String(phone) : undefined,
+        city: city != null ? String(city) : undefined,
+      });
+      res.json({ user: updated });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // --- CARS ---
+
+  app.get('/api/cars', (req: AuthedRequest, res) => {
     try {
       let cars = db.getCars();
       const {
         make, model, city, transmission, fuel, body_type, condition,
         minPrice, maxPrice, minYear, maxYear, minMileage, maxMileage,
-        search
+        search, mine, status, all
       } = req.query;
+
+      if (mine === '1' || mine === 'true') {
+        if (!req.user) return res.status(401).json({ error: 'Login required' });
+        cars = cars.filter((c) => c.owner_user_id === req.user!.id);
+      } else if (all === '1' || all === 'true') {
+        if (!req.user || req.user.role !== 'admin') {
+          return res.status(403).json({ error: 'Admin access required' });
+        }
+      } else {
+        cars = cars.filter(isPublicListing);
+      }
+
+      if (status && typeof status === 'string') {
+        cars = cars.filter((c) => (c.status || 'active') === status);
+      }
 
       if (make) {
         cars = cars.filter(c => c.make.toLowerCase() === (make as string).toLowerCase());
@@ -123,24 +235,12 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
         cars = cars.filter(c => c.condition === condition);
       }
 
-      if (minPrice) {
-        cars = cars.filter(c => c.price >= parseInt(minPrice as string));
-      }
-      if (maxPrice) {
-        cars = cars.filter(c => c.price <= parseInt(maxPrice as string));
-      }
-      if (minYear) {
-        cars = cars.filter(c => c.year >= parseInt(minYear as string));
-      }
-      if (maxYear) {
-        cars = cars.filter(c => c.year <= parseInt(maxYear as string));
-      }
-      if (minMileage) {
-        cars = cars.filter(c => c.mileage >= parseInt(minMileage as string));
-      }
-      if (maxMileage) {
-        cars = cars.filter(c => c.mileage <= parseInt(maxMileage as string));
-      }
+      if (minPrice) cars = cars.filter(c => c.price >= parseInt(minPrice as string));
+      if (maxPrice) cars = cars.filter(c => c.price <= parseInt(maxPrice as string));
+      if (minYear) cars = cars.filter(c => c.year >= parseInt(minYear as string));
+      if (maxYear) cars = cars.filter(c => c.year <= parseInt(maxYear as string));
+      if (minMileage) cars = cars.filter(c => c.mileage >= parseInt(minMileage as string));
+      if (maxMileage) cars = cars.filter(c => c.mileage <= parseInt(maxMileage as string));
 
       if (search) {
         const query = (search as string).toLowerCase();
@@ -159,11 +259,14 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
     }
   });
 
-  app.get('/api/cars/:id', (req, res) => {
+  app.get('/api/cars/:id', (req: AuthedRequest, res) => {
     try {
       const id = parseInt(req.params.id);
       const car = db.getCarById(id);
-      if (!car) {
+      if (!car) return res.status(404).json({ error: 'Car not found' });
+      const isOwner = req.user && car.owner_user_id === req.user.id;
+      const isAdmin = req.user?.role === 'admin';
+      if (!isPublicListing(car) && !isOwner && !isAdmin) {
         return res.status(404).json({ error: 'Car not found' });
       }
       res.json(car);
@@ -172,46 +275,296 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
     }
   });
 
-  app.post('/api/cars', (req, res) => {
+  app.post('/api/cars', requireAuth, (req: AuthedRequest, res) => {
     try {
-      const carData = req.body;
+      const carData = req.body || {};
       if (!carData.make || !carData.model || !carData.price) {
         return res.status(400).json({ error: 'Make, model, and price are required' });
       }
-      const newCar = db.createCar(carData);
+      const newCar = db.createCar({
+        ...carData,
+        seller_name: carData.seller_name || req.user!.name,
+        phone: carData.phone || req.user!.phone,
+        owner_user_id: req.user!.id,
+        status: 'pending_payment',
+        payment_status: 'unpaid',
+      });
       res.status(201).json(newCar);
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }
   });
 
-  app.put('/api/cars/:id', (req, res) => {
+  app.put('/api/cars/:id', requireAuth, (req: AuthedRequest, res) => {
     try {
       const id = parseInt(req.params.id);
-      const updated = db.updateCar(id, req.body);
-      if (!updated) {
-        return res.status(404).json({ error: 'Car not found or failed to update' });
+      const existing = db.getCarById(id);
+      if (!existing) return res.status(404).json({ error: 'Car not found or failed to update' });
+      const isOwner = existing.owner_user_id === req.user!.id;
+      const isAdmin = req.user!.role === 'admin';
+      if (!isOwner && !isAdmin) {
+        return res.status(403).json({ error: 'Not allowed to edit this listing' });
       }
+
+      const body = { ...req.body };
+      delete body.id;
+      delete body.owner_user_id;
+      if (!isAdmin) {
+        delete body.moderation_reason;
+        if (body.status && !['draft', 'paused', 'sold', 'pending_payment'].includes(body.status)) {
+          delete body.status;
+        }
+      }
+
+      const updated = db.updateCar(id, body);
       res.json(updated);
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }
   });
 
-  app.delete('/api/cars/:id', (req, res) => {
+  app.delete('/api/cars/:id', requireAuth, (req: AuthedRequest, res) => {
     try {
       const id = parseInt(req.params.id);
-      const success = db.deleteCar(id);
-      if (!success) {
-        return res.status(404).json({ error: 'Car not found' });
+      const existing = db.getCarById(id);
+      if (!existing) return res.status(404).json({ error: 'Car not found' });
+      const isOwner = existing.owner_user_id === req.user!.id;
+      const isAdmin = req.user!.role === 'admin';
+      if (!isOwner && !isAdmin) {
+        return res.status(403).json({ error: 'Not allowed to delete this listing' });
       }
+      db.deleteCar(id);
       res.json({ message: 'Car deleted successfully' });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }
   });
 
-  // --- GEO (Nominatim proxy; OSM usage policy requires a User-Agent) ---
+  // --- PAYMENTS ---
+
+  app.get('/api/payments/fee', (_req, res) => {
+    res.json({
+      listing_fee_pkr: LISTING_FEE_PKR,
+      instructions: {
+        bank_name: 'HBL Demo Branch',
+        account_title: 'AI Car Marketplace',
+        account_number: '1234-5678901234',
+        jazzcash: '0300-1112233',
+        easypaisa: '0300-4455667',
+        note: 'Transfer the listing fee, then submit your receipt note/reference. Admin will confirm manually.',
+      },
+    });
+  });
+
+  app.get('/api/payments', requireAuth, (req: AuthedRequest, res) => {
+    try {
+      const payments =
+        req.user!.role === 'admin'
+          ? platformStore.getPayments()
+          : platformStore.getPayments({ user_id: req.user!.id });
+      res.json(payments);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/payments', requireAuth, (req: AuthedRequest, res) => {
+    try {
+      const { listing_id, method, receipt_note, receipt_url } = req.body || {};
+      const listingId = parseInt(listing_id);
+      const car = db.getCarById(listingId);
+      if (!car) return res.status(404).json({ error: 'Listing not found' });
+      if (car.owner_user_id !== req.user!.id && req.user!.role !== 'admin') {
+        return res.status(403).json({ error: 'Not your listing' });
+      }
+      const payment = platformStore.createPayment({
+        user_id: req.user!.id,
+        listing_id: listingId,
+        method: String(method || 'Bank Transfer'),
+        receipt_note: String(receipt_note || ''),
+        receipt_url: String(receipt_url || ''),
+      });
+      db.updateCar(listingId, {
+        payment_status: 'pending',
+        status: car.status === 'active' ? car.status : 'pending_payment',
+      });
+      res.status(201).json(payment);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/payments/:id/review', requireAuth, requireAdmin, (req: AuthedRequest, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { status, note } = req.body || {};
+      if (status !== 'paid' && status !== 'rejected') {
+        return res.status(400).json({ error: 'status must be paid or rejected' });
+      }
+      const payment = platformStore.reviewPayment(id, req.user!.id, status, note);
+      if (!payment) return res.status(404).json({ error: 'Payment not found' });
+
+      if (status === 'paid') {
+        db.updateCar(payment.listing_id, { payment_status: 'paid', status: 'active' });
+      } else {
+        db.updateCar(payment.listing_id, { payment_status: 'rejected', status: 'pending_payment' });
+      }
+
+      platformStore.addModeration({
+        admin_id: req.user!.id,
+        target_type: 'payment',
+        target_id: id,
+        action: status === 'paid' ? 'confirm_payment' : 'reject_payment',
+        reason: String(note || status),
+      });
+
+      res.json(payment);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // --- ENQUIRIES ---
+
+  app.get('/api/enquiries', requireAuth, (req: AuthedRequest, res) => {
+    try {
+      if (req.user!.role === 'admin') {
+        return res.json(platformStore.getEnquiries());
+      }
+      const mineAsBuyer = platformStore.getEnquiries({ buyer_id: req.user!.id });
+      const myListingIds = db.getCarsByOwner(req.user!.id).map((c) => c.id);
+      const mineAsSeller = platformStore.getEnquiries({ listing_ids: myListingIds });
+      const merged = [...mineAsBuyer, ...mineAsSeller].filter(
+        (e, i, arr) => arr.findIndex((x) => x.id === e.id) === i
+      );
+      res.json(merged);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/enquiries', requireAuth, (req: AuthedRequest, res) => {
+    try {
+      const { listing_id, message } = req.body || {};
+      const listingId = parseInt(listing_id);
+      const car = db.getCarById(listingId);
+      if (!car || !isPublicListing(car)) {
+        return res.status(404).json({ error: 'Listing not found' });
+      }
+      if (!message || !String(message).trim()) {
+        return res.status(400).json({ error: 'Message is required' });
+      }
+      const enquiry = platformStore.createEnquiry({
+        buyer_id: req.user!.id,
+        listing_id: listingId,
+        message: String(message),
+        buyer_name: req.user!.name,
+        buyer_phone: req.user!.phone,
+      });
+      res.status(201).json(enquiry);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // --- ADMIN ---
+
+  app.get('/api/admin/overview', requireAuth, requireAdmin, (_req, res) => {
+    try {
+      const users = platformStore.getUsers().map(({ password_hash: _, ...u }) => u);
+      const cars = db.getCars();
+      const payments = platformStore.getPayments();
+      const sellers = users.filter((u) => cars.some((c) => c.owner_user_id === u.id));
+      const buyers = users.filter((u) => u.role === 'user');
+      res.json({
+        total_users: users.filter((u) => u.role === 'user').length,
+        total_admins: users.filter((u) => u.role === 'admin').length,
+        sellers_count: sellers.length,
+        buyers_count: buyers.length,
+        total_listings: cars.length,
+        active_listings: cars.filter((c) => (c.status || 'active') === 'active').length,
+        pending_payment_listings: cars.filter((c) => c.status === 'pending_payment').length,
+        pending_payments: payments.filter((p) => p.status === 'pending').length,
+        listing_fee_pkr: LISTING_FEE_PKR,
+      });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.get('/api/admin/users', requireAuth, requireAdmin, (req, res) => {
+    try {
+      const filter = String(req.query.filter || 'all');
+      const cars = db.getCars();
+      let users = platformStore.getUsers().map(({ password_hash: _, ...u }) => {
+        const listings = cars.filter((c) => c.owner_user_id === u.id);
+        return { ...u, listings_count: listings.length, is_seller: listings.length > 0 };
+      });
+      if (filter === 'sellers') users = users.filter((u) => u.is_seller);
+      if (filter === 'buyers') users = users.filter((u) => u.role === 'user');
+      if (filter === 'admins') users = users.filter((u) => u.role === 'admin');
+      res.json(users);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/admin/users/:id/status', requireAuth, requireAdmin, (req: AuthedRequest, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { status, reason } = req.body || {};
+      if (!['active', 'suspended', 'blocked'].includes(status)) {
+        return res.status(400).json({ error: 'Invalid status' });
+      }
+      if (!reason || !String(reason).trim()) {
+        return res.status(400).json({ error: 'Reason is required' });
+      }
+      const updated = platformStore.updateUser(id, { status });
+      if (!updated) return res.status(404).json({ error: 'User not found' });
+      platformStore.addModeration({
+        admin_id: req.user!.id,
+        target_type: 'user',
+        target_id: id,
+        action: `set_status_${status}`,
+        reason: String(reason),
+      });
+      res.json(updated);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/admin/listings/:id/moderate', requireAuth, requireAdmin, (req: AuthedRequest, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { action, reason } = req.body || {};
+      const car = db.getCarById(id);
+      if (!car) return res.status(404).json({ error: 'Listing not found' });
+      if (!reason || !String(reason).trim()) {
+        return res.status(400).json({ error: 'Reason is required' });
+      }
+
+      let patch: Partial<Car> = { moderation_reason: String(reason) };
+      if (action === 'approve' || action === 'activate') patch = { ...patch, status: 'active' };
+      else if (action === 'hide' || action === 'suspend') patch = { ...patch, status: 'suspended' };
+      else if (action === 'sold') patch = { ...patch, status: 'sold' };
+      else return res.status(400).json({ error: 'Unknown action' });
+
+      const updated = db.updateCar(id, patch);
+      platformStore.addModeration({
+        admin_id: req.user!.id,
+        target_type: 'listing',
+        target_id: id,
+        action: String(action),
+        reason: String(reason),
+      });
+      res.json(updated);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // --- GEO ---
 
   app.get('/api/geo/reverse', async (req, res) => {
     try {
@@ -234,19 +587,10 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   app.get('/api/geo/search', async (req, res) => {
     try {
       const q = String(req.query.q || '').trim();
-      if (q.length < 2) {
-        return res.json([]);
-      }
+      if (q.length < 2) return res.json([]);
       const country = String(req.query.country || '').trim().toLowerCase();
-      const params = new URLSearchParams({
-        format: 'jsonv2',
-        addressdetails: '1',
-        limit: '8',
-        q,
-      });
-      if (country && /^[a-z]{2}$/.test(country)) {
-        params.set('countrycodes', country);
-      }
+      const params = new URLSearchParams({ format: 'jsonv2', addressdetails: '1', limit: '8', q });
+      if (country && /^[a-z]{2}$/.test(country)) params.set('countrycodes', country);
       const url = `https://nominatim.openstreetmap.org/search?${params.toString()}`;
       const data = await nominatimFetch(url);
       const places = Array.isArray(data) ? data : [];
@@ -265,7 +609,7 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
     }
   });
 
-  // --- AI LAYER ENDPOINTS ---
+  // --- AI ---
 
   app.post('/api/ai/search', async (req, res) => {
     try {
@@ -275,10 +619,8 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
         prompt = `${analysis.color || ''} ${analysis.make || ''} ${analysis.model || ''} ${analysis.body_type || ''} ${analysis.fuel || ''}`;
         prompt = prompt.trim() || 'Toyota or Honda';
       }
-      if (!prompt) {
-        return res.status(400).json({ error: 'Prompt or image is required' });
-      }
-      const allCars = db.getCars();
+      if (!prompt) return res.status(400).json({ error: 'Prompt or image is required' });
+      const allCars = db.getCars().filter(isPublicListing);
       const aiResponse = await aiService.aiSearch(prompt, allCars);
       res.json(aiResponse);
     } catch (err: any) {
@@ -292,7 +634,7 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
       if (!prompt || typeof prompt !== 'string') {
         return res.status(400).json({ error: 'Prompt is required' });
       }
-      const allCars = db.getCars();
+      const allCars = db.getCars().filter(isPublicListing);
       const turns = Array.isArray(history) ? history : [];
       const aiResponse = await aiService.chatConcierge(prompt, turns, allCars);
       res.json(aiResponse);
@@ -318,9 +660,7 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   app.post('/api/ai/inspection', async (req, res) => {
     try {
       const { car } = req.body;
-      if (!car) {
-        return res.status(400).json({ error: 'Car details are required' });
-      }
+      if (!car) return res.status(400).json({ error: 'Car details are required' });
       const inspection = await aiService.getInspection(car);
       res.json(inspection);
     } catch (err: any) {
@@ -331,17 +671,13 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   app.post('/api/ai/pricing', async (req, res) => {
     try {
       const { car } = req.body;
-      if (!car) {
-        return res.status(400).json({ error: 'Car details are required' });
-      }
+      if (!car) return res.status(400).json({ error: 'Car details are required' });
       let basePrice = 2000000;
       if (car.make === 'Suzuki') basePrice = 1200000;
       if (car.make === 'Mercedes' || car.make === 'BMW') basePrice = 12000000;
-
       const age = Math.max(0, 2026 - parseInt(car.year || 2020));
       const depreciation = Math.pow(0.9, age);
       const estimatedPrice = Math.round((basePrice * depreciation) / 50000) * 50000;
-
       res.json({
         estimatedPrice,
         marketRangeMin: Math.round((estimatedPrice * 0.95) / 50000) * 50000,
@@ -356,9 +692,7 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   app.post('/api/ai/seller-assistant', async (req, res) => {
     try {
       const { car } = req.body;
-      if (!car) {
-        return res.status(400).json({ error: 'Car details are required' });
-      }
+      if (!car) return res.status(400).json({ error: 'Car details are required' });
       const tips = await aiService.getSellerAssistant(car);
       res.json(tips);
     } catch (err: any) {
@@ -369,21 +703,16 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
   app.post('/api/ai/recommend', async (req, res) => {
     try {
       const { carId } = req.body;
-      const allCars = db.getCars();
+      const allCars = db.getCars().filter(isPublicListing);
       const car = allCars.find(c => c.id === parseInt(carId));
-      if (!car) {
-        return res.status(404).json({ error: 'Car not found' });
-      }
-
+      if (!car) return res.status(404).json({ error: 'Car not found' });
       const similar = allCars
         .filter(c => c.id !== car.id && (c.body_type === car.body_type || c.make === car.make))
         .sort((a, b) => Math.abs(a.price - car.price) - Math.abs(b.price - car.price))
         .slice(0, 4);
-
       const betterValue = allCars
         .filter(c => c.id !== car.id && c.body_type === car.body_type && c.price < car.price && c.year >= car.year)
         .slice(0, 3);
-
       res.json({
         similar,
         betterValue: betterValue.length > 0 ? betterValue : allCars.filter(c => c.id !== car.id && c.price < car.price).slice(0, 3)
@@ -395,40 +724,42 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
 
   // --- ANALYTICS ---
 
-  app.get('/api/analytics/seller', (req, res) => {
+  app.get('/api/analytics/seller', requireAuth, (req: AuthedRequest, res) => {
     try {
-      const cars = db.getCars();
-      const sellerCars = cars.filter(c => c.seller_name.includes('Usman') || c.id % 75 === 0);
-
-      const stats = {
-        posted_cars_count: sellerCars.length || 3,
-        views_count: 1420,
-        favorites_count: 89,
-        messages_count: 34,
-        lead_count: 12,
-        recent_leads: [
-          { id: 1, car_id: sellerCars[0]?.id || 1, car_title: `${sellerCars[0]?.year || 2020} ${sellerCars[0]?.make || 'Toyota'} ${sellerCars[0]?.model || 'Corolla'}`, buyer_name: 'Asim Raza', buyer_phone: '0300-4592031', message: 'Assalam o alaikum, is the price slightly negotiable? I am planning to inspect the car this Sunday.', created_at: new Date(Date.now() - 3600000).toISOString() },
-          { id: 2, car_id: sellerCars[1]?.id || 2, car_title: `${sellerCars[1]?.year || 2018} ${sellerCars[1]?.make || 'Honda'} ${sellerCars[1]?.model || 'Civic'}`, buyer_name: 'Farhan Jamil', buyer_phone: '0321-8729110', message: 'I want to know if all tax documents are cleared and original plates are available.', created_at: new Date(Date.now() - 86400000).toISOString() },
-          { id: 3, car_id: sellerCars[0]?.id || 1, car_title: `${sellerCars[0]?.year || 2020} ${sellerCars[0]?.make || 'Toyota'} ${sellerCars[0]?.model || 'Corolla'}`, buyer_name: 'Sadia Malik', buyer_phone: '0333-5192801', message: 'Is this vehicle still available? Please call me at your earliest convenience.', created_at: new Date(Date.now() - 172800000).toISOString() }
-        ]
-      };
-      res.json(stats);
+      const sellerCars = db.getCarsByOwner(req.user!.id);
+      const enquiries = platformStore.getEnquiries({ listing_ids: sellerCars.map((c) => c.id) });
+      res.json({
+        posted_cars_count: sellerCars.length,
+        views_count: sellerCars.length * 42,
+        favorites_count: sellerCars.length * 3,
+        messages_count: enquiries.length,
+        lead_count: enquiries.length,
+        recent_leads: enquiries.slice(0, 10).map((e) => {
+          const car = sellerCars.find((c) => c.id === e.listing_id);
+          return {
+            id: e.id,
+            car_id: e.listing_id,
+            car_title: car ? `${car.year} ${car.make} ${car.model}` : `Listing #${e.listing_id}`,
+            buyer_name: e.buyer_name,
+            buyer_phone: e.buyer_phone,
+            message: e.message,
+            created_at: e.created_at,
+          };
+        }),
+      });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }
   });
 
-  app.get('/api/analytics/admin', (req, res) => {
+  app.get('/api/analytics/admin', requireAuth, requireAdmin, (_req, res) => {
     try {
       const cars = db.getCars();
-      const total_cars = cars.length;
-
+      const total_cars = cars.length || 1;
       const average_price = Math.round(cars.reduce((sum, c) => sum + c.price, 0) / total_cars);
 
       const brandCounts: Record<string, number> = {};
-      cars.forEach(c => {
-        brandCounts[c.make] = (brandCounts[c.make] || 0) + 1;
-      });
+      cars.forEach(c => { brandCounts[c.make] = (brandCounts[c.make] || 0) + 1; });
       const brand_distribution = Object.entries(brandCounts).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
       const most_popular_brand = brand_distribution[0]?.name || 'Toyota';
 
@@ -441,9 +772,7 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
       const body_type_distribution = Object.entries(bodyCounts).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
 
       const cityCounts: Record<string, number> = {};
-      cars.forEach(c => {
-        cityCounts[c.city] = (cityCounts[c.city] || 0) + 1;
-      });
+      cars.forEach(c => { cityCounts[c.city] = (cityCounts[c.city] || 0) + 1; });
       const city_distribution = Object.entries(cityCounts).map(([name, value]) => ({ name, value })).sort((a, b) => b.value - a.value);
       const most_popular_city = city_distribution[0]?.name || 'Lahore';
 
@@ -468,9 +797,9 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
       const price_distribution = priceBrackets.map(b => ({ name: b.name, value: b.value }));
 
       res.json({
-        total_cars,
-        average_price,
-        active_listings: total_cars,
+        total_cars: cars.length,
+        average_price: cars.length ? average_price : 0,
+        active_listings: cars.filter((c) => (c.status || 'active') === 'active').length,
         most_popular_brand,
         most_popular_city,
         brand_distribution,
@@ -485,7 +814,11 @@ export function createApp(options: { serveLocalData?: boolean } = {}): Express {
           model: c.model,
           variant: c.variant,
           price: c.price,
-          city: c.city
+          city: c.city,
+          status: c.status || 'active',
+          payment_status: c.payment_status || 'paid',
+          owner_user_id: c.owner_user_id ?? null,
+          seller_name: c.seller_name,
         }))
       });
     } catch (err: any) {

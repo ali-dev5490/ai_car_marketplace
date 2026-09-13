@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="max-w-[1440px] w-full mx-auto px-gutter-desktop py-space-lg flex flex-col gap-space-xl">
+<!-- Top Context & Navigation Strip -->
+<div class="flex flex-col gap-space-sm">
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm overflow-x-auto whitespace-nowrap pb-1">
+<span class="hover:text-primary cursor-pointer">Marketplace</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer">My Garage &amp; Purchases</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer text-on-surface">Toyota Prado TX L (2022)</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer">Smart Card Issuance</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Digital Wallet Pass</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md mt-space-xs">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              ICT Directorate PKI Signed
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">nfc</span>
+              NFC Contactless Ready
+            </span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">TOKEN: #TK-88410-ICT</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Mobile Wallet Digital Gate Pass &amp; Vehicle Token
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Official Government of Pakistan ICT Excise &amp; Taxation Directorate verified cryptographic mobile pass. Compatible with Apple Wallet and Google Wallet.
+          </p>
+</div>
+<!-- Quick Top Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap self-start lg:self-center">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-colors" id="downloadPassBtn">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>Download .pkpass</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-colors" id="quickShareBtn">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">share</span>
+<span>Send to Phone</span>
+</button>
+<a class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-on-primary-fixed-variant transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Appointment Details</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Dual Display Matrix -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Interactive Mobile Wallet Pass (7 Cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- Platform Switcher Header -->
+<div class="flex items-center justify-between bg-surface-container-low p-1.5 rounded-xl shadow-sm">
+<div class="flex items-center gap-1">
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm transition-all" id="tabApple" onclick="switchPlatform('apple')">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.77-11.7-14.21-6.19-9.76-10.9-20.91-14.13-33.45-3.23-12.54-4.85-24.16-4.85-34.86 0-14.32 3.63-26.06 10.89-35.21 7.26-9.15 16.28-13.82 27.06-14.02 5.11 0 10.74 1.34 16.89 4.03 6.15 2.69 10.27 4.08 12.36 4.18 1.74 0 5.86-1.42 12.36-4.26 6.5-2.84 11.97-4.14 16.4-3.9 12.28.61 22.04 5.3 29.28 14.07-10.74 6.53-15.98 15.6-15.72 27.21.26 9.17 3.82 16.94 10.68 23.31 6.86 6.37 14.84 10.02 23.94 10.95-2.07 6.42-4.53 12.71-7.39 18.87zM119.22 33.17c-.12-4.26 1.34-8.87 4.38-13.83 3.04-4.96 7.23-8.89 12.57-11.79.43 1.25.65 2.63.65 4.14 0 4.2-.97 8.78-2.91 13.74s-4.88 9.07-8.82 12.33c-2.31 1.93-4.89 3.28-7.74 4.05-.26-2.89-.13-5.77-.13-8.64z"></path>
+</svg>
+<span>Apple Wallet (.pkpass)</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="tabGoogle" onclick="switchPlatform('google')">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Google Wallet (GPay)</span>
+</button>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs pr-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">verified_user</span>
+<span>Live Token Sync</span>
+</div>
+</div>
+<!-- Phone Shell Visual Wrapper -->
+<div class="flex justify-center p-4 sm:p-8 bg-surface-container-low rounded-xl shadow-inner">
+<!-- Apple Wallet Pass Layout -->
+<div class="w-full max-w-[430px] rounded-[24px] bg-gradient-to-b from-[#08231c] via-[#0b1c30] to-[#040f1a] text-white p-6 shadow-2xl flex flex-col gap-5 relative overflow-hidden transition-all duration-300" id="applePassCard">
+<!-- Guilloche & Grid Graphic Accent (Embedded SVG) -->
+<div class="absolute inset-0 opacity-[0.04] pointer-events-none">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="30" id="guilloche" patternunits="userSpaceOnUse" width="30">
+<circle cx="15" cy="15" fill="none" r="14" stroke="#ffffff" stroke-width="0.75"></circle>
+<circle cx="15" cy="15" fill="none" r="8" stroke="#ffffff" stroke-width="0.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#guilloche)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Pass Top Tier -->
+<div class="flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-950/80 flex items-center justify-center p-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[24px] text-emerald-400">shield_with_house</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] tracking-wider font-bold text-emerald-300 leading-none">ICT EXCISE &amp; TAXATION</span>
+<span class="text-[10px] text-slate-300 tracking-wider uppercase mt-1">Islamabad Capital Territory</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-emerald-200">GATE PASS</span>
+<span class="text-[9px] text-slate-400 font-data-mono">FAST-TRACK</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-emerald-400 rotate-90">wifi</span>
+</div>
+</div>
+<!-- Main Hero Vehicle Info -->
+<div class="flex items-end justify-between z-10 pt-2">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-label-sm">VEHICLE ASSIGNMENT</span>
+<span class="font-headline-md text-headline-md text-white font-bold tracking-tight">TOYOTA PRADO TX L</span>
+<span class="text-[12px] text-emerald-300 font-medium">2022 • Pearl White Mica • 2.7L Petrol</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 font-label-sm">OFFICIAL PLATE</span>
+<div class="px-3 py-1 bg-surface-container-lowest text-on-surface rounded-md font-headline-sm text-[16px] font-bold tracking-wider shadow-sm flex items-center gap-1.5">
+<span class="text-[9px] px-1 bg-emerald-700 text-white rounded font-normal">ICT</span>
+<span>AEL-786</span>
+</div>
+</div>
+</div>
+<!-- Intermediate Perforation / Divider -->
+<div class="relative py-1 flex items-center justify-between">
+<div class="w-4 h-8 bg-surface-container-low rounded-r-full -ml-6"></div>
+<div class="w-full border-t border-dashed border-white/20 mx-2"></div>
+<div class="w-4 h-8 bg-surface-container-low rounded-l-full -mr-6"></div>
+</div>
+<!-- Pass Core Field Triad -->
+<div class="grid grid-cols-3 gap-2 z-10">
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-semibold text-slate-400 tracking-wider">VISITOR / HOLDER</span>
+<span class="font-label-md text-label-md font-semibold text-white truncate">Bilal Ahmed</span>
+<span class="text-[10px] text-slate-400 font-data-mono">35201-8392011-1</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] uppercase font-semibold text-slate-400 tracking-wider">DATE &amp; TIME SLOT</span>
+<span class="font-label-md text-label-md font-semibold text-emerald-300">20 Nov 2025</span>
+<span class="text-[10px] text-slate-200">11:00 AM PST</span>
+</div>
+<div class="flex flex-col items-end text-right">
+<span class="text-[9px] uppercase font-semibold text-slate-400 tracking-wider">LANE / COUNTER</span>
+<span class="font-label-md text-label-md font-bold text-white">Lane 2</span>
+<span class="text-[10px] text-slate-300">Counter 7 (Fast-Track)</span>
+</div>
+</div>
+<!-- Auxiliary Details Matrix -->
+<div class="bg-white/5 rounded-xl p-3 flex items-center justify-between text-[11px] z-10 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">badge</span>
+<div class="flex flex-col">
+<span class="text-[9px] text-slate-400 uppercase">Supervising Inspector</span>
+<span class="font-medium text-slate-200">Insp. Zulfiqar Ali</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">fingerprint</span>
+<div class="flex flex-col text-right">
+<span class="text-[9px] text-slate-400 uppercase">NADRA Biometric</span>
+<span class="font-medium text-emerald-400">Matched (Tier-2)</span>
+</div>
+</div>
+</div>
+<!-- Aztec / QR Code Scanning Field -->
+<div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center gap-2 z-10 text-on-surface shadow-md">
+<div class="text-[10px] font-semibold tracking-wider text-slate-500 uppercase">
+                Present screen at Turnstile B &amp; Counter Terminal
+              </div>
+<!-- Clean Centered Scalable Vector QR Code -->
+<div class="p-2 bg-white rounded-lg flex items-center justify-center shadow-inner">
+<svg class="w-36 h-36" fill="currentColor" viewbox="0 0 160 160">
+<!-- Finder pattern top-left -->
+<rect height="40" rx="4" width="40" x="10" y="10"></rect>
+<rect fill="white" height="24" width="24" x="18" y="18"></rect>
+<rect height="12" width="12" x="24" y="24"></rect>
+<!-- Finder pattern top-right -->
+<rect height="40" rx="4" width="40" x="110" y="10"></rect>
+<rect fill="white" height="24" width="24" x="118" y="18"></rect>
+<rect height="12" width="12" x="124" y="24"></rect>
+<!-- Finder pattern bottom-left -->
+<rect height="40" rx="4" width="40" x="10" y="110"></rect>
+<rect fill="white" height="24" width="24" x="18" y="118"></rect>
+<rect height="12" width="12" x="24" y="124"></rect>
+<!-- Dynamic Matrix Data Modules -->
+<rect height="8" width="8" x="60" y="15"></rect>
+<rect height="8" width="16" x="75" y="15"></rect>
+<rect height="8" width="16" x="60" y="30"></rect>
+<rect height="8" width="12" x="85" y="30"></rect>
+<rect height="16" width="8" x="65" y="45"></rect>
+<rect height="8" width="16" x="80" y="45"></rect>
+<rect height="16" width="8" x="15" y="60"></rect>
+<rect height="8" width="16" x="30" y="60"></rect>
+<rect height="8" width="16" x="15" y="85"></rect>
+<rect height="18" width="8" x="38" y="80"></rect>
+<rect height="14" width="14" x="60" y="70"></rect>
+<rect height="12" width="12" x="85" y="65"></rect>
+<rect height="10" width="16" x="75" y="88"></rect>
+<rect height="14" width="8" x="60" y="105"></rect>
+<rect height="8" width="12" x="75" y="105"></rect>
+<rect height="20" width="8" x="95" y="100"></rect>
+<rect height="8" width="18" x="110" y="60"></rect>
+<rect height="8" width="12" x="135" y="60"></rect>
+<rect height="16" width="8" x="110" y="75"></rect>
+<rect height="8" width="20" x="125" y="80"></rect>
+<rect height="14" width="14" x="115" y="105"></rect>
+<rect height="24" width="12" x="135" y="105"></rect>
+<rect height="8" width="24" x="60" y="130"></rect>
+<rect height="14" width="14" x="90" y="130"></rect>
+<rect height="8" width="16" x="110" y="135"></rect>
+</svg>
+</div>
+<div class="flex items-center gap-2 font-data-mono text-data-mono text-slate-600 font-semibold tracking-wider">
+<span>PK-ICT-2025-99812-BLA</span>
+<button class="hover:text-primary transition-colors" onclick="navigator.clipboard.writeText('PK-ICT-2025-99812-BLA')">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Pass Security Subtext -->
+<div class="flex flex-col items-center text-center gap-1 z-10 text-[10px] text-slate-400">
+<div class="flex items-center gap-2 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>SHA-256 ECC Certified • Valid only with original CNIC</span>
+</div>
+<span>Govt. of Pakistan ICT Excise Directorate • Civic Gateway v3.1</span>
+</div>
+</div>
+<!-- Google Wallet Pass Layout (Initially Hidden) -->
+<div class="w-full max-w-[430px] rounded-[24px] bg-surface-container-lowest text-on-surface p-6 shadow-2xl flex-col gap-5 relative overflow-hidden hidden transition-all duration-300" id="googlePassCard">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">ICT Excise &amp; Taxation</span>
+<span class="text-[11px] text-on-surface-variant">Gate Pass • Smart Card Handover</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-bold">GPay Pass</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm uppercase text-on-surface-variant">Vehicle Details</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Toyota Prado TX L (2022)</span>
+<span class="font-data-mono text-data-mono text-primary font-semibold">Reg: ICT • AEL-786 • White Mica</span>
+</div>
+<!-- Card Image Placeholder for Google Pass Banner -->
+<div class="w-full h-32 rounded-xl bg-surface-container-low overflow-hidden relative flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A pristine modern Toyota Land Cruiser Prado parked outside the gleaming glass architectural facade of Islamabad Excise and Taxation Directorate under soft daylight, clean photorealistic editorial composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALvl_3LIYEVkhUV6caEn9NE3WgLlfnzQv7mR3zxltnqQC9gqAzQ1fbI31E35NcvFSlO05-J8JHqprjgzDD73M9WNZSQ5SIrpb67ziLERjkB_XZw0VHWFjU3QlxfKDVqPnDCAGlHHGIudemdd2koGKEGweSfEHOi3XtBkzpO_2g1N1Ekeru4S6Q5YSCGMr-Dn8RtMVIEgB5nQDYehxBCFjkKrxSNmxsrq7WSKz83iSdUlzecG1fb9O_RQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-2 left-3 text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">verified</span>
+<span class="font-label-sm text-label-sm font-semibold">Chassis Verified: MRHFE1***90214</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 p-3 bg-surface-container-low rounded-xl">
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant font-label-sm">Visitor Name</div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Bilal Ahmed</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant font-label-sm">Appointment Slot</div>
+<div class="font-label-md text-label-md font-semibold text-primary">20 Nov 2025, 11:00 AM</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant font-label-sm">Turnstile / Gate</div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Gate 2 • Counter 7</div>
+</div>
+<div>
+<div class="text-[10px] uppercase text-on-surface-variant font-label-sm">Security Pin</div>
+<div class="font-data-mono text-data-mono font-bold text-on-surface">88410-ICT</div>
+</div>
+</div>
+<!-- Google Wallet Centered Barcode -->
+<div class="flex flex-col items-center justify-center gap-2 pt-2">
+<svg class="w-48 h-16" fill="currentColor" viewbox="0 0 200 60">
+<!-- Authentic PDF417 / 1D Barcode Pattern -->
+<rect height="60" width="4" x="5" y="0"></rect>
+<rect height="60" width="2" x="12" y="0"></rect>
+<rect height="60" width="6" x="17" y="0"></rect>
+<rect height="60" width="2" x="26" y="0"></rect>
+<rect height="60" width="5" x="31" y="0"></rect>
+<rect height="60" width="3" x="39" y="0"></rect>
+<rect height="60" width="7" x="45" y="0"></rect>
+<rect height="60" width="2" x="55" y="0"></rect>
+<rect height="60" width="5" x="60" y="0"></rect>
+<rect height="60" width="4" x="68" y="0"></rect>
+<rect height="60" width="8" x="75" y="0"></rect>
+<rect height="60" width="3" x="86" y="0"></rect>
+<rect height="60" width="6" x="92" y="0"></rect>
+<rect height="60" width="2" x="101" y="0"></rect>
+<rect height="60" width="7" x="106" y="0"></rect>
+<rect height="60" width="4" x="116" y="0"></rect>
+<rect height="60" width="5" x="123" y="0"></rect>
+<rect height="60" width="3" x="131" y="0"></rect>
+<rect height="60" width="6" x="137" y="0"></rect>
+<rect height="60" width="2" x="146" y="0"></rect>
+<rect height="60" width="8" x="151" y="0"></rect>
+<rect height="60" width="4" x="162" y="0"></rect>
+<rect height="60" width="3" x="169" y="0"></rect>
+<rect height="60" width="6" x="175" y="0"></rect>
+<rect height="60" width="3" x="184" y="0"></rect>
+<rect height="60" width="5" x="190" y="0"></rect>
+</svg>
+<span class="font-data-mono text-data-mono text-on-surface-variant font-medium">TK-88410-ICT-2025</span>
+</div>
+<div class="text-center font-label-sm text-[11px] text-on-surface-variant">
+              Issued via Govt of Pakistan ICT Directorate • Google Wallet Protected
+            </div>
+</div>
+</div>
+<!-- Live Push Simulator Notification Toast (Simulated Mobile Experience) -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-md flex items-start gap-space-md">
+<div class="p-2.5 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">notifications_active</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">Lock Screen Geofence Preview</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Trigger: Within 500m</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              “<strong>ICT Excise Pass:</strong> You have arrived at Sector H-9/4 Directorate. Tap here to display your fast-track QR code for Turnstile B &amp; Counter 7.”
+            </p>
+<div class="flex items-center gap-space-sm pt-1">
+<button class="text-primary font-label-sm text-label-sm hover:underline flex items-center gap-1" onclick="testNotificationAudio()">
+<span class="material-symbols-outlined text-[14px]">volume_up</span> Test notification sound
+              </button>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Automatic Apple/Google Location Proximity</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Wallet Actions, Delivery Channels & Live Features (5 Cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- One-Click Primary Wallet Buttons -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">Direct Onboarding</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Install Pass into Smartphone</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Instant cryptographically signed install into Apple Wallet or Google Wallet app with no account required.
+            </p>
+</div>
+<div class="flex flex-col gap-space-sm pt-2">
+<!-- Official Apple Wallet Button Badge -->
+<button class="w-full h-12 bg-black text-white hover:bg-neutral-900 rounded-xl px-4 flex items-center justify-center gap-3 transition-transform active:scale-[0.99] shadow-md" onclick="triggerInstallToast('Apple Wallet')">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.77-11.7-14.21-6.19-9.76-10.9-20.91-14.13-33.45-3.23-12.54-4.85-24.16-4.85-34.86 0-14.32 3.63-26.06 10.89-35.21 7.26-9.15 16.28-13.82 27.06-14.02 5.11 0 10.74 1.34 16.89 4.03 6.15 2.69 10.27 4.08 12.36 4.18 1.74 0 5.86-1.42 12.36-4.26 6.5-2.84 11.97-4.14 16.4-3.9 12.28.61 22.04 5.3 29.28 14.07-10.74 6.53-15.98 15.6-15.72 27.21.26 9.17 3.82 16.94 10.68 23.31 6.86 6.37 14.84 10.02 23.94 10.95-2.07 6.42-4.53 12.71-7.39 18.87zM119.22 33.17c-.12-4.26 1.34-8.87 4.38-13.83 3.04-4.96 7.23-8.89 12.57-11.79.43 1.25.65 2.63.65 4.14 0 4.2-.97 8.78-2.91 13.74s-4.88 9.07-8.82 12.33c-2.31 1.93-4.89 3.28-7.74 4.05-.26-2.89-.13-5.77-.13-8.64z"></path>
+</svg>
+<div class="flex flex-col items-start leading-none">
+<span class="text-[10px] text-neutral-400 uppercase tracking-wider font-medium">Add to</span>
+<span class="font-headline-sm text-[16px] font-semibold tracking-tight">Apple Wallet</span>
+</div>
+</button>
+<!-- Official Google Wallet Button Badge -->
+<button class="w-full h-12 bg-[#202124] text-white hover:bg-[#303134] rounded-xl px-4 flex items-center justify-center gap-3 transition-transform active:scale-[0.99] shadow-md" onclick="triggerInstallToast('Google Wallet')">
+<svg class="w-6 h-6" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<div class="flex flex-col items-start leading-none">
+<span class="text-[10px] text-neutral-400 uppercase tracking-wider font-medium">Add to</span>
+<span class="font-headline-sm text-[16px] font-semibold tracking-tight">Google Wallet</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Dispatch Pass via SMS & WhatsApp + Scan to Phone -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Direct Delivery to Mobile</h4>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-[10px]">Instant SMS/WA</span>
+</div>
+<!-- Input Row -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Pakistani Mobile Number</label>
+<div class="flex items-center gap-2">
+<div class="flex-1 flex items-center bg-surface-container-low rounded-lg px-3 py-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant mr-2">phone_iphone</span>
+<input class="w-full bg-transparent font-data-mono text-data-mono text-on-surface focus:outline-none" id="mobilePhoneInput" type="text" value="+92 321 8492044"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-1">
+<button class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-variant text-primary font-label-md text-label-md transition-colors" onclick="sendMobileLink('SMS')">
+<span class="material-symbols-outlined text-[16px]">sms</span>
+<span>Send SMS Link</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#075E54]/10 hover:bg-[#075E54]/20 text-[#075E54] font-label-md text-label-md transition-colors" onclick="sendMobileLink('WhatsApp')">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>Send WhatsApp</span>
+</button>
+</div>
+</div>
+<!-- Direct Camera QR Scan Section -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-center gap-space-md">
+<div class="p-2 bg-surface-container-lowest rounded-lg shadow-sm shrink-0">
+<svg class="w-16 h-16 text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<rect height="25" rx="3" width="25" x="5" y="5"></rect>
+<rect fill="white" height="15" width="15" x="10" y="10"></rect>
+<rect height="7" width="7" x="14" y="14"></rect>
+<rect height="25" rx="3" width="25" x="70" y="5"></rect>
+<rect fill="white" height="15" width="15" x="75" y="10"></rect>
+<rect height="7" width="7" x="79" y="79"></rect>
+<rect height="25" rx="3" width="25" x="5" y="70"></rect>
+<rect fill="white" height="15" width="15" x="10" y="75"></rect>
+<rect height="7" width="7" x="14" y="79"></rect>
+<rect height="10" width="10" x="40" y="10"></rect>
+<rect height="20" width="8" x="55" y="10"></rect>
+<rect height="8" width="20" x="40" y="30"></rect>
+<rect height="10" width="10" x="10" y="40"></rect>
+<rect height="8" width="20" x="70" y="40"></rect>
+<rect height="20" width="10" x="40" y="50"></rect>
+<rect height="10" width="15" x="55" y="50"></rect>
+<rect height="15" width="20" x="40" y="75"></rect>
+<rect height="10" width="10" x="70" y="65"></rect>
+<rect height="20" width="10" x="85" y="75"></rect>
+</svg>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md font-bold text-on-surface">Scan with Smartphone Camera</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Point your iPhone or Android camera at this badge. Your OS will automatically offer to import the card into your native wallet app.
+              </p>
+</div>
+</div>
+</div>
+<!-- Real-Time Pass Perks & Automated Triggers -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Smart Pass Capabilities</h4>
+<div class="flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Geofenced Sector H-9/4 Auto-Pop</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  When approaching within 500m of the ICT Excise complex, pass surfaces automatically on your lock screen.
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">contactless</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Turnstile Fast-Track NFC</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  Bypass the general queue at Gate 2. Tap your phone on Turnstile B reader for instant barrier clearance.
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">update</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Live Printing &amp; Stamping Alerts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  Pass flips from "In Verification" to "Smart Card Ready for Pickup" as soon as Inspector Zulfiqar finishes processing.
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-on-surface">State Root CA Cryptography</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  Protected against duplication via digital hash verification against ICT Central Registry database.
+                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Pass Backside Details & Regulatory Ledger (Bento Card) -->
+<div class="bg-surface-container-lowest p-space-lg lg:p-space-xl rounded-xl shadow-md flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm border-b border-outline-variant/20">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">flip_to_back</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Pass Details &amp; Legal Regulatory Ledger</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cryptographic vehicle metadata rendered on the reverse side of the mobile wallet pass</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono px-2.5 py-1 bg-surface-container-low text-on-surface rounded-md font-semibold">
+            ESAHULAT-ISB-2025-99812
+          </span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Chassis Serial Number</span>
+<span class="font-data-mono text-[14px] font-bold text-on-surface">MRHFE1-PRADO-90214</span>
+<span class="text-[11px] text-emerald-700 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            Physical Punch Verified
+          </span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Engine Serial &amp; cc</span>
+<span class="font-data-mono text-[14px] font-bold text-on-surface">2TR-FE-8812903 • 2693 cc</span>
+<span class="text-[11px] text-emerald-700 flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            Customs Duty Paid (GD-3104)
+          </span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">NADRA e-Sahulat Token</span>
+<span class="font-data-mono text-[14px] font-bold text-on-surface">NSH-99120-ISB</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Biometrics Cleared 14 Nov
+          </span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Excise Liaison Officer</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Faisal Rasheed</span>
+<span class="font-data-mono text-[11px] text-primary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">support_agent</span>
+            0300-5519820 (Blue Area Liaison)
+          </span>
+</div>
+</div>
+<!-- Regulatory Terms -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center gap-2 text-on-surface font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px] text-tertiary">gavel</span>
+<span>Terms of Gate Admission &amp; Physical Pickup</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md text-[12px] text-on-surface-variant">
+<div>
+            • <strong>Non-Transferable:</strong> This pass is locked to CNIC 35201-8392011-1 (Bilal Ahmed). Authorized family members require an official Power of Attorney.
+          </div>
+<div>
+            • <strong>Strict Time Expiry:</strong> Appointment slot expires at 11:45 AM. Late arrivals will be directed to the general afternoon walk-in standby counter.
+          </div>
+<div>
+            • <strong>Required Originals:</strong> Bring original NADRA CNIC, original physical file, and previous excise clearance receipt.
+          </div>
+</div>
+</div>
+</div>
+<!-- Feedback Toast element -->
+<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-xl font-label-md text-label-md flex items-center gap-2 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="actionToast">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]" id="toastIcon">check_circle</span>
+<span id="toastMessage">Pass successfully processed!</span>
+</div>
+</div>
+<!-- Interactive Logic for Wallet Preview & Delivery -->
+<script>
+    function switchPlatform(platform) {
+      const appleBtn = document.getElementById('tabApple');
+      const googleBtn = document.getElementById('tabGoogle');
+      const appleCard = document.getElementById('applePassCard');
+      const googleCard = document.getElementById('googlePassCard');
+
+      if (platform === 'apple') {
+        appleBtn.className = 'flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm transition-all';
+        googleBtn.className = 'flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+        appleCard.classList.remove('hidden');
+        appleCard.classList.add('flex');
+        googleCard.classList.add('hidden');
+        googleCard.classList.remove('flex');
+      } else {
+        googleBtn.className = 'flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md bg-surface-container-lowest text-on-surface shadow-sm transition-all';
+        appleBtn.className = 'flex items-center gap-2 px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+        googleCard.classList.remove('hidden');
+        googleCard.classList.add('flex');
+        appleCard.classList.add('hidden');
+        appleCard.classList.remove('flex');
+      }
+    }
+
+    function showToast(message, icon = 'check_circle') {
+      const toast = document.getElementById('actionToast');
+      const msg = document.getElementById('toastMessage');
+      const icn = document.getElementById('toastIcon');
+      msg.textContent = message;
+      icn.textContent = icon;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+
+    function triggerInstallToast(platform) {
+      showToast('Opening native ' + platform + ' import prompt...', 'downloading');
+    }
+
+    function sendMobileLink(channel) {
+      const phone = document.getElementById('mobilePhoneInput').value;
+      showToast('Pass link dispatched via ' + channel + ' to ' + phone, 'send');
+    }
+
+    function testNotificationAudio() {
+      showToast('Geofence test chime triggered at Sector H-9/4 beacon', 'volume_up');
+    }
+
+    document.getElementById('downloadPassBtn').addEventListener('click', function() {
+      showToast('Downloading verified ICT-PRADO-TX-2025.pkpass file...', 'download');
+    });
+
+    document.getElementById('quickShareBtn').addEventListener('click', function() {
+      showToast('Sharing link generated for +92 321 8492044', 'share');
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

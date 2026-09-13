@@ -565,38 +565,48 @@ class Database {
     this.load();
   }
   
+  private normalizeCar(car: Car): Car {
+    return {
+      ...car,
+      owner_user_id: car.owner_user_id ?? null,
+      status: car.status || 'active',
+      payment_status: car.payment_status || 'paid',
+      moderation_reason: car.moderation_reason || '',
+    };
+  }
+
   private load() {
     try {
       if (fs.existsSync(DB_FILE)) {
         const data = fs.readFileSync(DB_FILE, 'utf-8');
-        this.cars = JSON.parse(data);
+        this.cars = (JSON.parse(data) as Car[]).map((c) => this.normalizeCar(c));
         console.log(`Database loaded with ${this.cars.length} cars from file.`);
         return;
       }
 
       if (Array.isArray(bundledCars) && bundledCars.length > 0) {
-        this.cars = bundledCars as Car[];
+        this.cars = (bundledCars as Car[]).map((c) => this.normalizeCar(c));
         console.log(`Database loaded with ${this.cars.length} cars from bundled JSON.`);
         return;
       }
 
       console.log('Database file not found, seeding from scraped data...');
-      this.cars = seedFromScrapedData();
+      this.cars = seedFromScrapedData().map((c) => this.normalizeCar(c));
       this.save();
       console.log(`Database seeded with ${this.cars.length} cars.`);
     } catch (err) {
       console.error('Error loading database, generating in-memory seed...', err);
       if (Array.isArray(bundledCars) && bundledCars.length > 0) {
-        this.cars = bundledCars as Car[];
+        this.cars = (bundledCars as Car[]).map((c) => this.normalizeCar(c));
       } else {
-        this.cars = seedFromScrapedData();
+        this.cars = seedFromScrapedData().map((c) => this.normalizeCar(c));
       }
     }
   }
 
   /** Wipe inventory and re-import scraped cars + local images. */
   public reimportScrapedCars(): Car[] {
-    this.cars = seedFromScrapedData();
+    this.cars = seedFromScrapedData().map((c) => this.normalizeCar(c));
     this.save();
     console.log(`Database reimported with ${this.cars.length} scraped cars.`);
     return this.cars;
@@ -613,6 +623,10 @@ class Database {
   public getCars(): Car[] {
     return this.cars;
   }
+
+  public getCarsByOwner(ownerId: number): Car[] {
+    return this.cars.filter((c) => c.owner_user_id === ownerId);
+  }
   
   public getCarById(id: number): Car | undefined {
     return this.cars.find(c => c.id === id);
@@ -620,11 +634,14 @@ class Database {
   
   public createCar(carData: Omit<Car, 'id' | 'created_at'>): Car {
     const nextId = this.cars.length > 0 ? Math.max(...this.cars.map(c => c.id)) + 1 : 1;
-    const newCar: Car = {
+    const newCar: Car = this.normalizeCar({
       ...carData,
       id: nextId,
-      created_at: new Date().toISOString()
-    };
+      created_at: new Date().toISOString(),
+      status: carData.status || 'pending_payment',
+      payment_status: carData.payment_status || 'unpaid',
+      owner_user_id: carData.owner_user_id ?? null,
+    });
     this.cars.unshift(newCar); // Add new listings at the top
     this.save();
     return newCar;
@@ -634,11 +651,11 @@ class Database {
     const carIndex = this.cars.findIndex(c => c.id === id);
     if (carIndex === -1) return undefined;
     
-    this.cars[carIndex] = {
+    this.cars[carIndex] = this.normalizeCar({
       ...this.cars[carIndex],
       ...carData,
       id // Ensure ID cannot be changed
-    };
+    });
     this.save();
     return this.cars[carIndex];
   }

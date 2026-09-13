@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Keyframe and Pulse Utility Styles for NFC Simulation -->
+<style>
+    @keyframes nfc-wave {
+      0% { transform: scale(0.65); opacity: 0.85; }
+      50% { opacity: 0.35; }
+      100% { transform: scale(1.65); opacity: 0; }
+    }
+    @keyframes beam-pulse {
+      0%, 100% { opacity: 0.25; transform: scaleY(0.98); }
+      50% { opacity: 0.85; transform: scaleY(1.02); }
+    }
+    @keyframes gentle-float {
+      0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+      50% { transform: translateY(-7px) rotate(-1deg); }
+    }
+    .animate-nfc-1 { animation: nfc-wave 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
+    .animate-nfc-2 { animation: nfc-wave 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s infinite; }
+    .animate-nfc-3 { animation: nfc-wave 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1.2s infinite; }
+    .animate-device-float { animation: gentle-float 4.2s ease-in-out infinite; }
+    .animate-status-beam { animation: beam-pulse 2s ease-in-out infinite; }
+  </style>
+<!-- Top Hero Context Bar & Breadcrumbs -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant/30 py-space-sm px-gutter-desktop">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center flex-wrap gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="browse-cars" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span> Marketplace
+        </a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" data-path="customer-portal" href="#">My Garage</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Toyota Prado TX L (2022)</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Turnstile Contactless NFC Express</span>
+</div>
+<!-- Quick Session Badge -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-emerald-50 text-emerald-800 text-label-sm font-label-sm border border-emerald-200">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span>ICT Smart Gate Protocol: Online (Sector H-9/4)</span>
+</div>
+<div class="hidden sm:flex items-center gap-1 text-on-surface-variant font-data-mono text-label-sm">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span id="session-clock">11:42:19 AM PKT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Stage Container -->
+<div class="max-w-[1440px] w-full mx-auto px-gutter-desktop py-space-lg">
+<!-- Header Block -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-primary/10 text-primary">Civic Tech • Islamabad Capital Territory</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-surface-container-high text-on-surface-variant">Gate 2 Fast-Track Express</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Turnstile Contactless NFC Tap &amp; Barrier Access Simulation</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Simulated high-frequency ISO/IEC 14443 Type-A and Apple VAS hardware clearance. Hold your authenticated wallet pass within 4cm of the optic sensor ring.
+        </p>
+</div>
+<!-- Live Token Meta Chip -->
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl border border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Visitor Session</span>
+<span class="font-data-mono text-label-lg font-bold text-on-surface">Bilal Ahmed • ICT-AEL-786</span>
+</div>
+<div class="h-8 w-px bg-outline-variant/40"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Hardware Target</span>
+<span class="font-data-mono text-label-lg font-semibold text-primary">Turnstile B-02</span>
+</div>
+</div>
+</div>
+<!-- Main Content 2-Column Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Physical Turnstile Reader & Device Simulation Stage (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Interactive Terminal Simulator Board -->
+<div class="relative bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 rounded-2xl p-space-md md:p-space-lg text-white shadow-xl overflow-hidden border border-slate-800">
+<!-- Background Ambient Glow & Turnstile Flap Architecture Lines -->
+<div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:18px_18px]"></div>
+<div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<!-- Top Status Strip of Reader Unit -->
+<div class="relative z-10 flex items-center justify-between border-b border-slate-800/80 pb-space-sm mb-space-md">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+</span>
+<span class="font-label-sm text-[12px] uppercase font-bold tracking-wider text-emerald-400">Express Mode Ready • Apple / Google Wallet NFC Active</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-400 font-data-mono text-[11px]">
+<span class="material-symbols-outlined text-[15px] text-emerald-400">contactless</span>
+<span>13.56 MHz High-Throughput</span>
+</div>
+</div>
+<!-- Interactive Visualization Arena: Angled Mobile & Turnstile Contactless Pedestal -->
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-space-md items-center py-space-sm">
+<!-- Pedestal Pedestal Reader Surface (Left inside the container) -->
+<div class="md:col-span-6 flex flex-col items-center justify-center relative min-h-[360px]">
+<!-- Concentric Animated Pulse Waves Emitting from the Turnstile Antenna -->
+<div class="absolute w-56 h-56 rounded-full border border-emerald-400/40 animate-nfc-1 pointer-events-none"></div>
+<div class="absolute w-56 h-56 rounded-full border border-emerald-400/30 animate-nfc-2 pointer-events-none"></div>
+<div class="absolute w-56 h-56 rounded-full border border-emerald-300/20 animate-nfc-3 pointer-events-none"></div>
+<!-- Physical Brushed Aluminum Reader Cylinder / Bezel -->
+<div class="relative w-52 h-52 rounded-full bg-gradient-to-br from-slate-800 via-slate-900 to-black p-3 shadow-[0_0_50px_rgba(16,185,129,0.25)] flex items-center justify-center border-4 border-slate-700/60 group">
+<!-- High-intensity Status LED Halo -->
+<div class="absolute inset-1 rounded-full border-4 border-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.9)] animate-status-beam transition-colors duration-500" id="led-ring"></div>
+<!-- Inner Sensor Plate -->
+<div class="w-full h-full rounded-full bg-slate-950 flex flex-col items-center justify-center text-center p-3 z-10 border border-slate-800">
+<span class="material-symbols-outlined text-4xl text-emerald-400 mb-1 drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]">contactless</span>
+<span class="font-headline-sm text-emerald-300 text-sm font-bold tracking-tight">TAP PHONE HERE</span>
+<span class="font-data-mono text-[10px] text-slate-400 tracking-wider mt-0.5">READ DISTANCE ≤ 4.0 CM</span>
+<!-- Miniature Passcode / OK validation icon -->
+<div class="mt-2 flex items-center gap-1 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/40">
+<span class="material-symbols-outlined text-[13px] text-emerald-300">verified</span>
+<span class="text-[10px] font-bold text-emerald-300">PASS VALIDATED</span>
+</div>
+</div>
+<!-- Physical Alignment Notches -->
+<div class="absolute top-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1 bg-emerald-400/80 rounded-full"></div>
+<div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1 bg-emerald-400/80 rounded-full"></div>
+<div class="absolute left-1.5 top-1/2 -translate-y-1/2 w-1 h-1.5 bg-emerald-400/80 rounded-full"></div>
+<div class="absolute right-1.5 top-1/2 -translate-y-1/2 w-1 h-1.5 bg-emerald-400/80 rounded-full"></div>
+</div>
+<!-- Directional Hint Below Pedestal -->
+<div class="mt-4 flex items-center gap-1.5 text-slate-400 text-body-sm font-data-mono">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">arrow_upward</span>
+<span>Optical Turnstile Flap Unlatched</span>
+</div>
+</div>
+<!-- Angled Smartphone with Digital Wallet Gate Pass (Right inside the container) -->
+<div class="md:col-span-6 flex justify-center">
+<div class="animate-device-float w-full max-w-[270px] bg-slate-900/90 rounded-[32px] p-2.5 shadow-2xl border border-slate-700/80 backdrop-blur-sm relative">
+<!-- Phone Dynamic Island & Speaker notch -->
+<div class="w-24 h-4 bg-black rounded-full mx-auto mb-2 flex items-center justify-end px-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></div>
+</div>
+<!-- Digital Wallet Pass Card Mockup -->
+<div class="bg-gradient-to-br from-slate-900 via-primary-container to-blue-900 rounded-[22px] p-3.5 text-white shadow-lg border border-blue-400/30 relative overflow-hidden">
+<!-- Subtle Pakistani Crescent / Seal watermark bg -->
+<div class="absolute -right-6 -bottom-6 w-28 h-28 opacity-10 rounded-full border-8 border-white pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-md bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px] text-white">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold uppercase tracking-wider text-blue-100 leading-none">ICT Excise</span>
+<span class="text-[8px] text-blue-200">Express Pass</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-base text-white/80">nfc</span>
+</div>
+<!-- Pass Content Details -->
+<div class="space-y-2 mb-3">
+<div>
+<span class="text-[9px] uppercase tracking-wider text-blue-200 block font-label-sm">Vehicle Plate</span>
+<div class="font-headline-sm text-base tracking-wide font-extrabold text-white flex items-center gap-1.5">
+<span class="bg-yellow-400 text-slate-950 px-1 py-0.2 rounded font-bold text-[10px]">ICT</span>
+<span>AEL • 786</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-1 text-[10px] font-data-mono bg-black/20 p-2 rounded-lg">
+<div>
+<span class="text-blue-200 text-[8px] block">NAME</span>
+<span class="font-semibold text-white truncate block">Bilal Ahmed</span>
+</div>
+<div>
+<span class="text-blue-200 text-[8px] block">TURNSTILE</span>
+<span class="font-semibold text-emerald-300 block">GATE 2 - FAST</span>
+</div>
+</div>
+</div>
+<!-- Wallet Tap Confirmation Overlay -->
+<div class="bg-emerald-950/90 border border-emerald-400/60 rounded-xl p-2 flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-slate-950 shadow-md">
+<span class="material-symbols-outlined text-[18px] font-bold">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] font-bold text-emerald-200 leading-tight">Done • Single Buzz</span>
+<span class="text-[8px] text-emerald-300 font-data-mono">Haptic NFC Vibration Confirmed</span>
+</div>
+</div>
+</div>
+<!-- Lower Phone Soft Home Bar -->
+<div class="w-20 h-1 bg-slate-600 rounded-full mx-auto mt-2.5"></div>
+</div>
+</div>
+</div>
+<!-- Digital LCD Message Readout on the Turnstile Glass Barrier -->
+<div class="relative z-10 mt-space-sm bg-black/80 rounded-xl p-space-md border border-slate-800 shadow-inner font-data-mono text-emerald-400">
+<div class="flex items-center justify-between border-b border-emerald-950 pb-1.5 mb-2">
+<span class="text-[10px] uppercase tracking-widest text-emerald-500 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span> Turnstile Hardware Barrier Console V4.9
+              </span>
+<span class="text-[10px] text-emerald-500 bg-emerald-950 px-2 py-0.5 rounded">STATUS: CLEARED</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-1 gap-x-4 text-[12px] leading-relaxed">
+<p class="truncate"><span class="text-slate-400">VISITOR:</span> <span class="font-bold text-white">BILAL AHMED</span> (CNIC: 35201-8392011-1)</p>
+<p class="truncate"><span class="text-slate-400">VEHICLE:</span> TOYOTA PRADO TX L [ICT AEL-786]</p>
+<p class="truncate text-emerald-300 font-semibold"><span class="text-slate-400">ROUTING:</span> PROCEED DIRECTLY TO COUNTER 7 (INSP. ZULFIQAR)</p>
+<p class="truncate text-emerald-400 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] animate-bounce">lock_open</span> BARRIER: ROTATING UNLOCKED (PASS THRU NOW)
+              </p>
+</div>
+</div>
+<!-- Interactive Action Buttons Row Below Terminal -->
+<div class="relative z-10 flex flex-wrap items-center justify-between gap-space-sm mt-space-md pt-space-sm border-t border-slate-800">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-label-md text-label-md font-bold transition-all shadow-md active:scale-95" id="tap-again-btn" onclick="simulateNewTap()">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Simulate Tap Again</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-label-md text-label-md border border-slate-700 transition-colors" id="chime-toggle-btn" onclick="toggleChime()">
+<span class="material-symbols-outlined text-[18px] text-emerald-400" id="chime-icon">volume_up</span>
+<span id="chime-text">Chime: Enabled (Ding)</span>
+</button>
+</div>
+<a class="flex items-center gap-1 text-slate-300 hover:text-white font-label-md text-label-md py-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
+<span>Open Pass in Wallet</span>
+</a>
+</div>
+</div>
+<!-- Real-Time Associated Vehicle Inspection Snapshot -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">directions_car</span>
+<h3 class="font-headline-sm text-on-surface text-[16px]">Associated Vehicle Profile</h3>
+</div>
+<span class="font-label-sm text-[11px] px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-semibold">2022 Registration Package</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-md items-center">
+<!-- Prado Image Tile (From User Inspiration) -->
+<div class="sm:col-span-5 relative rounded-xl overflow-hidden aspect-[16/10] bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A pristine pearl white 2022 Toyota Land Cruiser Prado TX L parked on a clean patterned stone driveway in front of modern architecture with the Margalla Hills of Islamabad visible in the background, sharp crisp lighting, premium automotive editorial quality" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqvlzuNPYv-TdhbR5f9jBMQpfLBnvorjMswaCmB83D8XLAIhwHPWo9RbYf-fyFpELAaVBEcLNUcbnIbANj9D31lFsxTimJcqmgN7C8Fk3nXawAjE1RFHaxTDjs9YJd1MsAE0l1a9gOekT_3S3xzofMNcttNXCQWL4RCTWkP-rVa7ggSc-ybJG9L2nIr3xYtuGnoioiIY0OduxJP-WU6xsmcCoKFed2QvQjOXaIFTpaiHDXXqJtLFep9g"/>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-slate-900/80 backdrop-blur-md text-[10px] font-bold text-white tracking-wider font-data-mono">
+                PRADO TX L
+              </div>
+</div>
+<!-- Vehicle & Document Checklist Data -->
+<div class="sm:col-span-7 space-y-2">
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Chassis VIN:</span>
+<span class="font-data-mono text-on-surface font-semibold">TRJ150-0199421</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Engine Number:</span>
+<span class="font-data-mono text-on-surface font-semibold">2TR-FE (2700cc Petrol)</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Excise Smart Card Status:</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Printed &amp; Sealed in Box
+                </span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-on-surface-variant">Biometric Seller Verification:</span>
+<span class="font-label-sm text-on-surface font-semibold flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span> Tariq Mehmood (Matched)
+                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Telemetry, Clearance Timer & Step Directions (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Card 1: Cryptographic NFC Handshake Telemetry -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-space-sm border-b border-outline-variant/20 pb-space-xs">
+<div class="flex items-center gap-2">
+<div class="p-1 rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[18px]">security</span>
+</div>
+<h2 class="font-headline-sm text-on-surface text-[16px]">NFC Cryptographic Telemetry</h2>
+</div>
+<span class="font-data-mono text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">142 ms (Latency)</span>
+</div>
+<div class="space-y-2.5 font-data-mono text-[12px]">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant">RF Protocol:</span>
+<span class="font-bold text-on-surface">ISO/IEC 14443-A (Apple VAS)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant">Ephemeral Token ID:</span>
+<span class="font-semibold text-primary">#TK-88410-ICT-2025</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant">Public Key Auth:</span>
+<span class="font-semibold text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> ICT-PKI-ROOT-ECC256
+              </span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant">Anti-Passback Guard:</span>
+<span class="font-semibold text-on-surface">PASSED (1 Entry / 30m window)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<span class="text-on-surface-variant">Physical Barrier:</span>
+<span class="font-semibold text-on-surface">Gate 2-B (Optical Flap Turnstile)</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Live Turnstile Clearance & Barrier Countdown -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm uppercase font-bold tracking-wider text-on-surface-variant">Passage Timer</span>
+<div class="flex items-center gap-1 text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]">sensor_door</span> Flap Barrier Open
+            </div>
+</div>
+<!-- Progress Countdown Visual Indicator -->
+<div class="flex items-center gap-space-md p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/20 mb-space-sm">
+<div class="relative w-14 h-14 flex items-center justify-center shrink-0">
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 36 36">
+<path class="text-outline-variant/30" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary transition-all duration-1000" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" id="countdown-circle" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-data-mono font-bold text-headline-sm text-primary" id="countdown-val">6.5s</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-bold">Step Through Flap Gate</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight mt-0.5">
+                Infrared beam detects safe entry. Keep moving toward indoor corridor.
+              </p>
+</div>
+</div>
+<!-- Escalator & Counter 7 Queue Status -->
+<div class="p-space-sm rounded-xl border border-outline-variant/30 space-y-2">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2">
+<div class="p-1.5 rounded-lg bg-tertiary/10 text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-[18px]">escalator</span>
+</div>
+<div>
+<h4 class="font-label-md text-on-surface font-bold">Escalator → 1st Floor Fast-Track</h4>
+<p class="font-body-sm text-on-surface-variant text-[12px]">Counter 7 is 25 meters ahead on your left</p>
+</div>
+</div>
+<span class="font-label-sm text-primary bg-primary-fixed px-2 py-0.5 rounded font-bold">Counter 7</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-outline-variant/20 font-data-mono text-[11px]">
+<div>
+<span class="text-on-surface-variant block">QUEUE SIZE:</span>
+<span class="font-bold text-on-surface">1 Citizen at window</span>
+</div>
+<div>
+<span class="text-on-surface-variant block">EST. WAIT TIME:</span>
+<span class="font-bold text-emerald-700">~ 2 Minutes</span>
+</div>
+</div>
+<!-- Assigned Officer Details -->
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-[12px]">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden shrink-0 border border-outline-variant/40">
+<img class="w-full h-full object-cover" data-alt="Portrait of an official Pakistani government inspector wearing uniform at excise desk, professional headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgrLV6gK8rzB3fm_ACx0kOL-dpORa1U7fzsCYWrJKpcMv1pZLD77Wr2Qy-icj-KHl1kJqeeSswPjdvuEApy2yG9ejVh3zISanzSqS2f98WogO5iimVUyOwqQtyu3Xo96jJMx0QzhJUoBnrmHPbSLf1bHLt7I1R5S-I829g2OIStq6qb0FYtmq8oClaMDO0hTRYMQLnnOZiQdI_SwqnsGEz2wWIXF9OIsP6nIVD3A0F9-YZBCGdAH6-2Q"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-on-surface font-semibold truncate">Inspector Zulfiqar Ali</span>
+<span class="text-on-surface-variant text-[10px]">Assistant Director Registration • Fast Track Desk</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Next Physical Handover Steps (Counter 7) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<h3 class="font-headline-sm text-on-surface text-[16px]">Counter 7 Handover Protocol</h3>
+</div>
+<ol class="relative border-l border-outline-variant/40 ml-3 space-y-space-md my-space-xs text-[13px]">
+<!-- Step 1 -->
+<li class="pl-space-md relative">
+<span class="absolute -left-2.5 top-0.5 flex items-center justify-center w-5 h-5 rounded-full bg-primary text-white font-data-mono text-[11px] font-bold shadow-sm">1</span>
+<p class="font-label-md text-on-surface font-semibold">Present Original CNIC</p>
+<p class="font-body-sm text-on-surface-variant text-[12px] mt-0.5">Bilal Ahmed (Original Computerized Identity Card for instant barcode reading).</p>
+</li>
+<!-- Step 2 -->
+<li class="pl-space-md relative">
+<span class="absolute -left-2.5 top-0.5 flex items-center justify-center w-5 h-5 rounded-full bg-primary text-white font-data-mono text-[11px] font-bold shadow-sm">2</span>
+<p class="font-label-md text-on-surface font-semibold">NADRA e-Sahulat Biometric Verification</p>
+<p class="font-body-sm text-on-surface-variant text-[12px] mt-0.5">Single right thumb touch on optical terminal for live ownership transfer handshake.</p>
+</li>
+<!-- Step 3 -->
+<li class="pl-space-md relative">
+<span class="absolute -left-2.5 top-0.5 flex items-center justify-center w-5 h-5 rounded-full bg-emerald-600 text-white font-data-mono text-[11px] font-bold shadow-sm">3</span>
+<p class="font-label-md text-on-surface font-semibold">Collect Physical Smart Card</p>
+<p class="font-body-sm text-on-surface-variant text-[12px] mt-0.5">Receive encrypted chip card for ICT AEL-786 along with vehicle file envelope.</p>
+</li>
+</ol>
+<!-- CTAs & Map Link -->
+<div class="pt-space-sm mt-space-sm border-t border-outline-variant/20 flex flex-col gap-2">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-space-md rounded-xl bg-primary hover:bg-primary-container text-white font-label-md text-label-md transition-all shadow-sm" onclick="openMapModal()">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>View Interactive Indoor Floor Map</span>
+</button>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant px-1 pt-1">
+<span class="text-[11px]">Gate Facilitator: Faisal Rasheed</span>
+<a class="text-primary font-semibold hover:underline flex items-center gap-0.5 text-[11px]" href="tel:03005519820">
+<span class="material-symbols-outlined text-[14px]">call</span> 0300 5519820
+              </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Indoor Map Modal (Accessible via Button) -->
+<div class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4" id="map-modal">
+<div class="bg-surface-container-lowest max-w-2xl w-full rounded-2xl shadow-2xl border border-outline-variant/30 overflow-hidden flex flex-col">
+<div class="p-space-md border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">floor</span>
+<div>
+<h3 class="font-headline-sm text-on-surface text-[17px]">ICT Excise Directorate - Ground &amp; 1st Floor Plan</h3>
+<p class="font-body-sm text-on-surface-variant text-[12px]">Sector H-9/4, Islamabad • Gate 2 Express Route</p>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" onclick="closeMapModal()">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Static Map / Diagram Area -->
+<div class="p-space-md bg-surface">
+<div class="relative bg-slate-900 rounded-xl p-4 text-white overflow-hidden min-h-[280px] flex flex-col justify-between border border-slate-800">
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="relative z-10 flex justify-between items-start">
+<div class="bg-slate-800/90 px-2 py-1 rounded text-[11px] font-data-mono text-emerald-400 border border-slate-700">
+              YOU ARE HERE: TURNSTILE GATE 2-B
+            </div>
+<div class="bg-primary/90 px-2 py-1 rounded text-[11px] font-data-mono text-white">
+              DESTINATION: COUNTER 7 (SMART CARD ROOM)
+            </div>
+</div>
+<!-- Graphical Map Pathway -->
+<div class="relative z-10 my-4 flex items-center justify-between px-4 py-6 bg-slate-950/70 rounded-lg border border-slate-800">
+<div class="text-center">
+<div class="w-10 h-10 rounded-full bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center mx-auto text-emerald-400 mb-1">
+<span class="material-symbols-outlined text-[20px]">sensor_door</span>
+</div>
+<span class="text-[10px] font-bold block text-emerald-300">Gate 2-B</span>
+<span class="text-[9px] text-slate-400">Ground Floor</span>
+</div>
+<div class="flex-1 mx-2 flex flex-col items-center">
+<div class="w-full h-1 bg-gradient-to-r from-emerald-400 via-primary to-blue-400 rounded-full relative">
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-md animate-ping opacity-75"></div>
+</div>
+<span class="text-[10px] font-data-mono text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">escalator</span> Escalator Up (25m)
+              </span>
+</div>
+<div class="text-center">
+<div class="w-10 h-10 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mx-auto text-primary mb-1">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<span class="text-[10px] font-bold block text-white">Counter 7</span>
+<span class="text-[9px] text-blue-200">1st Floor Hall A</span>
+</div>
+</div>
+<div class="relative z-10 flex items-center justify-between text-[11px] text-slate-400">
+<span>• Wheelchair accessible ramp available at Gate 1</span>
+<span>Estimated Walking Duration: 45 seconds</span>
+</div>
+</div>
+</div>
+<div class="p-space-md border-t border-outline-variant/30 bg-surface-container-low flex justify-end">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors" onclick="closeMapModal()">
+          Back to Terminal
+        </button>
+</div>
+</div>
+</div>
+<!-- Vanilla JavaScript for Real-time Micro-Interactions -->
+<script>
+    // Live PKT Digital Clock simulation
+    function updateClock() {
+      const now = new Date();
+      const clockEl = document.getElementById('session-clock');
+      if (clockEl) {
+        clockEl.textContent = now.toLocaleTimeString('en-US', { hour12: true }) + ' PKT';
+      }
+    }
+    setInterval(updateClock, 1000);
+
+    // Audio chime toggle state
+    let chimeEnabled = true;
+    function toggleChime() {
+      chimeEnabled = !chimeEnabled;
+      const icon = document.getElementById('chime-icon');
+      const text = document.getElementById('chime-text');
+      if (chimeEnabled) {
+        icon.textContent = 'volume_up';
+        icon.className = 'material-symbols-outlined text-[18px] text-emerald-400';
+        text.textContent = 'Chime: Enabled (Ding)';
+      } else {
+        icon.textContent = 'volume_off';
+        icon.className = 'material-symbols-outlined text-[18px] text-slate-400';
+        text.textContent = 'Chime: Muted';
+      }
+    }
+
+    // Audible Ding via Web Audio API synthesizer
+    function playValidationChime() {
+      if (!chimeEnabled) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, ctx.currentTime); // A5 note
+        osc.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.18); // Sparkle up
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.5);
+      } catch (e) {
+        // AudioContext silent fallback
+      }
+    }
+
+    // Barrier Pass countdown simulation
+    let secondsLeft = 6.5;
+    let timerInterval = null;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      secondsLeft = 6.5;
+      const countdownEl = document.getElementById('countdown-val');
+      const circleEl = document.getElementById('countdown-circle');
+
+      timerInterval = setInterval(() => {
+        secondsLeft -= 0.5;
+        if (secondsLeft <= 0) {
+          secondsLeft = 0;
+          clearInterval(timerInterval);
+          if (countdownEl) countdownEl.textContent = '0.0s';
+          if (circleEl) circleEl.setAttribute('stroke-dasharray', '0, 100');
+        } else {
+          if (countdownEl) countdownEl.textContent = secondsLeft.toFixed(1) + 's';
+          const percent = (secondsLeft / 6.5) * 75;
+          if (circleEl) circleEl.setAttribute('stroke-dasharray', `${percent.toFixed(0)}, 100`);
+        }
+      }, 500);
+    }
+    startTimer();
+
+    // Re-simulate Tap Action
+    function simulateNewTap() {
+      const ledRing = document.getElementById('led-ring');
+      if (ledRing) {
+        ledRing.className = 'absolute inset-1 rounded-full border-4 border-blue-400 shadow-[0_0_24px_rgba(96,165,250,0.9)] transition-colors duration-200';
+        setTimeout(() => {
+          ledRing.className = 'absolute inset-1 rounded-full border-4 border-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.9)] animate-status-beam transition-colors duration-500';
+          playValidationChime();
+          startTimer();
+        }, 300);
+      }
+    }
+
+    // Modal Control
+    function openMapModal() {
+      const modal = document.getElementById('map-modal');
+      if (modal) modal.classList.replace('hidden', 'flex');
+    }
+
+    function closeMapModal() {
+      const modal = document.getElementById('map-modal');
+      if (modal) modal.classList.replace('flex', 'hidden');
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

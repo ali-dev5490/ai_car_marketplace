@@ -17,3 +17,5 @@ car scraper/data/images/
 public/cars-data.json
 api/index.cjs
 
+**/platform.json
+server/platform.json

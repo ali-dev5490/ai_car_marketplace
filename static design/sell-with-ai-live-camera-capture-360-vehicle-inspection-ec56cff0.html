@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Progress Header & Workflow Navigation -->
+<section class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-md">
+<!-- Breadcrumbs & Status Tag -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm">
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Sell with AI</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Live Camera Capture &amp; 360° Studio</span>
+</nav>
+<div class="flex items-center gap-2 px-space-sm py-1 bg-surface-container rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="w-2 h-2 rounded-full bg-primary -ml-4"></span>
+<span class="font-label-sm text-label-sm text-primary font-bold tracking-wide uppercase">Vision Engine v4.2 Active</span>
+<span class="text-outline-variant font-mono text-[11px]">|</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">4K AR Rig • 60 FPS</span>
+</div>
+</div>
+<!-- Flow Stepper Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md pt-space-xs">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-sm opacity-70">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Step 1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Vehicle Identity</span>
+</div>
+</div>
+<!-- Step 2: ACTIVE -->
+<div class="flex items-center gap-space-sm p-1.5 rounded-xl bg-surface-container-low shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Active Capture</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<span class="font-headline-sm text-[15px] leading-tight text-on-surface font-bold truncate">360° Photo Studio</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-label-md text-label-md font-semibold">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Step 3</span>
+<span class="font-label-md text-label-md text-secondary font-semibold truncate">Specs &amp; Pricing Lock</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-label-md text-label-md font-semibold">
+            4
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Step 4</span>
+<span class="font-label-md text-label-md text-secondary font-semibold truncate">Verification &amp; Escrow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- High-Trust Intelligence Notification Strip -->
+<div class="w-full bg-surface-container-high/60 py-2.5">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+<strong class="font-semibold text-primary">AI Real-Time Guidance:</strong> Auto-framing, reflection suppression, and biometric plate redaction active for Pakistani registration plates.
+        </span>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-secondary">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Islamabad/Rawalpindi Geo-Tag Validated</span>
+<span>•</span>
+<span>Lighting Target: 6500K</span>
+</div>
+</div>
+</div>
+<!-- Main Workstation Layout -->
+<section class="max-w-[1440px] mx-auto px-gutter-desktop py-space-lg w-full">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Live Camera Viewfinder & AR HUD (7 Cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Viewfinder Frame Container -->
+<div class="relative bg-inverse-surface rounded-xl overflow-hidden shadow-2xl flex flex-col">
+<!-- Top HUD Header Overlay -->
+<div class="absolute top-0 left-0 right-0 z-30 p-space-md flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-space-sm pointer-events-auto">
+<span class="px-2 py-1 rounded bg-black/60 backdrop-blur-md text-white font-data-mono text-[11px] font-semibold flex items-center gap-1.5 tracking-wider">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> REC 00:14
+              </span>
+<span class="px-2 py-1 rounded bg-black/60 backdrop-blur-md text-white font-data-mono text-[11px]">
+                4K UHD 60FPS • ISO 120
+              </span>
+</div>
+<!-- Target Mode Pill -->
+<div class="pointer-events-auto flex items-center gap-2 px-space-sm py-1 rounded-full bg-primary/90 text-on-primary shadow-lg backdrop-blur-md">
+<span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+<span class="font-label-sm text-label-sm tracking-wide uppercase font-bold">Angle 5 of 8: Front Grille</span>
+</div>
+<div class="pointer-events-auto flex items-center gap-1.5 bg-black/60 backdrop-blur-md p-1 rounded-lg text-white">
+<button class="p-1.5 hover:bg-white/10 rounded transition-colors text-white" title="Toggle Flash">
+<span class="material-symbols-outlined text-[18px]">flash_auto</span>
+</button>
+<button class="p-1.5 hover:bg-white/10 rounded transition-colors text-white" title="Stabilizer">
+<span class="material-symbols-outlined text-[18px]">screen_rotation</span>
+</button>
+</div>
+</div>
+<!-- The Live Viewport Screen -->
+<div class="relative w-full aspect-[16/10] bg-black overflow-hidden flex items-center justify-center select-none">
+<!-- Simulated Camera Feed / Backdrop Image -->
+<img alt="Camera Viewfinder Stream" class="w-full h-full object-cover opacity-85 scale-105 filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida/AEtjO1WEtF4_tdxNH_cokJG1aNxDRUkaLosLk2DQBuMvwbitpMlFt8N4j6WdCT1nps30-JFBxbjvRX2Wtd6x7dbP0p9d7qh2iOu1KTsmXFeUH-WO0YtembTx2MXr0cdMhBNACA0FJUxJFMI-kUlp9-h-9S40OFlQMiIMijSw6nvv3yL3cBkeKCzkOmftSN6_epFjodIO30XqyeDmLeDttk80AuLrGmjsg0nQDycsOC6Q7C8gecf4IPvah6EtvFU"/>
+<!-- Dynamic Dark Scrim Gradient for HUD Clarity -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/75 pointer-events-none"></div>
+<!-- AR HUD Grid Overlay (Subtle 3x3 Rule of Thirds) -->
+<div class="absolute inset-0 grid grid-cols-3 grid-rows-3 pointer-events-none">
+<div class="border-r border-b border-white/15"></div>
+<div class="border-r border-b border-white/15"></div>
+<div class="border-b border-white/15"></div>
+<div class="border-r border-b border-white/15"></div>
+<div class="border-r border-b border-white/15"></div>
+<div class="border-b border-white/15"></div>
+<div class="border-r border-white/15"></div>
+<div class="border-r border-white/15"></div>
+<div></div>
+</div>
+<!-- 4 Corner Focus Brackets -->
+<div class="absolute top-10 left-10 w-10 h-10 border-t-2 border-l-2 border-white/70 pointer-events-none"></div>
+<div class="absolute top-10 right-10 w-10 h-10 border-t-2 border-r-2 border-white/70 pointer-events-none"></div>
+<div class="absolute bottom-16 left-10 w-10 h-10 border-b-2 border-l-2 border-white/70 pointer-events-none"></div>
+<div class="absolute bottom-16 right-10 w-10 h-10 border-b-2 border-r-2 border-white/70 pointer-events-none"></div>
+<!-- Real-Time AI Computer Vision Bounding Box (Interactive Anchor) -->
+<div class="absolute inset-x-16 inset-y-12 rounded-xl border border-primary/60 shadow-[0_0_25px_rgba(37,99,235,0.35)] flex flex-col justify-between p-3 pointer-events-none transition-all duration-300">
+<!-- Top tags of AI object detector -->
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-primary text-white font-data-mono text-[11px] font-bold tracking-tight shadow">
+                  OBJECT: SUV (TOYOTA PRADO TX-L) • 99.4% CONFIDENCE
+                </span>
+<span class="px-2 py-0.5 rounded bg-white/20 backdrop-blur-md text-white font-data-mono text-[11px]">
+                  PITCH: -1.2° | ROLL: +0.4°
+                </span>
+</div>
+<!-- Horizon Virtual Gyroscope / Level Bar -->
+<div class="w-full flex items-center justify-center">
+<div class="flex items-center gap-2">
+<div class="w-16 h-0.5 bg-emerald-400"></div>
+<div class="w-3 h-3 rounded-full border-2 border-emerald-400 flex items-center justify-center">
+<div class="w-1 h-1 rounded-full bg-emerald-400"></div>
+</div>
+<div class="w-16 h-0.5 bg-emerald-400"></div>
+</div>
+</div>
+<!-- Bottom Detection Status -->
+<div class="flex items-center justify-between text-white font-data-mono text-[11px]">
+<span class="flex items-center gap-1.5 bg-black/40 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Front Grille &amp; Radar Sensor In View
+                </span>
+<span class="bg-black/40 px-2 py-0.5 rounded text-amber-300">
+                  Step 2 paces closer for macro texture
+                </span>
+</div>
+</div>
+<!-- Ghost Silhouette SVG Overlay for Framing (Front 3/4 and Grille Guide) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40 text-primary-fixed" fill="none" viewbox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<path d="M180 340 C 220 335, 260 330, 400 330 C 540 330, 580 335, 620 340 L 640 380 L 160 380 Z" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<path d="M220 230 C 300 180, 500 180, 580 230 L 610 280 L 190 280 Z" stroke="currentColor" stroke-dasharray="6 4" stroke-width="1.5"></path>
+<circle cx="250" cy="380" r="32" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5"></circle>
+<circle cx="550" cy="380" r="32" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1.5"></circle>
+</svg>
+<!-- Realtime AI Guidance Status Bar (Bottom viewport overlay) -->
+<div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-auto">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-black/75 backdrop-blur-md rounded-xl text-white">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm font-medium">Alignment Match: <strong class="text-emerald-400">96%</strong></span>
+<span class="text-white/40">•</span>
+<span class="font-body-sm text-body-sm text-emerald-300">Glare Suppressed</span>
+</div>
+<div class="px-3 py-1.5 bg-primary/90 text-white rounded-xl font-label-sm text-label-sm font-semibold shadow-md flex items-center gap-1.5" id="capture-feedback-badge">
+<span class="material-symbols-outlined text-[16px] animate-spin">sync</span>
+                Auto-Stabilizing...
+              </div>
+</div>
+</div>
+<!-- Bottom Console & Camera Shutter Bar -->
+<div class="p-space-md bg-inverse-surface border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Left Options -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white font-label-md text-label-md transition-colors" id="toggle-grid">
+<span class="material-symbols-outlined text-[18px]">grid_on</span>
+<span>AR Mesh</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white font-label-md text-label-md transition-colors" id="flip-camera">
+<span class="material-symbols-outlined text-[18px]">flip_camera_ios</span>
+<span>Rear Ultra-Wide</span>
+</button>
+</div>
+<!-- Center: Shutter Action Trigger -->
+<div class="flex items-center gap-space-md">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-label-sm text-label-sm" id="auto-toggle-btn">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>Auto-Snap: ON</span>
+</button>
+<!-- Main Shutter Button -->
+<button class="relative group p-1 rounded-full bg-white/20 hover:bg-white/30 transition-transform active:scale-95 shadow-xl" id="main-shutter-btn">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow-inner group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[32px]">photo_camera</span>
+</div>
+</button>
+<span class="font-data-mono text-[12px] text-white/70">Hold 1s</span>
+</div>
+<!-- Right: Secondary File Upload Trigger -->
+<div class="flex items-center gap-space-sm">
+<label class="cursor-pointer flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white font-label-md text-label-md transition-colors" for="manual-upload-input">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+<span>Manual Upload</span>
+</label>
+<input accept="image/*" class="hidden" id="manual-upload-input" type="file"/>
+</div>
+</div>
+</div>
+<!-- Camera Diagnostic & Sensor Telemetry Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center gap-space-sm">
+<div class="p-2 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">lens</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Lens Quality</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">24mm ƒ/1.7 4K</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center gap-space-sm">
+<div class="p-2 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Ambient Lux</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">780 cd/m² (Sunny)</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center gap-space-sm">
+<div class="p-2 rounded bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">GPS Lock</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">ISB Sector F-7</span>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-center gap-space-sm">
+<div class="p-2 rounded bg-surface-container text-emerald-600">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Privacy Mask</span>
+<span class="font-label-md text-label-md text-emerald-700 font-semibold">Plate Obfuscated</span>
+</div>
+</div>
+</div>
+<!-- Pro Seller Capture Tips (Pakistan Automotive Context) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="p-2 rounded-lg bg-tertiary-fixed text-tertiary mt-0.5">
+<span class="material-symbols-outlined text-[22px]">light</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Tips for 35% Faster Dealer &amp; Buyer Offers</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Turn the front wheels 20 degrees outward toward the camera lens. Neutral white background or shaded driveway (Margalla Hills/Canal Road lighting conditions) minimizes harsh metallic sun glares on Pearl White and Phantom Black clear coats.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: 360° Guided Angle Checklist & Quality Inspector (5 Cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- Angle Checklist Card -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<!-- Checklist Header & Circular Completion Gauge -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Angle Portfolio</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">360° Inspection Orbit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 of 8 mandatory perspectives locked</p>
+</div>
+<!-- Inline SVG Circular Progress Gauge (50%) -->
+<div class="relative w-14 h-14 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- Track -->
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<!-- Dynamic Stroke: 50% = 50 50 -->
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="50, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-data-mono text-label-md font-bold text-on-surface">50%</span>
+</div>
+</div>
+</div>
+<!-- Angle Cards Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Angle 1: Front 3/4 View (Captured) -->
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col gap-1.5 group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-dim">
+<img alt="Prado Front 3/4 Capture" class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida/AEtjO1WEtF4_tdxNH_cokJG1aNxDRUkaLosLk2DQBuMvwbitpMlFt8N4j6WdCT1nps30-JFBxbjvRX2Wtd6x7dbP0p9d7qh2iOu1KTsmXFeUH-WO0YtembTx2MXr0cdMhBNACA0FJUxJFMI-kUlp9-h-9S40OFlQMiIMijSw6nvv3yL3cBkeKCzkOmftSN6_epFjodIO30XqyeDmLeDttk80AuLrGmjsg0nQDycsOC6Q7C8gecf4IPvah6EtvFU"/>
+<span class="absolute top-1 right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-label-sm text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> 98%
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">1. Front 3/4 Exterior</span>
+<span class="material-symbols-outlined text-primary text-[16px]">visibility</span>
+</div>
+</div>
+<!-- Angle 2: Rear 3/4 View (Captured) -->
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col gap-1.5 group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-dim">
+<img alt="Prado Rear 3/4 Capture" class="w-full h-full object-cover scale-x-[-1] group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida/AEtjO1WEtF4_tdxNH_cokJG1aNxDRUkaLosLk2DQBuMvwbitpMlFt8N4j6WdCT1nps30-JFBxbjvRX2Wtd6x7dbP0p9d7qh2iOu1KTsmXFeUH-WO0YtembTx2MXr0cdMhBNACA0FJUxJFMI-kUlp9-h-9S40OFlQMiIMijSw6nvv3yL3cBkeKCzkOmftSN6_epFjodIO30XqyeDmLeDttk80AuLrGmjsg0nQDycsOC6Q7C8gecf4IPvah6EtvFU"/>
+<span class="absolute top-1 right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-label-sm text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> 95%
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">2. Rear 3/4 Exterior</span>
+<span class="material-symbols-outlined text-primary text-[16px]">visibility</span>
+</div>
+</div>
+<!-- Angle 3: Driver Side Profile (Captured) -->
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col gap-1.5 group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-dim">
+<img alt="Driver Side Profile" class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="https://lh3.googleusercontent.com/aida/AEtjO1WEtF4_tdxNH_cokJG1aNxDRUkaLosLk2DQBuMvwbitpMlFt8N4j6WdCT1nps30-JFBxbjvRX2Wtd6x7dbP0p9d7qh2iOu1KTsmXFeUH-WO0YtembTx2MXr0cdMhBNACA0FJUxJFMI-kUlp9-h-9S40OFlQMiIMijSw6nvv3yL3cBkeKCzkOmftSN6_epFjodIO30XqyeDmLeDttk80AuLrGmjsg0nQDycsOC6Q7C8gecf4IPvah6EtvFU"/>
+<span class="absolute top-1 right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-label-sm text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> 92%
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">3. Driver Side Profile</span>
+<span class="material-symbols-outlined text-primary text-[16px]">visibility</span>
+</div>
+</div>
+<!-- Angle 4: Cockpit & Odometer Cluster (Captured with AI OCR Data) -->
+<div class="p-2 rounded-lg bg-surface-container-low flex flex-col gap-1.5 group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="relative aspect-video rounded overflow-hidden bg-inverse-surface flex items-center justify-center text-on-primary">
+<div class="flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px]">speed</span>
+<span class="font-data-mono text-[11px] text-white font-bold">18,450 km OCR</span>
+</div>
+<span class="absolute top-1 right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-label-sm text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">check</span> 99%
+                </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold truncate">4. Odometer Cluster</span>
+<span class="material-symbols-outlined text-primary text-[16px]">pin_invoke</span>
+</div>
+</div>
+<!-- Angle 5: Front Grille & Headlights (PENDING - CURRENT TARGET) -->
+<div class="p-2 rounded-lg bg-primary-fixed/20 shadow-sm flex flex-col gap-1.5 ring-2 ring-primary">
+<div class="relative aspect-video rounded overflow-hidden bg-primary/10 flex flex-col items-center justify-center text-primary text-center">
+<span class="material-symbols-outlined text-[26px] animate-pulse">center_focus_strong</span>
+<span class="font-label-sm text-[10px] font-bold uppercase mt-1">Framing Active</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold truncate">5. Front Grille &amp; Lights</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+</div>
+<!-- Angle 6: Engine Bay (Pending) -->
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1.5 hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-container flex flex-col items-center justify-center text-secondary text-center">
+<span class="material-symbols-outlined text-[22px]">engineering</span>
+<span class="font-label-sm text-[10px]">Pending</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary truncate">6. Engine Bay Clean</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+</div>
+</div>
+<!-- Angle 7: Front Seats & Dashboard (Pending) -->
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1.5 hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-container flex flex-col items-center justify-center text-secondary text-center">
+<span class="material-symbols-outlined text-[22px]">airline_seat_recline_extra</span>
+<span class="font-label-sm text-[10px]">Pending</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary truncate">7. Dashboard &amp; Console</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+</div>
+</div>
+<!-- Angle 8: Boot / Trunk & Tools (Pending) -->
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col gap-1.5 hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="relative aspect-video rounded overflow-hidden bg-surface-container flex flex-col items-center justify-center text-secondary text-center">
+<span class="material-symbols-outlined text-[22px]">luggage</span>
+<span class="font-label-sm text-[10px]">Pending</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary truncate">8. Boot &amp; Spare Tyre</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Quality Diagnostic Inspector Drawer -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">neurology</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Automated Integrity Scan</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-label-sm text-label-sm font-semibold">Ready for Step 3</span>
+</div>
+<!-- Diagnostic Check Items -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface">Registration Plate Masking</span>
+</div>
+<span class="font-data-mono text-data-mono text-emerald-700 font-semibold">Auto-Obfuscated</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface">Body Panel Paint &amp; Dent Pre-Scan</span>
+</div>
+<span class="font-data-mono text-data-mono text-emerald-700 font-semibold">0 Major Flaws</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface">Odometer Tamper &amp; Mileage Match</span>
+</div>
+<span class="font-data-mono text-data-mono text-emerald-700 font-semibold">18,450 km (Genuine)</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">hdr_auto</span>
+<span class="font-body-sm text-body-sm text-on-surface">Glare &amp; High-Contrast Balancing</span>
+</div>
+<span class="font-data-mono text-data-mono text-primary font-semibold">Enhanced 100%</span>
+</div>
+</div>
+<!-- Action Progression CTAs -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full py-3 px-space-md rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg transition-all shadow-md flex items-center justify-center gap-2 group" id="next-step-btn">
+<span>Proceed to Step 3: Review Specs &amp; Pricing</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 py-2 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center">
+                Retake Active Angle
+              </button>
+<button class="flex-1 py-2 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center">
+                Save Draft &amp; Exit
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pakistani Trust & Excise Verification Ecosystem Bar -->
+<section class="w-full bg-surface-container-lowest shadow-inner py-space-lg">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop">
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">shield_person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Punjab &amp; Federal Excise Database Integrated</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Photos cross-referenced with Smart Card chassis registration and NADRA biometric verification.</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">100% Pak Verified</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[18px]">account_balance</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Meezan &amp; JazzCash Escrow</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">no_sim</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">0% Middleman Margin</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Client Behavior Script -->
+<script>
+    (function() {
+      const shutterBtn = document.getElementById('main-shutter-btn');
+      const autoBtn = document.getElementById('auto-toggle-btn');
+      const feedbackBadge = document.getElementById('capture-feedback-badge');
+      let isAuto = true;
+
+      if (autoBtn) {
+        autoBtn.addEventListener('click', function() {
+          isAuto = !isAuto;
+          if (isAuto) {
+            autoBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-label-sm text-label-sm";
+            autoBtn.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span>Auto-Snap: ON</span>';
+          } else {
+            autoBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 text-white/70 font-label-sm text-label-sm";
+            autoBtn.innerHTML = '<span class="w-2 h-2 rounded-full bg-white/40"></span><span>Auto-Snap: OFF</span>';
+          }
+        });
+      }
+
+      if (shutterBtn) {
+        shutterBtn.addEventListener('click', function() {
+          if (feedbackBadge) {
+            feedbackBadge.innerHTML = '<span class="material-symbols-outlined text-[16px] text-white">check_circle</span> Photo 5 Captured & OCR Stored!';
+            feedbackBadge.classList.remove('bg-primary/90');
+            feedbackBadge.classList.add('bg-emerald-600');
+            setTimeout(function() {
+              feedbackBadge.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">sync</span> Framing Next Angle (6: Engine Bay)';
+              feedbackBadge.classList.remove('bg-emerald-600');
+              feedbackBadge.classList.add('bg-primary/90');
+            }, 2500);
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

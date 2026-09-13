@@ -1,0 +1,387 @@
+{
+  "name": "projects/15403197759217325947",
+  "title": "AI Car Marketplace UI Kit",
+  "visibility": "PUBLIC",
+  "createTime": "2026-09-13T13:49:17.988901Z",
+  "updateTime": "2026-09-13T14:56:10.033782Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "thumbnailScreenshot": {
+    "name": "projects/15403197759217325947/screens/b06c575da226dd5954d9c63918c18f5aa239f92eeb48c5f9a367dc88b528ff2f/fileEntries/screenshot",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1XIiwq2KoK_SRmts5sA4w1iyb_wrsCImYuIzaHcfTVB2ZZv74aoY1ekXIB2owLJrwNgm6I8z3VNCjW4pnFz3cI-yS1pJ28Hjwsat9yykvvD1Md-BJSsJkDHkfbTn22IKyF6hwzo5EieBtCTqVCA6s_QqDRHbdOF5ESqFh4nHa_fxLqr99jNF7dgjzX_I1PYlhPtUsIP1UbIjhevs5OvFMFw7REvjRVaAmxhyOK_D9gMGvJcuuo0Y0zrPvE"
+  },
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "PLUS_JAKARTA_SANS",
+    "roundness": "ROUND_FOUR",
+    "customColor": "#2563eb",
+    "headlineFont": "PLUS_JAKARTA_SANS",
+    "bodyFont": "INTER",
+    "labelFont": "INTER",
+    "namedColors": {
+      "surface_container_lowest": "#ffffff",
+      "on_error_container": "#93000a",
+      "surface_container_low": "#eff4ff",
+      "primary_fixed": "#dbe1ff",
+      "surface_dim": "#cbdbf5",
+      "surface_container": "#e5eeff",
+      "on_surface_variant": "#434655",
+      "secondary_fixed": "#dae2fd",
+      "on_primary_fixed": "#00174b",
+      "tertiary_fixed": "#ffdbce",
+      "on_background": "#0b1c30",
+      "on_primary_container": "#eeefff",
+      "primary_container": "#2563eb",
+      "surface_tint": "#0053db",
+      "outline": "#737686",
+      "outline_variant": "#c3c6d7",
+      "inverse_surface": "#213145",
+      "secondary_fixed_dim": "#bec6e0",
+      "on_tertiary_container": "#ffede7",
+      "on_secondary_container": "#5c647a",
+      "on_secondary_fixed": "#131b2e",
+      "tertiary": "#973400",
+      "secondary_container": "#dae2fd",
+      "on_primary": "#ffffff",
+      "tertiary_container": "#c04400",
+      "on_tertiary_fixed_variant": "#7f2b00",
+      "on_secondary": "#ffffff",
+      "error": "#ba1a1a",
+      "inverse_on_surface": "#eaf1ff",
+      "surface_container_highest": "#d3e4fe",
+      "background": "#f8f9ff",
+      "surface": "#f8f9ff",
+      "surface_container_high": "#dce9ff",
+      "error_container": "#ffdad6",
+      "on_primary_fixed_variant": "#003ea8",
+      "primary": "#004ac6",
+      "secondary": "#565e74",
+      "on_tertiary_fixed": "#370e00",
+      "surface_bright": "#f8f9ff",
+      "on_secondary_fixed_variant": "#3f465c",
+      "on_error": "#ffffff",
+      "surface_variant": "#d3e4fe",
+      "on_tertiary": "#ffffff",
+      "inverse_primary": "#b4c5ff",
+      "tertiary_fixed_dim": "#ffb599",
+      "primary_fixed_dim": "#b4c5ff",
+      "on_surface": "#0b1c30"
+    },
+    "designMd": "---\nname: Precision Auto Ledger\ncolors:\n  surface: '#f8f9ff'\n  surface-dim: '#cbdbf5'\n  surface-bright: '#f8f9ff'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#eff4ff'\n  surface-container: '#e5eeff'\n  surface-container-high: '#dce9ff'\n  surface-container-highest: '#d3e4fe'\n  on-surface: '#0b1c30'\n  on-surface-variant: '#434655'\n  inverse-surface: '#213145'\n  inverse-on-surface: '#eaf1ff'\n  outline: '#737686'\n  outline-variant: '#c3c6d7'\n  surface-tint: '#0053db'\n  primary: '#004ac6'\n  on-primary: '#ffffff'\n  primary-container: '#2563eb'\n  on-primary-container: '#eeefff'\n  inverse-primary: '#b4c5ff'\n  secondary: '#565e74'\n  on-secondary: '#ffffff'\n  secondary-container: '#dae2fd'\n  on-secondary-container: '#5c647a'\n  tertiary: '#973400'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#c04400'\n  on-tertiary-container: '#ffede7'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#dbe1ff'\n  primary-fixed-dim: '#b4c5ff'\n  on-primary-fixed: '#00174b'\n  on-primary-fixed-variant: '#003ea8'\n  secondary-fixed: '#dae2fd'\n  secondary-fixed-dim: '#bec6e0'\n  on-secondary-fixed: '#131b2e'\n  on-secondary-fixed-variant: '#3f465c'\n  tertiary-fixed: '#ffdbce'\n  tertiary-fixed-dim: '#ffb599'\n  on-tertiary-fixed: '#370e00'\n  on-tertiary-fixed-variant: '#7f2b00'\n  background: '#f8f9ff'\n  on-background: '#0b1c30'\n  surface-variant: '#d3e4fe'\ntypography:\n  headline-xl:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 40px\n    fontWeight: '700'\n    lineHeight: 48px\n    letterSpacing: -0.025em\n  headline-xl-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 30px\n    fontWeight: '700'\n    lineHeight: 36px\n    letterSpacing: -0.02em\n  headline-lg:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 32px\n    fontWeight: '700'\n    lineHeight: 40px\n    letterSpacing: -0.02em\n  headline-lg-mobile:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.015em\n  headline-md:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: 32px\n    letterSpacing: -0.015em\n  headline-sm:\n    fontFamily: Plus Jakarta Sans\n    fontSize: 18px\n    fontWeight: '600'\n    lineHeight: 26px\n    letterSpacing: -0.01em\n  body-lg:\n    fontFamily: Inter\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: 24px\n    letterSpacing: -0.01em\n  body-md:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n    letterSpacing: 0em\n  body-sm:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n    letterSpacing: 0em\n  label-lg:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '600'\n    lineHeight: 20px\n    letterSpacing: -0.005em\n  label-md:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: 16px\n    letterSpacing: 0.01em\n  label-sm:\n    fontFamily: Inter\n    fontSize: 11px\n    fontWeight: '600'\n    lineHeight: 14px\n    letterSpacing: 0.02em\n  data-mono:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '500'\n    lineHeight: 18px\n    letterSpacing: -0.01em\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  gutter: 1rem\n  gutter-desktop: 1.5rem\n  margin: 1rem\n  margin-desktop: 2rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 1rem\n  space-lg: 1.5rem\n  space-xl: 2rem\n---\n\n## Brand & Style\n\n### Vision & Personality\nThis design system powers a high-trust automotive intelligence platform tailored to Pakistan's dynamic used and new car economy (Karachi, Lahore, Islamabad, Rawalpindi, Peshawar). The product strips away the chaotic, banner-saturated look of traditional vehicle classifieds in favor of a focused, systematic interface inspired by Linear's precision, AutoTrader's transactional transparency, and Notion's dense utility.\n\nThe aesthetic communicates algorithmic authority, absolute vehicle inspection integrity, and financial clarity. It treats cars as serious financial assets rather than impulse purchases.\n\n### Visual Aesthetic & Philosophy\n- **Style Archetype:** Modern Utilitarian SaaS meets High-Density Classifieds Marketplace.\n- **Design Tenets:**\n  - **No Gimmicks:** Strict avoidance of generic purple/cyan \"AI neon glows\", faux-futuristic gradients, or exaggerated glassmorphism. Artificial intelligence features manifest as surgical UI enhancements (smart price estimators, auto-filled mechanical specs, instant visual defect tags) rather than flashy novelties.\n  - **Data Precision:** Uncompromising typography and tabular data alignments optimized for complex Pakistani automotive market metadata (e.g., engine displacement in cc, local vs. imported assembly, registration city, transfer status, token tax status, and high-denomination PKR values in Crores and Lacs).\n  - **Atmospheric Restraint:** Cool off-white canvas with sharp, structural 1px slate boundaries and disciplined typography, giving car photography and verified status indicators maximum focal dominance.\n\n## Colors\n\nThe palette establishes an immediate sense of financial security and engineering discipline. High-contrast neutral slates construct the backbone of the application, paired with a commanding automotive blue primary and an intentional warm amber/orange accent strictly reserved for conversion pathways.\n\n### Palette Architecture\n- **Primary (`#2563EB` | Active `#1D4ED8`):** Deep cobalt blue representing administrative trust, algorithmic precision, verified badge states, and primary product navigation.\n- **Secondary (`#0F172A`):** Obsidian slate anchor for high-priority headings, table values, active listing headers, and high-emphasis button states.\n- **Tertiary / Conversion Accent (`#EA580C` | Supporting `#F59E0B`):** Warm burnished ember applied selectively to critical transaction actions: \"Make Offer\", \"Feature Ad\", \"Deposit Token\", and instant price alert notifications.\n- **Surface & Canvas Tiers:**\n  - `surface-canvas`: `#F8FAFC` (Cool off-white, reduces glare during lengthy browsing sessions)\n  - `surface-card`: `#FFFFFF` (Crisp base for cards, sheets, tables, and modal dialogs)\n  - `surface-subtle`: `#F1F5F9` (Nested containers, table row hovers, input backgrounds)\n  - `surface-border`: `#E2E8F0` (Default hairline separation lines)\n  - `surface-border-strong`: `#CBD5E1` (Input borders, selected card perimeters, column rules)\n\n### Status & Lifecycle Token Mapping\nEvery car listing operates within a strict state machine with dedicated semantic tokens:\n- **`active` & `paid`:** `#059669` (Emerald 600) with `#ECFDF5` background.\n- **`pending_payment`:** `#D97706` (Amber 600) with `#FFFBEB` background.\n- **`pending_moderation`:** `#2563EB` (Blue 600) with `#EFF6FF` background.\n- **`unpaid` & `paused`:** `#475569` (Slate 600) with `#F1F5F9` background.\n- **`sold`:** `#4F46E5` (Indigo 600) with `#EEF2FF` background.\n- **`rejected` & `suspended_blocked`:** `#E11D48` (Rose 600) with `#FFF1F2` background.\n\n## Typography\n\nTypography establishes clear visual hierarchy between technical machine-evaluated specifications and commercial vehicle titles.\n\n### Hierarchy & Pairing Strategy\n- **Display & Section Headings (`Plus Jakarta Sans`):** Selected for its crisp geometric authority, wide apertures, and balanced x-height. Gives car makes, models, and dashboard totals a high-end editorial feel without feeling playful.\n- **Product UI, Forms, and Data Tables (`Inter`):** Selected for industry-standard legibility in dense multi-column tables, micro-labels, and filtering criteria. \n- **Tabular Numerics:** All currency figures (`PKR 4,850,000` or `PKR 1.25 Crore`), mileage counters (`34,200 km`), chassis numbers, and VIN tags must render with `font-feature-settings: \"tnum\" 1` to ensure vertical alignment in listing tables and breakdown sheets.\n- **Micro-Labels (`label-sm`):** Styled in uppercase with `0.02em` tracking when identifying vehicle attributes (e.g., `VARIANTS`, `TRANSMISSION`, `TAX STATUS`, `CITY`).\n\n## Layout & Spacing\n\nThe system enforces a baseline 4px grid rhythm. Density is calibrated to permit dense inventory inspection while preventing visual fatigue.\n\n### Grid Systems\n- **Desktop (1280px and above):** 12-column layout conforming to a maximum content width of `1440px`. Column gutter is set to `1.5rem` (`24px`), with outer section margins of `2rem` (`32px`).\n- **Tablet (768px \u2013 1279px):** 8-column layout with `1rem` (`16px`) gutters and `1.5rem` (`24px`) margins. Sidebar filters collapse into an off-canvas drawer.\n- **Mobile (320px \u2013 767px):** 4-column layout with `0.75rem` (`12px`) gutters and `1rem` (`16px`) horizontal canvas padding.\n\n### Information Architecture Rhythm\n- **Listing Matrix:** Desktop car search results use a 3-column configuration (`col-span-4`), collapsing to 2 columns on tablet, and single-column horizontal cards on mobile.\n- **Dealer & Admin Portals:** Data tables run across full 12-column frames with compressed vertical padding (`0.5rem` / `space-sm` on table cells) for high density.\n\n## Elevation & Depth\n\nThis system avoids heavy drop shadows and fuzzy layering. It relies on architectural low-contrast borders combined with ultra-diffused, cool-tinted ambient shadows to construct a crisp physical plane.\n\n### Elevation Levels\n- **Level 0 (Flat Ground):** Canvas background (`#F8FAFC`). No shadow. Borderless or separated strictly by structural rules (`1px solid #E2E8F0`).\n- **Level 1 (Cards, Specs, Filters):** Background `#FFFFFF`, 1px perimeter border `rgba(15, 23, 42, 0.08)`, ambient shadow: `0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04)`.\n- **Level 2 (Hovered Listing Cards, Active Drawers, Sticky Toolbars):** Background `#FFFFFF`, border `rgba(15, 23, 42, 0.12)`, shadow: `0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04)`.\n- **Level 3 (Modals, AI Inspection Deep-Dives, City Selectors):** Background `#FFFFFF`, shadow: `0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03)`. Backdropped by an obsidian scrim with heavy slate tint: `rgba(15, 23, 42, 0.6)`.\n\n### Border Integrity\nEvery container (card, pill, button, chip) preserves structural definition through a hairline 1px border. Depth is never communicated by blurred shadow alone; edges must remain razor-sharp.\n\n## Shapes\n\nThe design system employs a restrained **Soft (`1`)** shape geometry.\n\n### Radius Distribution\n- **Base UI Elements (`0.25rem` / `4px`):** Status indicators, technical specs labels, small tooltips, table checkboxes, and inner segment toggles.\n- **Medium Components (`0.375rem` / `6px`):** Form input fields, buttons, dropdown triggers, and filter chips.\n- **Large Surfaces (`0.5rem` / `8px`):** Vehicle listing cards, modal containers, image gallery thumbnails, and inspection checklist panels.\n- **Pill Caps (`9999px`):** Strictly restricted to dynamic status badges (e.g., `ACTIVE`, `PENDING MODERATION`, `SOLD`) and active verification chips. Vehicle images never use pill clipping.\n\n## Components\n\n### Buttons\n- **Primary:** Background `#2563EB`, text `#FFFFFF`, border `1px solid #1D4ED8`, height `40px` (desktop) / `44px` (touch targets). Hover: `#1D4ED8`. Active: `#1E40AF`.\n- **Accent CTA (\"Instant Buy\" / \"Make Offer\"):** Background `#EA580C`, text `#FFFFFF`, border `1px solid #C2410C`. Hover: `#C2410C`.\n- **Secondary (Data Actions):** Background `#FFFFFF`, text `#0F172A`, border `1px solid #E2E8F0`. Hover: `#F1F5F9`, border `#CBD5E1`.\n- **Ghost (Inline Table Actions):** Background transparent, text `#64748B`, hover text `#0F172A`, hover background `#F1F5F9`.\n\n### Status Badges\nConstructed using an inner 6px solid circular pulse indicator paired with a uppercase tracking micro-label (`11px`, weight `600`).\n- Border: `1px solid` matching 20% border opacity of the status color.\n- Height: `22px`, padding: `0 8px`.\n- Combinations:\n  - `active` / `paid`: Background `#ECFDF5`, text `#065F46`, dot `#059669`.\n  - `pending_payment`: Background `#FFFBEB`, text `#92400E`, dot `#D97706`.\n  - `pending_moderation`: Background `#EFF6FF`, text `#1E40AF`, dot `#2563EB`.\n  - `unpaid` / `paused`: Background `#F1F5F9`, text `#334155`, dot `#64748B`.\n  - `sold`: Background `#EEF2FF`, text `#3730A3`, dot `#4F46E5`.\n  - `rejected` / `suspended`: Background `#FFF1F2`, text `#9F1239`, dot `#E11D48`.\n\n### Input Fields & City Filters\n- Background `#FFFFFF`, border `1px solid #E2E8F0`, border-radius `6px`, text `#0F172A`, placeholder `#94A3B8`.\n- Focus state: Border `#2563EB`, subtle ring `0 0 0 3px rgba(37, 99, 235, 0.12)`.\n- City Quick-Select: Tab-style segmented switch with options for \"Karachi\", \"Lahore\", \"Islamabad\", \"All Pakistan\". Active tab features `#FFFFFF` background with 1px border and subtle Level 1 elevation over a `#F1F5F9` tray.\n\n### Cards & Vehicle Listing Tiles\n- Structural container with `0.5rem` radius, `1px solid #E2E8F0`, `#FFFFFF` surface.\n- Top section: 16:10 photography viewport with AI-assisted defect tag overlays floating top-left (e.g., `9.2/10 Bumper Condition`) and city tag top-right (`Lahore, DHA Phase 5`).\n- Bottom section: Vehicle model heading (`Plus Jakarta Sans`), followed by a 3-column micro-spec row (Year | Mileage | Fuel Type) separated by 1px vertical borders, concluding with bold PKR pricing in `headline-sm` tabular numbers.\n\n### AI Inspection Scorecard (Product Specific)\n- Dense, tabular diagnostic card displaying machine-checked vehicle parameters (Engine Health, Transmission, Body/Paint, Suspension).\n- Displays a prominent numeric badge (e.g., `94/100`) accompanied by a subtle monochrome meter bar and natural-language prompt: `\"AI verified: Zero repainted panels detected.\"`",
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#2563eb",
+    "overrideSecondaryColor": "#0f172a",
+    "overrideTertiaryColor": "#ea580c",
+    "overrideNeutralColor": "#64748b",
+    "spacingScale": 2,
+    "typography": {
+      "label-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "11px",
+        "fontWeight": "600",
+        "lineHeight": "14px",
+        "letterSpacing": "0.02em"
+      },
+      "body-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "-0.01em"
+      },
+      "label-md": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": "500",
+        "lineHeight": "16px",
+        "letterSpacing": "0.01em"
+      },
+      "headline-xl": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "40px",
+        "fontWeight": "700",
+        "lineHeight": "48px",
+        "letterSpacing": "-0.025em"
+      },
+      "body-md": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20px",
+        "letterSpacing": "0em"
+      },
+      "headline-md": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px",
+        "letterSpacing": "-0.015em"
+      },
+      "body-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "18px",
+        "letterSpacing": "0em"
+      },
+      "data-mono": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": "500",
+        "lineHeight": "18px",
+        "letterSpacing": "-0.01em"
+      },
+      "label-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "lineHeight": "20px",
+        "letterSpacing": "-0.005em"
+      },
+      "headline-lg-mobile": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "24px",
+        "fontWeight": "600",
+        "lineHeight": "32px",
+        "letterSpacing": "-0.015em"
+      },
+      "headline-lg": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "32px",
+        "fontWeight": "700",
+        "lineHeight": "40px",
+        "letterSpacing": "-0.02em"
+      },
+      "headline-xl-mobile": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "30px",
+        "fontWeight": "700",
+        "lineHeight": "36px",
+        "letterSpacing": "-0.02em"
+      },
+      "headline-sm": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "26px",
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "spacing": {
+      "gutter": "1rem",
+      "margin-desktop": "2rem",
+      "space-sm": "0.5rem",
+      "space-xl": "2rem",
+      "space-xs": "0.25rem",
+      "margin": "1rem",
+      "space-md": "1rem",
+      "space-lg": "1.5rem",
+      "gutter-desktop": "1.5rem"
+    },
+    "headlineFontFamily": "Plus Jakarta Sans",
+    "bodyFontFamily": "Inter",
+    "labelFontFamily": "Inter"
+  },
+  "screenInstances": [
+    {
+      "id": "0693af791e8046f697266084089e4687",
+      "sourceScreen": "projects/15403197759217325947/screens/0693af791e8046f697266084089e4687",
+      "y": 35805,
+      "width": 1280,
+      "height": 2141
+    },
+    {
+      "id": "0f486dac5e4d475b958c9ac137dfbc42",
+      "sourceScreen": "projects/15403197759217325947/screens/0f486dac5e4d475b958c9ac137dfbc42",
+      "y": 3536,
+      "width": 1280,
+      "height": 3051
+    },
+    {
+      "id": "1f226bbd8d86466a9e77445f168cac1f",
+      "sourceScreen": "projects/15403197759217325947/screens/1f226bbd8d86466a9e77445f168cac1f",
+      "y": 33066,
+      "width": 1280,
+      "height": 2540
+    },
+    {
+      "id": "20bfa51ef7864b76bd269be4c4bd26be",
+      "sourceScreen": "projects/15403197759217325947/screens/20bfa51ef7864b76bd269be4c4bd26be",
+      "y": 21492,
+      "width": 1280,
+      "height": 2788
+    },
+    {
+      "id": "240dc8c476b5412caefa597a8cc52b64",
+      "sourceScreen": "projects/15403197759217325947/screens/240dc8c476b5412caefa597a8cc52b64",
+      "y": 24437,
+      "width": 1280,
+      "height": 2689
+    },
+    {
+      "id": "25e138cc33d9409dbf8c2b28e6033642",
+      "sourceScreen": "projects/15403197759217325947/screens/25e138cc33d9409dbf8c2b28e6033642",
+      "y": 43585,
+      "width": 1280,
+      "height": 1618
+    },
+    {
+      "id": "29886ee7262d46afa50da63964312a61",
+      "sourceScreen": "projects/15403197759217325947/screens/29886ee7262d46afa50da63964312a61",
+      "y": 51849,
+      "width": 1280,
+      "height": 2670
+    },
+    {
+      "id": "2d4da088c43d451a864f4a2333cdc65d",
+      "sourceScreen": "projects/15403197759217325947/screens/2d4da088c43d451a864f4a2333cdc65d",
+      "y": 27382,
+      "width": 1280,
+      "height": 2689
+    },
+    {
+      "id": "34b65c2a2f364559922f7fb9b3702983",
+      "sourceScreen": "projects/15403197759217325947/screens/34b65c2a2f364559922f7fb9b3702983",
+      "y": 6843,
+      "width": 1280,
+      "height": 2949
+    },
+    {
+      "id": "3b9555ed6c4246a8bf69df9797a5b7e3",
+      "sourceScreen": "projects/15403197759217325947/screens/3b9555ed6c4246a8bf69df9797a5b7e3",
+      "x": 2176,
+      "width": 512,
+      "height": 286
+    },
+    {
+      "id": "40f8439f8f1043e9be8a6e88dfef6628",
+      "sourceScreen": "projects/15403197759217325947/screens/40f8439f8f1043e9be8a6e88dfef6628",
+      "x": 1024,
+      "width": 512,
+      "height": 107
+    },
+    {
+      "id": "5165468134c642bcba9a16ef65c38ad6",
+      "sourceScreen": "projects/15403197759217325947/screens/5165468134c642bcba9a16ef65c38ad6",
+      "x": 2752,
+      "width": 512,
+      "height": 286
+    },
+    {
+      "id": "5b63d6c98bc246e48f008dd00ae97663",
+      "sourceScreen": "projects/15403197759217325947/screens/5b63d6c98bc246e48f008dd00ae97663",
+      "y": 30327,
+      "width": 1280,
+      "height": 2483
+    },
+    {
+      "id": "66376633041b41e6bdd61fadb71a25f6",
+      "sourceScreen": "projects/15403197759217325947/screens/66376633041b41e6bdd61fadb71a25f6",
+      "y": 12192,
+      "width": 1280,
+      "height": 2461
+    },
+    {
+      "id": "6b21113479d84814b9c1c5c49ecd05ff",
+      "sourceScreen": "projects/15403197759217325947/screens/6b21113479d84814b9c1c5c49ecd05ff",
+      "x": 3328,
+      "width": 512,
+      "height": 286
+    },
+    {
+      "id": "7cbcb16fb6ba4c55a2530ce2f30ab646",
+      "sourceScreen": "projects/15403197759217325947/screens/7cbcb16fb6ba4c55a2530ce2f30ab646",
+      "x": 5248,
+      "width": 1280,
+      "height": 1806
+    },
+    {
+      "id": "7d90ff87f57240e08ff3c8b69aaaedc7",
+      "sourceScreen": "projects/15403197759217325947/screens/7d90ff87f57240e08ff3c8b69aaaedc7",
+      "y": 17201,
+      "width": 1280,
+      "height": 2375
+    },
+    {
+      "id": "a20aae88c9d24b06ba568e3e3e4905fa",
+      "sourceScreen": "projects/15403197759217325947/screens/a20aae88c9d24b06ba568e3e3e4905fa",
+      "y": 45643,
+      "width": 1280,
+      "height": 1750
+    },
+    {
+      "id": "assets_ade6cca6437f4a1c90b842d19f2b8eb2",
+      "width": 960,
+      "height": 540,
+      "sourceAsset": "assets/ade6cca6437f4a1c90b842d19f2b8eb2",
+      "type": "DESIGN_SYSTEM_INSTANCE"
+    },
+    {
+      "id": "b3a5a579e61d48ec97a6cfcd917b9cb1",
+      "sourceScreen": "projects/15403197759217325947/screens/b3a5a579e61d48ec97a6cfcd917b9cb1",
+      "x": 6592,
+      "width": 1280,
+      "height": 3281
+    },
+    {
+      "id": "b9a5ca6c828847208e503d43adddeaf4",
+      "sourceScreen": "projects/15403197759217325947/screens/b9a5ca6c828847208e503d43adddeaf4",
+      "y": 49351,
+      "width": 1280,
+      "height": 2242
+    },
+    {
+      "id": "bec371bd5a374248b62e966740c661f7",
+      "sourceScreen": "projects/15403197759217325947/screens/bec371bd5a374248b62e966740c661f7",
+      "y": 14797,
+      "width": 1280,
+      "height": 2261
+    },
+    {
+      "id": "d70dda028dbc4d4399cab064d3f1e609",
+      "sourceScreen": "projects/15403197759217325947/screens/d70dda028dbc4d4399cab064d3f1e609",
+      "y": 47649,
+      "width": 1280,
+      "height": 1445
+    },
+    {
+      "id": "ec56cff04d604d7facc48f132f912517",
+      "sourceScreen": "projects/15403197759217325947/screens/ec56cff04d604d7facc48f132f912517",
+      "y": 54775,
+      "width": 1280,
+      "height": 1939
+    },
+    {
+      "id": "f2e7563a036c4bfbb6ae0f9d5b5481e2",
+      "sourceScreen": "projects/15403197759217325947/screens/f2e7563a036c4bfbb6ae0f9d5b5481e2",
+      "y": 9897,
+      "width": 1280,
+      "height": 2039
+    },
+    {
+      "id": "f851fba2f4d440f4a934456b605eaeb1",
+      "sourceScreen": "projects/15403197759217325947/screens/f851fba2f4d440f4a934456b605eaeb1",
+      "y": 19791,
+      "width": 1280,
+      "height": 1445
+    },
+    {
+      "id": "fade763b069a49388f8c2b704da3878f",
+      "sourceScreen": "projects/15403197759217325947/screens/fade763b069a49388f8c2b704da3878f",
+      "x": 1600,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "id": "fd998556e9e44b4fb4a2e3bc9c21dbbf",
+      "sourceScreen": "projects/15403197759217325947/screens/fd998556e9e44b4fb4a2e3bc9c21dbbf",
+      "x": 3904,
+      "width": 1280,
+      "height": 3212
+    }
+  ],
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

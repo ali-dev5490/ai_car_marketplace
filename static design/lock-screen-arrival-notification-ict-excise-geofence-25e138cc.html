@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<section class="max-w-[1440px] mx-auto px-gutter-desktop w-full py-space-md">
+<!-- Breadcrumb & Top Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<nav class="flex items-center gap-1.5 font-label-sm text-label-sm text-on-surface-variant flex-wrap">
+<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">My Garage &amp; Purchases</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold truncate">Toyota Prado TX L (2022)</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Smart Card Issuance</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Geofence Arrival Alert</span>
+</nav>
+<div class="flex items-center gap-space-sm mt-1">
+<span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Lock Screen Arrival Notification &amp; Turnstile Express Gate Pass</h1>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live GPS geofence proximity trigger (Sector H-9/4 Directorate, Islamabad) activating cryptographic Apple Wallet / Google Wallet pass on lock screen.</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap shrink-0">
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md transition-all shadow-sm active:scale-95" id="barrier-trigger-btn">
+<span class="material-symbols-outlined text-[18px]">contactless</span>
+<span>Simulate Barrier Tap</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span>View Pass Dossier</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">directions_walk</span>
+<span>Turnstile Navigation</span>
+</button>
+</div>
+</div>
+<!-- Main Grid Workspace -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start mt-space-sm">
+<!-- LEFT COLUMN: Realistic Smartphone Lock Screen Simulator (col-span-5) -->
+<div class="xl:col-span-5 flex flex-col items-center justify-center">
+<!-- Phone Bezel Frame -->
+<div class="relative w-full max-w-[400px] rounded-[48px] bg-[#0c121e] p-3 shadow-2xl shadow-slate-900/30 ring-1 ring-slate-800">
+<!-- Outer Chassis Edge Accents -->
+<div class="absolute -left-[3px] top-[115px] w-[3px] h-7 bg-slate-700 rounded-l-sm"></div>
+<div class="absolute -left-[3px] top-[165px] w-[3px] h-12 bg-slate-700 rounded-l-sm"></div>
+<div class="absolute -left-[3px] top-[225px] w-[3px] h-12 bg-slate-700 rounded-l-sm"></div>
+<div class="absolute -right-[3px] top-[150px] w-[3px] h-16 bg-slate-700 rounded-r-sm"></div>
+<!-- Smartphone Screen Area -->
+<div class="relative rounded-[40px] overflow-hidden bg-cover bg-center min-h-[790px] flex flex-col justify-between text-white select-none shadow-inner" data-alt="Subtle minimal atmospheric wallpaper of Islamabad Margalla Hills under soft morning light with cool muted slate and navy tones for smartphone lock screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCTXvjnDVm4uMoTHWsxgoHVuEEWBAFROLa71qo9BRbHtSMwIqxXhdrvn_1MyRhfo52RfanyEvw1-un3WOMje1porvFlv4lsSM3kPF82mYL51Gc0Tn5-cMyT7tibzicLgeGzhUPJkjcE2tj_yLwflXAR-fE_978ES84ID4At0I7pGTG6w8Z5H0Vcz-yrMJEvvwSbuclAIBjWm2gWFQ3oSa1bAl-0OmcZjUbIDW0uLA7lfHnC4ji0Z-iTJA')">
+<!-- Atmospheric Dark Scrim Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/85 z-0 pointer-events-none"></div>
+<!-- Lock Screen Content Container -->
+<div class="relative z-10 flex flex-col w-full h-full p-5 pt-3">
+<!-- Dynamic Island & Status Bar -->
+<div class="flex items-center justify-between w-full pt-1 pb-2 text-[12px] font-semibold text-white/90">
+<span class="pl-2 tracking-tight">10:48</span>
+<!-- Dynamic Island Shell -->
+<div class="h-6 w-28 bg-black rounded-full flex items-center justify-between px-2 shadow-sm">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="text-[9px] font-mono text-emerald-300 font-bold tracking-tighter">NFC ON</span>
+</div>
+<div class="w-2.5 h-2.5 rounded-full bg-slate-900 ring-1 ring-slate-700"></div>
+</div>
+<!-- Signal & Battery -->
+<div class="flex items-center gap-1.5 pr-2">
+<span class="text-[10px] font-bold">5G</span>
+<span class="material-symbols-outlined text-[14px]">signal_cellular_4_bar</span>
+<div class="flex items-center gap-0.5">
+<span class="text-[10px] font-mono">92%</span>
+<span class="material-symbols-outlined text-[14px]">battery_charging_full</span>
+</div>
+</div>
+</div>
+<!-- Top Lock Indicator -->
+<div class="flex justify-center pt-1 pb-1">
+<span class="material-symbols-outlined text-[16px] text-white/70">lock</span>
+</div>
+<!-- Time & Date Hero Display -->
+<div class="flex flex-col items-center text-center mt-1">
+<span class="text-[13px] font-medium tracking-wide text-white/80">Thursday, November 20 • Islamabad</span>
+<span class="text-[68px] leading-none font-bold tracking-tighter text-white drop-shadow-md font-headline-xl">10:48</span>
+</div>
+<!-- Middle: Geofence Stacked Notifications -->
+<div class="flex flex-col gap-2.5 mt-5">
+<!-- 1. Apple Wallet Proximity Geofenced Push -->
+<div class="rounded-2xl bg-slate-900/80 backdrop-blur-xl p-3.5 shadow-xl text-left border border-white/10 transition-all hover:bg-slate-900/90">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded-md bg-emerald-600 flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[13px]">account_balance</span>
+</div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-slate-300">Wallet • Now</span>
+</div>
+<span class="text-[10px] text-emerald-400 font-mono font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 120m to Gate
+                    </span>
+</div>
+<h2 class="text-[13px] font-bold text-white leading-snug">ICT Excise Directorate — Sector H-9/4</h2>
+<p class="text-[11px] text-slate-300 leading-relaxed mt-0.5">You have arrived for your 11:00 AM Smart Card collection. Tap to present your Digital Gate Pass at Turnstile B &amp; Counter 7.</p>
+<!-- Pass Meta Tag Pill -->
+<div class="mt-2.5 flex items-center justify-between bg-white/5 rounded-lg px-2.5 py-1.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-amber-400">directions_car</span>
+<span class="text-[11px] font-mono text-slate-200">ICT AEL-786 • Prado TX L</span>
+</div>
+<span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-bold">NFC READY</span>
+</div>
+<!-- Quick Inline Action Buttons on Lock Screen -->
+<div class="grid grid-cols-3 gap-1.5 mt-2.5 pt-2 border-t border-white/10">
+<button class="bg-primary-container hover:bg-primary text-white text-[11px] font-semibold py-1 px-1 rounded-md text-center transition-colors">
+                      Open Pass
+                    </button>
+<button class="bg-white/10 hover:bg-white/20 text-white text-[11px] font-semibold py-1 px-1 rounded-md text-center transition-colors">
+                      Counter 7
+                    </button>
+<button class="bg-white/5 hover:bg-white/10 text-slate-400 text-[11px] font-semibold py-1 px-1 rounded-md text-center transition-colors">
+                      Dismiss
+                    </button>
+</div>
+</div>
+<!-- 2. Dynamic Live Activity Queue Notification -->
+<div class="rounded-2xl bg-black/75 backdrop-blur-xl p-3.5 shadow-xl text-left border border-primary/40">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[10px] font-mono uppercase tracking-widest text-primary-fixed">LIVE QUEUE • Counter 7 Fast-Track</span>
+</div>
+<span class="text-[10px] font-mono text-slate-300 bg-white/10 px-1.5 py-0.5 rounded">Estimated wait: 4 mins</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div>
+<p class="text-[14px] font-bold text-white">2 people ahead</p>
+<p class="text-[11px] text-slate-300">Desk Officer: Insp. Zulfiqar Ali</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[18px] font-bold font-mono text-emerald-400">#7-B</span>
+<span class="text-[9px] text-slate-400 uppercase">Express Token</span>
+</div>
+</div>
+<!-- Milestone Dot Progression -->
+<div class="mt-3 pt-2 border-t border-white/10">
+<div class="flex items-center justify-between text-[10px] text-slate-300 font-medium mb-1">
+<span class="text-emerald-400 font-bold">1. Turnstile B</span>
+<span class="text-amber-300">2. Biometric Desk</span>
+<span class="text-slate-500">3. Handover</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-emerald-400 h-full w-1/3"></div>
+<div class="bg-amber-400 h-full w-1/3 animate-pulse"></div>
+<div class="bg-slate-700 h-full w-1/3"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Tools (Flashlight / Camera & Home Bar) -->
+<div class="mt-auto pt-6 flex flex-col items-center">
+<div class="w-full flex items-center justify-between px-3 mb-4">
+<button class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white active:bg-white/40 transition-colors shadow-lg">
+<span class="material-symbols-outlined text-[20px]">flashlight_on</span>
+</button>
+<span class="text-[10px] font-medium tracking-wide text-white/50 uppercase">Swipe up to unlock</span>
+<button class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white active:bg-white/40 transition-colors shadow-lg">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</button>
+</div>
+<!-- iOS Home Bar Indicator -->
+<div class="w-32 h-1 bg-white/70 rounded-full mb-1"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Phone Spec Sub-label -->
+<div class="flex items-center gap-2 mt-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">smartphone</span>
+<span>Apple Wallet Express Card emulation active on iOS CoreNFC backend</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Geolocation Radar, Proximity Telemetry & Entry Protocol (col-span-7) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Live Geofence Radar Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-[22px]">radar</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Excise Sector H-9/4 Geo-Boundary</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live telemetry from Bilal Ahmed's registered device</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+              INSIDE 500m PERIMETER
+            </div>
+</div>
+<!-- Radar Visualization Container -->
+<div class="relative mt-space-md rounded-lg overflow-hidden bg-slate-900 min-h-[220px] p-4 text-white flex flex-col justify-between">
+<!-- Simulated Radar Scan Lines via SVG -->
+<svg class="absolute inset-0 w-full h-full opacity-30 pointer-events-none" fill="none" viewbox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+<circle cx="300" cy="120" r="40" stroke="#38bdf8" stroke-dasharray="3 3"></circle>
+<circle cx="300" cy="120" r="90" stroke="#38bdf8" stroke-dasharray="4 4"></circle>
+<circle cx="300" cy="120" r="140" stroke="#38bdf8" stroke-dasharray="6 6"></circle>
+<line stroke="#0284c7" stroke-width="0.7" x1="0" x2="600" y1="120" y2="120"></line>
+<line stroke="#0284c7" stroke-width="0.7" x1="300" x2="300" y1="0" y2="240"></line>
+</svg>
+<!-- Top Telemetry Row inside Radar -->
+<div class="relative z-10 flex items-center justify-between font-mono text-[11px] text-slate-300 bg-slate-950/60 p-2 rounded backdrop-blur-sm">
+<span>LAT: 33.6749° N • LON: 73.0412° E</span>
+<span class="text-emerald-400 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">gps_fixed</span> GPS LOCK: ±2.8m
+              </span>
+<span>BEACON: H9-TURNSTILE-NFC-B</span>
+</div>
+<!-- Central Positioning Visuals -->
+<div class="relative z-10 my-4 flex items-center justify-around">
+<!-- Location 1: Srinagar Highway Entry -->
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-mono text-slate-400 uppercase">Peshawar Morr / Srinagar Hwy</span>
+<span class="w-2.5 h-2.5 rounded-full bg-slate-500 mt-1"></span>
+<span class="text-[10px] text-slate-400 mt-1">Cleared 10:44 AM</span>
+</div>
+<!-- Central Blinking Marker: Bilal's Location -->
+<div class="flex flex-col items-center text-center -mt-2">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-8 h-8 rounded-full bg-primary/40 animate-ping"></span>
+<span class="w-4 h-4 rounded-full bg-primary-container text-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[10px]">directions_car</span>
+</span>
+</div>
+<span class="text-[11px] font-bold font-mono text-white mt-1.5">Bilal Ahmed (Toyota Prado)</span>
+<span class="text-[10px] font-mono text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded mt-0.5">120m to Gate 2 Entry</span>
+</div>
+<!-- Location 3: Excise Directorate Gate 2 -->
+<div class="flex flex-col items-center text-center">
+<span class="text-[10px] font-mono text-slate-400 uppercase">Directorate Gate 2 Barrier</span>
+<span class="w-3 h-3 rounded-full bg-amber-400 mt-1 ring-2 ring-amber-500/50"></span>
+<span class="text-[10px] text-amber-300 mt-1">Target Gate</span>
+</div>
+</div>
+<!-- Bottom Radar Stats -->
+<div class="relative z-10 grid grid-cols-3 gap-2 text-center pt-2 border-t border-slate-800 text-[11px] font-mono">
+<div class="bg-slate-800/40 p-1.5 rounded">
+<span class="text-slate-400 block text-[10px]">Geofence Radius</span>
+<span class="font-bold text-white">500.0 Meters</span>
+</div>
+<div class="bg-slate-800/40 p-1.5 rounded">
+<span class="text-slate-400 block text-[10px]">Protocol Layer</span>
+<span class="font-bold text-white">iBeacon + CoreLoc</span>
+</div>
+<div class="bg-slate-800/40 p-1.5 rounded">
+<span class="text-slate-400 block text-[10px]">Turnstile State</span>
+<span class="font-bold text-emerald-400">Armed &amp; Syncing</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fast-Track Turnstile Barrier Instructions -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm pb-space-sm border-b border-surface-container">
+<div class="p-2 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-[22px]">flaky</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Fast-Track Turnstile Entry Guide</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Three straightforward steps to retrieve your physical vehicle smart card</p>
+</div>
+</div>
+<!-- Step Progression List -->
+<div class="flex flex-col gap-space-sm mt-space-md">
+<!-- Step 1 -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary-container text-on-primary font-bold font-mono text-label-md shrink-0">
+                1
+              </div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Express Turnstile B (Gate 2)</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium">No Unlock Needed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Hold your iPhone or Apple Watch within 4cm of the contactless reader with the green illuminated NFC icon. Apple Pay Express Mode handles biometric clearance without waking device.
+                </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-high text-primary font-bold font-mono text-label-md shrink-0">
+                2
+              </div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Automated Barrier Clearance</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-medium">Bypass General Queue</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  The motorized turnstile displays your vehicle badge (#ICT-AEL-786) and rotates with an audible chime. You automatically bypass the external 45-person visitor verification line.
+                </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-high text-primary font-bold font-mono text-label-md shrink-0">
+                3
+              </div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Counter 7 — Fast-Track Handover</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium">Desk: Insp. Zulfiqar</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Present your original CNIC to Inspector Zulfiqar Ali. He will perform a single thumbprint verification to activate and physically hand over your embossed ICT Smart Card.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Counterparty & Support Quick Bar + Pass Security Audit Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Liaison Officer Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">support_agent</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Excise On-Site Liaison</h4>
+</div>
+<div class="flex items-center gap-3 mt-3">
+<img alt="Faisal Rasheed" class="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Faisal Rasheed</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Desk 7 Escort • Excise Officer</div>
+<div class="font-data-mono text-data-mono text-primary font-bold mt-0.5">+92 300 5519820</div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mt-4 pt-3 border-t border-surface-container">
+<a class="flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md transition-colors" href="tel:+923005519820">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>Call Desk</span>
+</a>
+<a class="flex-1 flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+<!-- Pass Security Audit Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Pass Security Audit</h4>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-bold font-mono">ECC-256</span>
+</div>
+<div class="space-y-2 mt-3 font-data-mono text-data-mono">
+<div class="flex justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Token ID</span>
+<span class="font-bold text-on-surface">#TK-88410-ICT-2025</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Vehicle Reg</span>
+<span class="font-bold text-on-surface">ICT AEL-786</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container">
+<span class="text-on-surface-variant">Chassis</span>
+<span class="text-on-surface truncate max-w-[140px]">GDJ150-0082194</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Signer</span>
+<span class="text-emerald-700 font-semibold truncate max-w-[150px]">ICT Central Root CA</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 text-[11px] text-on-surface-variant flex items-center gap-1.5 font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">lock_open</span>
+<span>Mutual TLS authenticated with NADRA Biometric Gateway</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Simulation Modal / Toast -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 max-w-sm rounded-xl bg-slate-900 text-white p-4 shadow-2xl border border-slate-700 flex items-start gap-3" id="simulation-toast">
+<div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="text-[12px] font-mono text-emerald-400 font-bold uppercase tracking-wider">Turnstile B Contactless Chime</span>
+<p class="text-[13px] text-slate-200 mt-0.5">Barrier unlatched. Digital token #TK-88410 verified. Proceed to Counter 7.</p>
+</div>
+<button class="text-slate-400 hover:text-white" id="close-toast-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const triggerBtn = document.getElementById('barrier-trigger-btn');
+    const toast = document.getElementById('simulation-toast');
+    const closeBtn = document.getElementById('close-toast-btn');
+
+    if (triggerBtn && toast) {
+      triggerBtn.addEventListener('click', function() {
+        toast.classList.remove('translate-y-32', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        setTimeout(function() {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-32', 'opacity-0');
+        }, 5000);
+      });
+    }
+
+    if (closeBtn && toast) {
+      closeBtn.addEventListener('click', function() {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-32', 'opacity-0');
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

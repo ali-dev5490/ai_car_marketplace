@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Phone, Heart, Share2, MapPin, CheckCircle2, AlertTriangle, ArrowLeft, BarChart2, Star, ShieldCheck, HelpCircle, Activity } from 'lucide-react';
+import { Phone, Heart, Share2, MapPin, CheckCircle2, AlertTriangle, ArrowLeft, BarChart2, Star, ShieldCheck, HelpCircle, Activity, MessageSquare } from 'lucide-react';
 import { Car } from '../types';
 import { fetchCarById, fetchCars } from '../lib/api';
+import { useAuth } from '../context/AuthContext';
+import { apiCreateEnquiry } from '../lib/authApi';
 
 interface CarDetailsProps {
   toggleFavorite: (id: number) => void;
@@ -24,6 +26,10 @@ export default function CarDetails({
   const [similarCars, setSimilarCars] = useState<Car[]>([]);
   const [betterValueCars, setBetterValueCars] = useState<Car[]>([]);
   const [aiReport, setAiReport] = useState<any>(null);
+  const { user } = useAuth();
+  const [enquiryMsg, setEnquiryMsg] = useState('Assalam o alaikum, I am interested in this car. Can we arrange a visit?');
+  const [enquiryStatus, setEnquiryStatus] = useState('');
+  const [enquiryBusy, setEnquiryBusy] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -375,6 +381,45 @@ export default function CarDetails({
                   <span>Reveal Seller Phone Number</span>
                 </button>
               )}
+
+              <div className="pt-2 border-t border-slate-200/50 space-y-2">
+                <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <MessageSquare className="h-3.5 w-3.5" /> Platform enquiry
+                </h4>
+                {user ? (
+                  <>
+                    <textarea
+                      value={enquiryMsg}
+                      onChange={(e) => setEnquiryMsg(e.target.value)}
+                      rows={3}
+                      className="w-full rounded-xl border border-slate-200 bg-white/80 px-3 py-2 text-sm"
+                    />
+                    {enquiryStatus && <p className="text-xs font-semibold text-emerald-600">{enquiryStatus}</p>}
+                    <button
+                      disabled={enquiryBusy}
+                      onClick={async () => {
+                        setEnquiryBusy(true);
+                        setEnquiryStatus('');
+                        try {
+                          await apiCreateEnquiry(car.id, enquiryMsg);
+                          setEnquiryStatus('Enquiry sent. Seller will see it in their account inbox.');
+                        } catch (err: any) {
+                          setEnquiryStatus(err.message || 'Failed to send');
+                        } finally {
+                          setEnquiryBusy(false);
+                        }
+                      }}
+                      className="w-full rounded-xl bg-[#2563EB] text-white text-sm font-bold py-2.5 hover:bg-[#1D4ED8] disabled:opacity-60"
+                    >
+                      {enquiryBusy ? 'Sending...' : 'Send visit / enquiry request'}
+                    </button>
+                  </>
+                ) : (
+                  <Link to="/login" state={{ from: `/cars/${car.id}` }} className="block text-center text-sm font-bold text-[#2563EB] hover:underline">
+                    Log in to send an enquiry
+                  </Link>
+                )}
+              </div>
             </div>
 
             {/* PakCar Value Checker (AI Value Indicator) */}

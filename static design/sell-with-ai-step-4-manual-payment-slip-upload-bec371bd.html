@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Progress Header & Breadcrumbs Bar -->
+<section class="w-full bg-surface-container-lowest shadow-sm">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-md flex flex-col gap-space-md">
+<!-- Breadcrumb & Draft Details Row -->
+<div class="flex flex-wrap items-center justify-between gap-y-space-xs gap-x-space-md">
+<div class="flex flex-wrap items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" data-path="customer-portal" href="#">Sell with AI</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-data-mono text-data-mono font-semibold text-on-surface bg-surface-container-low px-2 py-0.5 rounded-lg">Draft #PK-88219</span>
+<span class="text-outline-variant">•</span>
+<span class="font-medium text-on-surface">2023 Honda Civic RS Turbo (11th Gen)</span>
+<span class="text-outline-variant">•</span>
+<span class="font-data-mono text-data-mono font-semibold text-tertiary">Locked Asking: PKR 86.50 Lacs</span>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Cloud Autosaved: Just now
+          </span>
+<a class="px-space-sm py-1 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors" data-path="customer-portal" href="#">
+            Exit to Dashboard
+          </a>
+</div>
+</div>
+<!-- Linear Stepper Workflow -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm pt-space-xs">
+<!-- Step 1 (Completed) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 1</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Upload Media &amp; Docs</span>
+</div>
+</div>
+<!-- Step 2 (Completed) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 2</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">OCR Specs Extraction</span>
+</div>
+</div>
+<!-- Step 3 (Completed) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 3</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Review Specs &amp; Price</span>
+</div>
+</div>
+<!-- Step 4 (Active / Final) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-primary-container text-on-primary shadow-sm">
+<div class="flex items-center justify-center w-7 h-7 rounded-full bg-white/20 text-on-primary shrink-0">
+<span class="font-label-sm text-label-sm font-bold">4</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider">Final Step</span>
+<span class="font-label-md text-label-md text-on-primary font-semibold truncate">Manual Payment &amp; Publish</span>
+</div>
+<span class="material-symbols-outlined text-[18px] ml-auto text-on-primary-container">lock_clock</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Workflow Workspace (Two-Column Asymmetric) -->
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Payment Rail Selection & Account Disclosures -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Section Header -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-primary bg-primary-fixed/60 px-2 py-0.5 rounded-lg">Rail Authorization</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">Fee: PKR 1,500</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold">Select Verification &amp; Listing Rail</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Pakistan financial rails require human reconciliation against 1Link and JazzCash merchant clearing logs. Select your source channel and transfer exact PKR 1,500.
+          </p>
+</div>
+<!-- Rail Selection Interactive Card Group -->
+<div class="flex flex-col gap-space-md" id="payment-rails">
+<!-- Option A: JazzCash / EasyPaisa (Selected / Recommended) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all relative overflow-hidden" id="rail-card-jazzcash">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="mt-1">
+<input checked="" class="w-4 h-4 text-primary accent-primary cursor-pointer" id="rail-jazzcash" name="payment_rail" type="radio" value="jazzcash"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<label class="font-headline-sm text-headline-sm text-on-surface font-semibold cursor-pointer" for="rail-jazzcash">JazzCash / EasyPaisa Mobile Account</label>
+<span class="font-label-sm text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                      Fastest: ~15 mins
+                    </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Direct instant mobile till transfer or personal wallet transaction.
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0 bg-surface-container-low px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Wallets</span>
+</div>
+</div>
+<!-- Detailed Rail Banking Information -->
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Account Title -->
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Account Title</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">AI Car Marketplace Pvt Ltd</span>
+</div>
+<!-- Amount Due -->
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Payable Amount</span>
+<span class="font-data-mono text-label-md font-bold text-primary">PKR 1,500 <span class="font-normal text-on-surface-variant text-[11px]">(One-Time OCR Listing)</span></span>
+</div>
+</div>
+<!-- Till & Number with Instant Copy Triggers -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mt-1">
+<!-- Mobile Number -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">JazzCash Mobile No</span>
+<span class="font-data-mono text-label-md font-bold text-on-surface tracking-wider" id="jazzcash-number">0300-8451992</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold px-2 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors" onclick="navigator.clipboard.writeText('03008451992'); this.innerText='Copied!';" type="button">
+                    Copy
+                  </button>
+</div>
+<!-- Merchant Till ID -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">JazzCash Till ID</span>
+<span class="font-data-mono text-label-md font-bold text-on-surface tracking-wider" id="jazzcash-till">981245</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold px-2 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors" onclick="navigator.clipboard.writeText('981245'); this.innerText='Copied!';" type="button">
+                    Copy
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Option B: 1Link Kuickpay / Direct Bank Transfer -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all" id="rail-card-bank">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="mt-1">
+<input class="w-4 h-4 text-primary accent-primary cursor-pointer" id="rail-bank" name="payment_rail" type="radio" value="bank"/>
+</div>
+<div class="flex flex-col">
+<label class="font-headline-sm text-headline-sm text-on-surface font-semibold cursor-pointer" for="rail-bank">1Link Kuickpay &amp; Bank Transfer</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Meezan Bank Ltd &amp; Bank Alfalah (Instant 1Link clearance).
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0 bg-surface-container-low px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">1Link / IBAN</span>
+</div>
+</div>
+<!-- Meezan Details Box -->
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Designated Bank</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Meezan Bank Ltd (Gulberg Lahore)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Account Name</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">AI Car Market Place Operations</span>
+</div>
+</div>
+<!-- IBAN Copy Strip -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col min-w-0 pr-2">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Official 24-Digit IBAN</span>
+<span class="font-data-mono text-label-md font-semibold text-on-surface tracking-wider truncate">PK45MEZN0001234567890123</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold px-2 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors shrink-0" onclick="navigator.clipboard.writeText('PK45MEZN0001234567890123'); this.innerText='Copied!';" type="button">
+                  Copy IBAN
+                </button>
+</div>
+<!-- Kuickpay ID Strip -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Kuickpay Consumer ID (Bill Payment)</span>
+<span class="font-data-mono text-label-md font-bold text-on-surface tracking-wider">1088219</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold px-2 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors shrink-0" onclick="navigator.clipboard.writeText('1088219'); this.innerText='Copied!';" type="button">
+                  Copy ID
+                </button>
+</div>
+</div>
+</div>
+<!-- Option C: Raast P2M Instant QR -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all" id="rail-card-raast">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="mt-1">
+<input class="w-4 h-4 text-primary accent-primary cursor-pointer" id="rail-raast" name="payment_rail" type="radio" value="raast"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<label class="font-headline-sm text-headline-sm text-on-surface font-semibold cursor-pointer" for="rail-raast">Raast Instant P2M Identifier</label>
+<span class="font-label-sm text-[10px] uppercase font-bold text-on-secondary-container bg-secondary-container px-2 py-0.5 rounded-full">SBP Certified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Universal state bank instant transfer via any banking application in Pakistan.
+                  </p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0 bg-surface-container-low px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">qr_code_2</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Raast ID</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-md flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1 shrink-0">
+<!-- Decorative Minimal QR SVG representation -->
+<svg class="w-10 h-10 text-on-surface" fill="currentColor" viewbox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm10 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2zm2-2h2v2h-2v-2zm-2-4h4v2h-4v-2z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase">Raast Payment ID</span>
+<span class="font-data-mono text-label-md font-bold text-on-surface">raast@aicar.pk</span>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-semibold px-2 py-1 rounded-lg bg-surface-container-lowest hover:bg-surface-container transition-colors shrink-0" onclick="navigator.clipboard.writeText('raast@aicar.pk'); this.innerText='Copied!';" type="button">
+                Copy Raast ID
+              </button>
+</div>
+</div>
+</div>
+<!-- Step-by-Step Payment Instructions Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">3-Step Verification Protocol</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-lowest">
+<span class="font-data-mono text-[12px] font-bold text-primary">01. Transfer</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Send exact <strong class="text-on-surface font-semibold">PKR 1,500</strong> using your app or wallet.
+              </p>
+</div>
+<div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-lowest">
+<span class="font-data-mono text-[12px] font-bold text-primary">02. Capture</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Take a clear screenshot of the confirmed screen or ATM transaction slip.
+              </p>
+</div>
+<div class="flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-lowest">
+<span class="font-data-mono text-[12px] font-bold text-primary">03. Reference</span>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Ensure the 6-12 digit TID / STAN and timestamp are clearly readable.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Car Snapshot, Slip Upload & Transaction Form -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Car Summary Snapshot Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant tracking-wider">Listing Snapshot</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> OCR Specs Ready
+            </span>
+</div>
+<div class="flex gap-space-md">
+<div class="w-28 h-20 rounded-lg overflow-hidden shrink-0 bg-surface-container-low">
+<img alt="2023 Honda Civic RS Turbo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XQUmA7BpoZ3ulIUrur-8N_TYTVRlhR8WPQaJX-K1a7wjthTmEbOwe5gNb9XjIzOvw2pEe6ORpAAQI02vYZKWRHgF6BzZaZtROYIZhh-b5e8d0Ib63pIeK8Rx7NFDz5m6cgsM6XgNbfTExAdu9yWuooiAweUvvAbulCHX-LP1o65YZhhZd_veLGptcOmVjdRnh-LTjN-pvdSIX5Ew_Dx0fuhGB0zUqpDd_otD2Fk3p3_OxlBD9RvrD5xjU"/>
+</div>
+<div class="flex flex-col justify-center min-w-0">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-data-mono">DRAFT #PK-88219</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">2023 Honda Civic RS Turbo</h2>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span>1.5L VTEC</span>
+<span>•</span>
+<span>Islamabad LE-22</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold mt-1">PKR 86.50 Lacs</span>
+</div>
+</div>
+<!-- Price & Listing Fee Breakdown -->
+<div class="pt-space-sm mt-space-xs bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-1.5 font-body-sm text-body-sm">
+<div class="flex justify-between items-center text-on-surface-variant">
+<span>AI OCR &amp; Excise Verification Fee</span>
+<span class="font-data-mono text-on-surface font-medium">PKR 1,500</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-1">
+                Platform Commission on Sale
+                <span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span>
+</span>
+<span class="font-data-mono text-emerald-700 font-semibold">PKR 0 (100% Free)</span>
+</div>
+<div class="pt-1.5 mt-1 flex justify-between items-center font-label-md text-label-md text-on-surface font-bold">
+<span>Total Payable Now</span>
+<span class="font-data-mono text-headline-sm text-headline-sm text-primary">PKR 1,500</span>
+</div>
+</div>
+</div>
+<!-- Verification Slip Submission Form Container -->
+<form class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md" onsubmit="event.preventDefault(); document.getElementById('submission-modal').classList.remove('hidden');">
+<div class="flex flex-col gap-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Deposit Slip Verification</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Upload proof to enable manual ledger matching by our operations desk.</p>
+</div>
+<!-- Transaction Slip Upload Zone -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Payment Slip Screenshot / Receipt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">PNG, JPG, PDF (Max 10MB)</span>
+</label>
+<!-- Interactive Drag & Drop Area with Pre-uploaded Preview -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container transition-colors group">
+<!-- Mock Pre-uploaded Attached File State -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-space-sm flex items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div class="flex flex-col text-left min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">jazzcash_receipt_tx9821.jpg</span>
+<span class="font-label-sm text-label-sm text-emerald-700 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">task_alt</span> 340 KB • Ready to submit
+                    </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="font-label-sm text-label-sm text-primary hover:underline px-1.5 py-1" type="button">View</button>
+<button class="font-label-sm text-label-sm text-error hover:underline px-1.5 py-1" type="button">Replace</button>
+</div>
+</div>
+<!-- Upload prompt text below -->
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-2">
+                Click to replace or drop updated receipt file
+              </p>
+</div>
+</div>
+<!-- Form Input: TID / STAN -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="transaction-id">Transaction ID / Reference Number (TID / STAN)</label>
+<span class="font-label-sm text-[11px] text-emerald-700 font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Valid Format
+              </span>
+</div>
+<div class="relative">
+<input class="w-full px-space-md py-2 bg-surface-container-low rounded-lg font-data-mono text-label-md text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary" id="transaction-id" required="" type="text" value="TXN-9981245109"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[18px] text-emerald-600">verified</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Located on JazzCash confirmation SMS or Bank transfer receipt</span>
+</div>
+<!-- Form Input: Paying Account Title / Sender Name -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="sender-name">Paying Account Title / Sender Name</label>
+<input class="w-full px-space-md py-2 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary" id="sender-name" required="" type="text" value="Tariq Mehmood"/>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Must match the CNIC or account name on the remittance slip</span>
+</div>
+<!-- Form Grid: Payment Date & Rail Dropdown -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="payment-time">Payment Date &amp; Time</label>
+<input class="w-full px-space-md py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary" id="payment-time" type="text" value="Today, 26 Feb 2025 • 03:45 PM"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="rail-select">Payment Rail Used</label>
+<select class="w-full px-space-md py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary" id="rail-select">
+<option selected="">JazzCash Merchant (0300-8451992)</option>
+<option>EasyPaisa Direct</option>
+<option>Meezan Bank 1Link</option>
+<option>Raast P2M QR</option>
+</select>
+</div>
+</div>
+<!-- Form Input: WhatsApp Remarks -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="whatsapp-no">Sender WhatsApp Number (For Instant Activation SMS)</label>
+<div class="relative">
+<input class="w-full px-space-md py-2 bg-surface-container-low rounded-lg font-data-mono text-body-md text-on-surface focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary" id="whatsapp-no" required="" type="tel" value="+92 300 1234567"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[18px] text-on-surface-variant">chat</span>
+</div>
+</div>
+<!-- Trust & SLA Assurance Note -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Pakistani Operations Desk SLA</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5 leading-tight">
+                Average manual reconciliation turnaround is <strong>18 minutes</strong> (Live desk operational daily 9:00 AM – 11:00 PM PKT).
+              </p>
+</div>
+</div>
+<!-- Form Action Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full h-11 px-space-md rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm transition-all transform active:scale-[0.99]" type="submit">
+<span>Submit Deposit Slip &amp; Activate Listing</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="w-full h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold transition-colors" type="button">
+              Save Listing as Draft &amp; Pay Later
+            </button>
+<div class="text-center mt-1">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1" data-path="review-specs" href="#">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+                Back to Step 3: Review Specs
+              </a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Operational Lifecycle & Buyer Protection Bottom Grid -->
+<section class="w-full bg-surface-container-low/70 py-space-xl">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop flex flex-col gap-space-lg">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary tracking-wider">Automated Post-Payment Protocol</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">What happens immediately after submission?</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Lifecycle Step 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-data-mono font-bold text-headline-sm">
+            A
+          </div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Operations Ledger Reconciliation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Our finance team cross-verifies the 6-12 digit TID with Meezan Bank 1Link Kuickpay or JazzCash merchant portal reports.
+          </p>
+<div class="mt-auto pt-space-xs font-data-mono text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Automated Audit Log Generated
+          </div>
+</div>
+<!-- Lifecycle Step 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800 font-data-mono font-bold text-headline-sm">
+            B
+          </div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Verified Badges Activation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Listing immediately goes live across Karachi, Lahore, and Islamabad markets with official <span class="font-semibold text-on-surface">Pak Verified</span> and <span class="font-semibold text-on-surface">Excise Matched</span> status tags.
+          </p>
+<div class="mt-auto pt-space-xs font-data-mono text-[11px] text-emerald-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+            Top 5% Algorithmic Ranking
+          </div>
+</div>
+<!-- Lifecycle Step 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container font-data-mono font-bold text-headline-sm">
+            C
+          </div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface">Direct WhatsApp Buyer Routing</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Prospective verified buyers contact your verified WhatsApp (+92 300 1234567) without intermediaries or commission markups.
+          </p>
+<div class="mt-auto pt-space-xs font-data-mono text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+            Zero Escrow Scam Protection
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Modal Mockup for Submission Confirmation (Hidden by default, shown via submit) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/60 backdrop-blur-sm flex items-center justify-center p-space-md hidden" id="submission-modal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-xl shadow-2xl flex flex-col items-center text-center gap-space-md">
+<div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[36px]">published_with_changes</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-data-mono text-label-sm text-primary uppercase font-bold">Draft #PK-88219</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Deposit Slip Received!</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Reference <span class="font-data-mono font-semibold text-on-surface">TXN-9981245109</span> is queued for manual ledger verification. Your listing for the <strong>2023 Honda Civic RS Turbo</strong> will go live shortly.
+        </p>
+</div>
+<div class="w-full bg-surface-container-low p-space-sm rounded-lg flex justify-between items-center text-left font-body-sm text-body-sm">
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Estimated SLA</p>
+<p class="text-on-surface-variant text-[12px]">SMS Notification on clearance</p>
+</div>
+<span class="font-data-mono text-label-lg font-bold text-emerald-700">~18 Mins</span>
+</div>
+<div class="flex flex-col sm:flex-row w-full gap-space-sm mt-space-sm">
+<a class="w-full py-2.5 px-space-md rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold text-center hover:bg-primary-container transition-colors" data-path="customer-portal" href="#">
+          Go to My Listings
+        </a>
+<button class="w-full py-2.5 px-space-md rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container transition-colors" onclick="document.getElementById('submission-modal').classList.add('hidden')" type="button">
+          Close Window
+        </button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

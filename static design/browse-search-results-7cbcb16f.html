@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Summary Bar -->
+<div class="w-full bg-surface-container-lowest shadow-sm mb-space-md">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-md flex flex-col gap-space-sm">
+<!-- Breadcrumbs & Live Counter Indicator -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Browse Cars</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Pakistan Verified Inventory</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-data-mono text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>AI Index Synced 2m ago</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">PKR / Excise Verified</span>
+</div>
+</div>
+<!-- Main Headline & Sorting Controls -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-xs">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+            Showing <span class="text-primary font-bold">148</span> Verified Cars in Lahore &amp; Islamabad
+          </h1>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+            Real-time biometric clearance, algorithmic pricing benchmark, and physical diagnostic scan.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<div class="relative inline-block text-left group" id="sort-menu-container">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-sm" id="sort-trigger">
+<span class="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
+<span id="current-sort-label">Sort by: AI Best Match</span>
+<span class="material-symbols-outlined text-[16px] text-secondary transition-transform group-hover:rotate-180">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-1.5 w-52 bg-surface-container-lowest rounded-xl shadow-xl z-50 py-1.5 overflow-hidden" id="sort-dropdown">
+<button class="w-full text-left px-space-md py-2 font-label-md text-label-md text-primary bg-surface-container-low font-semibold flex items-center justify-between" onclick="setSort('AI Best Match')">
+<span>AI Best Match</span>
+<span class="material-symbols-outlined text-[16px]">check</span>
+</button>
+<button class="w-full text-left px-space-md py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="setSort('Price: Low to High')">
+                Price: Low to High
+              </button>
+<button class="w-full text-left px-space-md py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="setSort('Price: High to Low')">
+                Price: High to Low
+              </button>
+<button class="w-full text-left px-space-md py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="setSort('Lowest Mileage')">
+                Lowest Mileage
+              </button>
+<button class="w-full text-left px-space-md py-2 font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" onclick="setSort('Newest Year')">
+                Newest Year
+              </button>
+</div>
+</div>
+<button class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-secondary hover:text-on-surface transition-colors" title="Save this search alert">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+</div>
+</div>
+<!-- Active Filter Badges Pills Row -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mr-1">Active Filters:</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm group">
+          Toyota, Honda
+          <button class="hover:text-error transition-colors ml-0.5 flex items-center"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm group">
+          2020 – 2024
+          <button class="hover:text-error transition-colors ml-0.5 flex items-center"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm group">
+          Lahore + Islamabad
+          <button class="hover:text-error transition-colors ml-0.5 flex items-center"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm group">
+          Under PKR 1.5 Crore
+          <button class="hover:text-error transition-colors ml-0.5 flex items-center"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline ml-space-xs transition-colors font-medium">
+          Clear all (4)
+        </button>
+</div>
+</div>
+</div>
+<!-- Main Content Layout (Sidebar + Results Grid) -->
+<div class="max-w-[1440px] w-full mx-auto px-gutter-desktop pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Sidebar Filters Panel (Sticky, 280px / 3 cols) -->
+<aside class="lg:col-span-3 w-full sticky top-24 space-y-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-lg">
+<!-- Sidebar Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Filter Inventory</h2>
+</div>
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors">Reset All</button>
+</div>
+<!-- Section: AI Verification Quick Toggles -->
+<div class="space-y-space-xs bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Trust &amp; Verification</span>
+<label class="flex items-center justify-between py-1.5 cursor-pointer group">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">verified</span>
+                AI Inspected Only
+              </span>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between py-1.5 cursor-pointer group">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container">check_circle</span>
+                Verified Payment
+              </span>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
+</label>
+</div>
+<!-- Section: City Selection -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Registration / City</span>
+<span class="font-label-sm text-label-sm text-secondary">4 Cities</span>
+</div>
+<div class="space-y-1.5 pt-1">
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Lahore</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">64</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Islamabad</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">31</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Karachi</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">42</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Rawalpindi</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">11</span>
+</label>
+</div>
+</div>
+<!-- Section: Price Slider & Ranges in PKR -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Price Bracket (PKR)</span>
+<span class="font-data-mono text-label-sm text-primary font-medium">Lacs &amp; Crores</span>
+</div>
+<div class="pt-2 px-1">
+<input class="w-full accent-primary bg-surface-container h-1.5 rounded-lg appearance-none cursor-pointer" max="350" min="20" type="range" value="150"/>
+<div class="flex justify-between font-data-mono text-[11px] text-secondary mt-1">
+<span>20 Lacs</span>
+<span>1.5 Crore</span>
+<span>3.5 Cr+</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-2">
+<div class="bg-surface-container-low p-2 rounded-lg">
+<label class="block font-label-sm text-[10px] text-secondary uppercase">Min (PKR)</label>
+<input class="w-full bg-transparent font-data-mono text-label-md text-on-surface font-semibold focus:outline-none" type="text" value="20 Lacs"/>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg">
+<label class="block font-label-sm text-[10px] text-secondary uppercase">Max (PKR)</label>
+<input class="w-full bg-transparent font-data-mono text-label-md text-on-surface font-semibold focus:outline-none" type="text" value="1.50 Crore"/>
+</div>
+</div>
+</div>
+<!-- Section: Make & Model with Quick Filter Search -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Make &amp; Brand</span>
+<span class="font-label-sm text-label-sm text-primary cursor-pointer hover:underline">Select All</span>
+</div>
+<div class="relative my-1">
+<input class="w-full pl-8 pr-2 py-1.5 bg-surface-container text-body-sm font-body-sm rounded-lg focus:outline-none focus:bg-surface-container-high placeholder:text-secondary" placeholder="Search make, model..." type="text"/>
+<span class="material-symbols-outlined absolute left-2 top-2 text-[16px] text-secondary">search</span>
+</div>
+<div class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Toyota</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">58</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Honda</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">44</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Hyundai</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">22</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Kia</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">19</span>
+</label>
+<label class="flex items-center justify-between text-body-sm font-body-sm hover:text-primary cursor-pointer p-1 rounded hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-2">
+<input class="rounded text-primary accent-primary" type="checkbox"/>
+<span>Suzuki</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">35</span>
+</label>
+</div>
+</div>
+<!-- Section: Model Year Range -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Year Range</span>
+<div class="grid grid-cols-2 gap-space-xs">
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md p-2 rounded-lg focus:outline-none">
+<option>2018</option>
+<option selected="">2020</option>
+<option>2022</option>
+</select>
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md p-2 rounded-lg focus:outline-none">
+<option>2022</option>
+<option>2023</option>
+<option selected="">2024</option>
+</select>
+</div>
+</div>
+<!-- Section: Transmission -->
+<div class="space-y-space-xs">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Transmission</span>
+<div class="grid grid-cols-2 gap-1 bg-surface-container p-1 rounded-lg">
+<button class="py-1 text-center font-label-md text-label-md rounded-md bg-surface-container-lowest text-primary font-semibold shadow-sm">Automatic</button>
+<button class="py-1 text-center font-label-md text-label-md rounded-md text-secondary hover:text-on-surface">Manual</button>
+</div>
+</div>
+<!-- Reset All CTA Button -->
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>Reset All Filters</span>
+</button>
+</div>
+<!-- Algorithmic Safe-Deal Sidebar Callout -->
+<div class="bg-primary/5 rounded-xl p-space-md space-y-space-xs">
+<div class="flex items-center gap-2 text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">security</span>
+            Escrow &amp; Transfer Shield
+          </div>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+            Funds are held in high-security escrow until biometric biometric transfer is verified at the local excise office.
+          </p>
+</div>
+</aside>
+<!-- Right Main Grid: Listing Feed (9 cols) -->
+<section class="lg:col-span-9 w-full space-y-space-lg">
+<!-- Inventory Grid of 6 High Density Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
+<!-- Card 1: Honda Civic RS Turbo (Lahore) -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<!-- 16:10 Photo Viewport with AI Defect / City Badges -->
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img alt="Honda Civic RS Turbo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1UPU3XmP9Q_X4sR27_Z5rU3N_T7cKp0-FqHcL9kUqM-1G7Q3eR_Vl4=w1440-h900"/>
+<!-- Floating AI Diagnostics Tag -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.4/10</span>
+</div>
+<!-- City / Location Tag -->
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Lahore, DHA
+              </div>
+<!-- Verified Badge -->
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-primary font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified Seller
+              </div>
+</div>
+<!-- Card Bottom Specs & Price Section -->
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Honda Civic RS Turbo
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2023</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">1.5L VTEC Turbocharged • Oriel Trim</p>
+</div>
+<!-- 3-Column Micro-Spec Row -->
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">14,200 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Petrol</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">Automatic</span>
+</div>
+</div>
+<!-- Price Row & Action -->
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Algorithmic Fair Price</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">86.5</span> Lacs
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Hyundai Tucson AWD (Karachi / Lahore delivery) -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img alt="Hyundai Tucson AWD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1U93Q1M-ZkQ9L1_tY5n-81P4-gH1q3K-1mR5s8J9vY7p2Q=w1440-h900"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.1/10</span>
+</div>
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Karachi, Clifton
+              </div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-tertiary-container font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                Free Intercity Transit
+              </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Hyundai Tucson AWD
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2022</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">2.0L MPI • Ultimate Panoramic Sunroof</p>
+</div>
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">28,500 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Petrol</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">AWD Auto</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Verified Valuation</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">78.0</span> Lacs
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Toyota Land Cruiser Prado (Islamabad) with Mandatory Image -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img alt="Toyota Land Cruiser Prado in Islamabad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3YVygls1NplnqnEV3XuIHG4fyYdJvFuRpxgqW2tzAz3WiGaXdL8dvcBiOMOYIxs7kk_D6U6EMgiTs9DwuiCfjQXbYy_QjZV9PtsfHvJX9dF2Bq7ri1PEjptBx-64lEjAfzfRQ62KhrzAYc787NhKJ1rC8gRvfQD-YUP2TbiV2Gr2s-cnZSFEowgUh1hOq9KR3zN_nuydtj9NlSpORWvf-_pESTkopJU-vJ7zfQyiqlmhzu3orNfX2PQ"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.7/10</span>
+</div>
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Islamabad, F-7
+              </div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-primary font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                First Owner Diplomat
+              </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Toyota Prado TX Limited
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2021</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">2.7L Petrol • 7-Seater Leather Interior</p>
+</div>
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">39,000 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Petrol</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">4x4 Auto</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Verified Valuation</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">2.85</span> Crore
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Toyota Corolla Altis Grande (Lahore) -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Front three-quarter view of a pristine dark grey 2022 Toyota Corolla Altis Grande parked on an upscale clean paved street in Gulberg Lahore with lush trees and soft afternoon golden sunlight, commercial high-end vehicle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN4KxUBEVO2-ckpan0_pXXWgSznQY59NygWQu5oH7Y2CqEtOuxw08nYrAQFHxuST66-Dl35rO6N6mogYHPlpUCxLCYGQL-a0SaY0orhQ7uxnaht5tPIU6ED1tKNCOMTreTpv6ejiPVS21y3ymhRr9l7cigl8RjLgowI9P5p2gBGWBVimVmWTCZrv3TJ97ZyOcEwoxIcST-_wmO2RxaMgADfE1yKiznBNtj2-ID2HJ2-BB9sSk1hx9hkA"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.3/10</span>
+</div>
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Lahore, Gulberg
+              </div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-primary font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">task_alt</span>
+                100% Genuine Paint
+              </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Corolla Altis Grande 1.8
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2022</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">CVT-i with Paddle Shifters • Sunroof</p>
+</div>
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">32,100 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Petrol</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">CVT Auto</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Algorithmic Fair Price</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">67.5</span> Lacs
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Kia Sportage AWD (Islamabad) -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modern deep cherry red 2023 Kia Sportage AWD parked against clean modern architectural villa in Islamabad Bahria Town with clear blue sky, commercial luxury automobile magazine style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJT2hZA5FcnXVZZvvSHz94KN_PcOs_tcRQc2aY0SfJStiioj4ToKrqK0cyyBNlHAPzODLmc0U21YhP1frYTkYv87KCY7adtxEydsB0c3UHjJKz4amx0B7ELr0eP6JPfPImHVVqnQCDyH5k1920dYV_bPAs9tOAN3KpP6PF3jkTa9fjmoRGhNMOwrQhbtI2Z5L6dHnYhhIvnG19tIFzr6Jxh76qOclEHVsbE92Vmgr3jVYJ2W7UBA-kNg"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.0/10</span>
+</div>
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Islamabad, Bahria
+              </div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-primary font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                Under Warranty
+              </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Kia Sportage AWD Alpha
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2023</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">2.0L Nu Engine • All Wheel Drive</p>
+</div>
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">18,400 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Petrol</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">Automatic</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Verified Valuation</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">75.0</span> Lacs
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Toyota Fortuner Legender (Lahore) -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+<div class="relative w-full aspect-[16/10] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Striking pearl white two-tone Toyota Fortuner Legender 2023 SUV parked on clean modern polished concrete floor of an upscale luxury showroom in Lahore Pakistan, bright modern studio LED strip lights overhead." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiawwHgsqZHj8Z0MG4GebQ6tn2O17XZ_o56ae19ZARlvVl_6xcH6zGx-nyTZtSQiZ9K7BwECLNIu5Wg0uipN-5KJztPp0qi_m5ezQIWoVm6qC3nKB52URF2yB0OnJl30DeWhyAbkZQA7ba8u_qDEOYyJWNyfqs1FvuU9PKpT-xbQ_b3vkEMibcJA5mly3INCDRYtkCr9GtS9g8JAvwHPZ88kNjLlEY21qXicjbzkjuURAKUUbk_mtI7w"/>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-data-mono text-[11px] font-semibold text-on-surface">AI Score: 9.6/10</span>
+</div>
+<div class="absolute top-2.5 right-2.5 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-[11px]">
+                Lahore, Cantt
+              </div>
+<div class="absolute bottom-2.5 left-2.5 flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/95 backdrop-blur-md text-tertiary-container font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">stars</span>
+                Top Spec Legender
+              </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between space-y-space-sm">
+<div>
+<div class="flex items-baseline justify-between gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors truncate">
+                    Toyota Fortuner Legender
+                  </h3>
+<span class="font-label-sm text-label-sm text-secondary font-medium">2023</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">2.8L 1GD-FTV Turbo Diesel • 4x4 Sigma 4</p>
+</div>
+<div class="grid grid-cols-3 gap-1 py-2 bg-surface-container-low rounded-lg text-center font-data-mono text-[11px] text-on-surface">
+<div>
+<span class="block text-secondary text-[10px]">ODOMETER</span>
+<span class="font-semibold">21,000 km</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">FUEL</span>
+<span class="font-semibold">Diesel</span>
+</div>
+<div>
+<span class="block text-secondary text-[10px]">TRANS</span>
+<span class="font-semibold">Automatic</span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-[11px] font-label-sm text-secondary uppercase">Verified Valuation</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                    PKR <span class="text-primary font-bold">1.89</span> Crore
+                  </div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span>Inspect</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Market Intelligence Banner inside Feed -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[28px]">query_stats</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lahore &amp; Islamabad Price Trend Alert</h4>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+                Honda Civic &amp; Tucson market rates adjusted −2.1% this week following recent PKR stability. Great buyer window.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors whitespace-nowrap">
+              View Price Index
+            </button>
+<button class="px-space-md py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-colors whitespace-nowrap">
+              AI Valuate My Car
+            </button>
+</div>
+</div>
+<!-- Clean Linear-Style Pagination Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="font-data-mono text-body-sm text-secondary">
+            Page <span class="font-semibold text-on-surface">1</span> of <span class="font-semibold text-on-surface">12</span> • 148 verified vehicles
+          </div>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low text-secondary font-label-md text-label-md cursor-not-allowed opacity-60 flex items-center gap-1" disabled="">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Previous</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-data-mono text-label-md font-bold flex items-center justify-center">
+              1
+            </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-data-mono text-label-md flex items-center justify-center transition-colors">
+              2
+            </button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-data-mono text-label-md flex items-center justify-center transition-colors">
+              3
+            </button>
+<span class="px-1 text-secondary font-data-mono text-label-md">…</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-data-mono text-label-md flex items-center justify-center transition-colors">
+              12
+            </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Interactive JavaScript for Sort Dropdown & Segmented Interactions -->
+<script>
+    const sortBtn = document.getElementById('sort-trigger');
+    const sortDropdown = document.getElementById('sort-dropdown');
+    const currentSortLabel = document.getElementById('current-sort-label');
+
+    if (sortBtn && sortDropdown) {
+      sortBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sortDropdown.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', () => {
+        if (!sortDropdown.classList.contains('hidden')) {
+          sortDropdown.classList.add('hidden');
+        }
+      });
+    }
+
+    function setSort(val) {
+      if (currentSortLabel) {
+        currentSortLabel.textContent = 'Sort by: ' + val;
+      }
+      if (sortDropdown) {
+        sortDropdown.classList.add('hidden');
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

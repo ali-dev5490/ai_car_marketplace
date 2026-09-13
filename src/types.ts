@@ -2,6 +2,70 @@
  * Types for the AI Car Marketplace Applet
  */
 
+export type UserRole = 'user' | 'admin';
+export type UserStatus = 'active' | 'suspended' | 'blocked';
+export type ListingStatus =
+  | 'draft'
+  | 'pending_payment'
+  | 'pending_review'
+  | 'active'
+  | 'paused'
+  | 'sold'
+  | 'suspended';
+export type ListingPaymentStatus = 'unpaid' | 'pending' | 'paid' | 'rejected';
+export type PaymentReviewStatus = 'pending' | 'paid' | 'rejected';
+export type EnquiryStatus = 'open' | 'closed';
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  password_hash: string;
+  city: string;
+  role: UserRole;
+  status: UserStatus;
+  created_at: string;
+}
+
+export type PublicUser = Omit<User, 'password_hash'>;
+
+export interface PaymentSubmission {
+  id: number;
+  user_id: number;
+  listing_id: number;
+  amount: number;
+  method: string;
+  receipt_note: string;
+  receipt_url: string;
+  status: PaymentReviewStatus;
+  created_at: string;
+  reviewed_by?: number;
+  reviewed_at?: string;
+  admin_note?: string;
+}
+
+export interface Enquiry {
+  id: number;
+  buyer_id: number;
+  listing_id: number;
+  buyer_name: string;
+  buyer_phone: string;
+  message: string;
+  status: EnquiryStatus;
+  created_at: string;
+}
+
+export interface ModerationAction {
+  id: number;
+  admin_id: number;
+  target_type: 'user' | 'listing' | 'payment';
+  target_id: number;
+  action: string;
+  reason: string;
+  created_at: string;
+}
+
 export interface Car {
   id: number;
   make: string;
@@ -27,6 +91,11 @@ export interface Car {
   features: string[]; // JSON array of features
   images: string[]; // JSON array of image URLs
   created_at: string;
+  /** Phase 2 ownership / moderation */
+  owner_user_id?: number | null;
+  status?: ListingStatus;
+  payment_status?: ListingPaymentStatus;
+  moderation_reason?: string;
 }
 
 export interface AISearchResponse {

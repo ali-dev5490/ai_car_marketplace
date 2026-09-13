@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Progress & Context Navigation Bar -->
+<section class="w-full bg-surface-container-low/70 border-b border-outline-variant/30 py-space-md">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-md">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors" data-path="browse-cars" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" data-path="customer-portal" href="#">User Account</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Sell Car with AI</span>
+</nav>
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-data-mono text-[12px]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Vision Agent v4.2 • ICT/Punjab Registry Sync Active
+          </span>
+<span class="font-data-mono text-[12px] text-on-surface-variant/80 hidden sm:inline-block">Listing Draft #PK-88219</span>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Sell Your Vehicle with AI Assistance</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+            Upload vehicle exterior photos and vehicle Smart Card. Our neural model extracts 30+ technical specifications, checks provincial excise records, and estimates fair market PKR value in seconds.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md bg-surface-container-lowest px-space-md py-2 rounded-xl border border-outline-variant/30 shadow-sm self-start lg:self-auto">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span>NADRA &amp; Excise Verified Workflow</span>
+</div>
+</div>
+<!-- Linear Stepper Bar -->
+<div class="mt-space-lg pt-space-md border-t border-outline-variant/20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="w-7 h-7 rounded-full bg-emerald-500/15 text-emerald-700 flex items-center justify-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] font-bold">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-emerald-700">Step 1 • Completed</span>
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Upload Media &amp; Docs</span>
+</div>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-primary-container/10 border border-primary/30 shadow-sm relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-1 bg-primary"></div>
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Step 2 • Active Analysis</span>
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">AI Extraction &amp; OCR Check</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest/40 border border-outline-variant/20 opacity-70">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Step 3 • Next</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Review Specs &amp; PKR Price</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest/40 border border-outline-variant/20 opacity-70">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center font-label-md text-label-md">
+            4
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Step 4 • Final</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Publish &amp; Verification Fee</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Multi-Step Workspace (2 Columns Desktop) -->
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Image Previews, OCR Scans, Quality Indicators (Col 5) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Media Ingestion Module -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">add_photo_alternate</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Vehicle Exterior &amp; Interior</h3>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container-low text-on-surface-variant font-medium">4 of 18 Uploaded</span>
+</div>
+<!-- Photo Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Card 1: Front Three-Quarter (Hero civic) -->
+<div class="relative group rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modern 11th generation Honda Civic RS Turbo sedan in Meteoroid Grey metallic parked in a clean minimalist architectural showroom with concrete floor and warm wooden slatted accent wall in Pakistan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMIzmaOTu9kIYQm44tAUxFblIEEV8eIqg-oEqbN9D1oZKoUEdhdVen67r1ntHsmDLqn7L4ppx24ilbTu_Gsb3bmTnKGVFn1thaE6nSRTniqoOtXTqW7vjmdVvAa_1bNXn6qhcmodOWhHLMoomTunWFbr0qmRECy8YbzfH1Ba5W0d5cvyEHmMruyQlADQxO9Z0ukZZX8Y-Zkjc9SdjVaR-Kg4omw6XnmkFwK0PyKUx5JY3fEdctCLhuOQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-950/80 backdrop-blur-sm text-emerald-300 text-[10px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Angle Verified</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2">
+<p class="text-white text-[12px] font-label-md truncate">Front 3/4 Perspective</p>
+<p class="text-white/70 text-[10px] font-data-mono">Primary Card Photo</p>
+</div>
+</div>
+<!-- Card 2: Side Profile -->
+<div class="relative group rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Side profile shot of a sleek gunmetal grey sport sedan Honda Civic showing sleek alloy wheels, crisp body lines against clean urban background in daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUEM0Qy8hDQADYjEtp8wW54JvH7sGjR-k1nbGaZEpjzY1JBAXQ85tOGg2yhjgvUXfv92ZnSYM-bGm_v8XVJ_9eU2KgE85jEWB7JR_sOlGbFuzHTfotIH5w_7_1EGfFr5IpnZepxbqE-0jWKOFR7hAPHWlD9uU2KFQwIGiQtSkkSKFeXwiFHcut2yjfU6927wuv2kvt1FKNiSFdInp-E1EG-nZcFQeEPYFZlLCu-nbEiyK3Q_0WKVXGHw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-950/80 backdrop-blur-sm text-emerald-300 text-[10px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Clean Panels</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2">
+<p class="text-white text-[12px] font-label-md truncate">Side Profile</p>
+<p class="text-white/70 text-[10px] font-data-mono">Alloy &amp; Wheel Check</p>
+</div>
+</div>
+<!-- Card 3: Cockpit / Odometer -->
+<div class="relative group rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crisp interior cockpit photo of a modern Honda Civic RS dashboard, digital instrument cluster showing 18500 km reading, leather-wrapped steering wheel, clean center console in soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_HJHA-FXjKBtc_3eLASovwG1Cni9-XMHXHHoCk1UsjGaB07BvScB1Ihyv7AcH2FR0V2wloPRxfs_4Sk1mq3mb7yV8YgT9UH6T773NLCOEfqiM35rH4hTuBwJUa_uwchWe-kxEGGBlqtn7HSU9b-an1k_KMqZa4VJQueEjN6nV4BtYKAXWGfresxqV5JHHbr4gKLPqMe9HnaIV63zt_2O_PFsp7D4MQDJAbQyMApalFTzC4CEXNMZt3g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-white text-[10px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]">speed</span>
+<span>18,500 km Read</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2">
+<p class="text-white text-[12px] font-label-md truncate">Cluster &amp; Dash</p>
+<p class="text-white/70 text-[10px] font-data-mono">OCR Odometer Sync</p>
+</div>
+</div>
+<!-- Card 4: Engine Bay -->
+<div class="relative group rounded-lg overflow-hidden border border-outline-variant/30 bg-surface-container aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Clean pristine 1.5L Turbo VTEC four-cylinder car engine bay with factory stickers intact, clear battery terminals and factory shock tower stamps under daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt_XV8yp_szUvCyUZm9TZ0x9vHfISFhhxQOLCBFXC8pZxexmRSgGsvRK59vP5mrt0SlIBch2kS2mEkj9YJDldzQii1tsVV1tpLKYdhO692sA0bep3ZDftA8BVrSFII3QY2Tguqb9WFVziQvzSAOg6n6MeKZE1uaSfLG_0GzK0q6TcO3YPTbEMVld9GUVij4JKyfzVtwIaZM-lMOjlyhfJ9X4LFvgDljbhGcE99d_lhwLTS1CKHgkzi-w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-950/80 backdrop-blur-sm text-emerald-300 text-[10px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+<span>Factory Seals</span>
+</div>
+<div class="absolute bottom-2 left-2 right-2">
+<p class="text-white text-[12px] font-label-md truncate">1.5L VTEC Turbo Bay</p>
+<p class="text-white/70 text-[10px] font-data-mono">Engine Code Validated</p>
+</div>
+</div>
+</div>
+<!-- Quick Drop / Add Slot -->
+<button class="mt-space-sm w-full py-2.5 px-space-md border border-dashed border-outline-variant hover:border-primary rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Add Additional Angles (Rear, Trunk, Roof)</span>
+</button>
+<!-- Computer Vision Feedback Pill -->
+<div class="mt-space-md p-space-sm rounded-lg bg-emerald-50 border border-emerald-200/60 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5">auto_awesome</span>
+<div class="text-[12px] leading-snug">
+<span class="font-semibold text-emerald-900">AI Photo Quality Score: 96%</span>
+<p class="text-emerald-800 text-[11px] mt-0.5">Studio-grade illumination detected. Background uncluttered. Registration number plate LE-22-9011 will be automatically blurred on live marketplace for owner privacy.</p>
+</div>
+</div>
+</div>
+<!-- Registration Smart Card OCR Component -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Excise Registration Smart Card</h3>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded-full font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Confidence 99.4%
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Bi-directional camera scan cross-referenced with Excise &amp; Taxation Government database.
+          </p>
+<!-- Visual Smart Card Representation -->
+<div class="rounded-xl p-space-md bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white shadow-md relative overflow-hidden border border-slate-700/50">
+<!-- Card background graphic watermarks -->
+<div class="absolute right-0 top-0 bottom-0 w-36 bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full border border-white/10 pointer-events-none"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-emerald-600/30 border border-emerald-400/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-300 text-[18px]">memory</span>
+</div>
+<div>
+<div class="text-[10px] tracking-wider uppercase text-slate-300 font-label-sm font-bold">Excise &amp; Taxation Department</div>
+<div class="text-[9px] text-slate-400 font-data-mono">Govt of Pakistan • Motor Vehicle Smart Card</div>
+</div>
+</div>
+<span class="text-[11px] font-data-mono px-2 py-0.5 rounded bg-white/10 border border-white/20 text-white">ICT-MOTOR</span>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-y-2.5 gap-x-space-md text-[11px] font-data-mono relative z-10">
+<div>
+<span class="text-[9px] block uppercase text-slate-400 tracking-wider">Reg. Number</span>
+<span class="font-bold text-white tracking-wider text-[13px]">LE-22-9011</span>
+</div>
+<div>
+<span class="text-[9px] block uppercase text-slate-400 tracking-wider">Registered City</span>
+<span class="text-slate-100 font-medium">Islamabad (ICT)</span>
+</div>
+<div>
+<span class="text-[9px] block uppercase text-slate-400 tracking-wider">Chassis / VIN</span>
+<span class="text-slate-200">MRHFE1***90214</span>
+</div>
+<div>
+<span class="text-[9px] block uppercase text-slate-400 tracking-wider">Engine Number</span>
+<span class="text-slate-200">L15BG-7749102</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400 font-label-sm">
+<span class="flex items-center gap-1 text-emerald-400 font-medium">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                Original First-Hand Owner Card Scanned
+              </span>
+<span class="text-slate-300">Issue: OCT 2022</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between px-space-xs text-[11px] text-on-surface-variant">
+<span class="flex items-center gap-1 font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">cloud_done</span>
+              OCR Extracted in 0.8s
+            </span>
+<button class="text-primary hover:underline font-label-sm font-semibold">Re-upload Card</button>
+</div>
+</div>
+<!-- Trust & Security Callout -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">shield_person</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pakistani Biometric Transfer Security</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Your sensitive Smart Card identity fields are masked from public listings. Only verified buyers with active token clearance can request transfer inspections.
+            </p>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: AI Neural Extraction Terminal & Fair Price Estimator (Col 7) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Neural Telemetry Terminal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<!-- Terminal Header -->
+<div class="bg-surface-container px-space-lg py-3 border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">AI Neural Extraction Terminal</span>
+<span class="font-data-mono text-[11px] px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant">Auto-Populated</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-emerald-700 font-label-sm text-label-sm font-semibold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
+                Extraction Complete (1.4s)
+              </span>
+</div>
+</div>
+<!-- Terminal Content: Parsed Specs -->
+<div class="p-space-lg">
+<div class="flex items-start justify-between border-b border-outline-variant/20 pb-space-md mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Identified Vehicle Asset</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-0.5">Honda Civic RS Turbo (11th Gen)</h2>
+<div class="flex flex-wrap items-center gap-2 mt-1.5 font-label-sm text-label-sm text-on-surface-variant">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium">Trim: RS Oriel Top Spec</span>
+<span>•</span>
+<span>Assembly: Local (Indus/Atlas Spec)</span>
+<span>•</span>
+<span class="text-emerald-700 font-semibold">Confidence: 99.8%</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant block">Model Year</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">2023</span>
+</div>
+</div>
+<!-- Detailed Extracted Spec Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Spec Row 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Registration Province &amp; City</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Islamabad (ICT) • LE-22</span>
+<span class="inline-flex items-center text-emerald-700 text-[12px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] mr-0.5">check_circle</span> Verified
+                  </span>
+</div>
+</div>
+<!-- Spec Row 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Chassis / VIN Cross-Reference</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-data-mono text-[13px] text-on-surface font-semibold">MRHFE1***90214</span>
+<span class="inline-flex items-center text-emerald-700 text-[12px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] mr-0.5">task_alt</span> ICT Matched
+                  </span>
+</div>
+</div>
+<!-- Spec Row 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Engine Serial &amp; Displacement</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">1,498 cc VTEC Turbo (176 hp)</span>
+<span class="inline-flex items-center text-emerald-700 text-[12px] font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px] mr-0.5">check_circle</span> NADRA Clear
+                  </span>
+</div>
+</div>
+<!-- Spec Row 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Odometer Reading (Cluster OCR)</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">18,500 Kilometers</span>
+<span class="inline-flex items-center text-emerald-700 text-[11px] font-label-sm">
+                    Tamper Risk: &lt;0.1%
+                  </span>
+</div>
+</div>
+<!-- Spec Row 5 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Transmission &amp; Drive</span>
+<div class="flex items-center justify-between mt-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">CVT with 7-Speed Paddle Shift</span>
+<span class="text-on-surface-variant text-[12px] font-label-sm">Front-Wheel Drive</span>
+</div>
+</div>
+<!-- Spec Row 6 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low/60 border border-outline-variant/20 flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-wide text-on-surface-variant">Factory Paint &amp; Code</span>
+<div class="flex items-center justify-between mt-1">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 rounded-full bg-slate-600 border border-slate-400"></span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Meteoroid Grey (NH-880M)</span>
+</div>
+<span class="text-emerald-700 text-[11px] font-label-sm font-semibold">100% Genuine</span>
+</div>
+</div>
+</div>
+<!-- Excise Status Sub-Card -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Provincial Token Tax Status: Paid Lifetime / Up to June 2026</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Verified via ICT Excise Online API • No outstanding challans found</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-bold whitespace-nowrap">
+                Clear • Tax Verified
+              </span>
+</div>
+<!-- Biometric Verification Readiness -->
+<div class="mt-space-sm p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">NADRA e-Sahulat Biometric Transfer</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Registered owner CNIC linked • Instant biometric verification available in any city</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-bold whitespace-nowrap">
+                Biometric Ready
+              </span>
+</div>
+</div>
+</div>
+<!-- Algorithmic Fair Valuation Engine -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm">
+<div class="flex items-start justify-between gap-2 mb-space-md">
+<div>
+<div class="flex items-center gap-1.5 text-primary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+<span class="material-symbols-outlined text-[16px]">finance</span>
+<span>Market Intelligence Valuation</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-0.5">Estimated Fair Market PKR Value</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Based on 142 recent Honda Civic RS transactions across Islamabad, Lahore &amp; Rawalpindi</p>
+</div>
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface-variant font-data-mono text-[11px]">
+              Q2 2025 Model
+            </span>
+</div>
+<!-- Price Range Display -->
+<div class="p-space-md rounded-xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low border border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wide text-on-surface-variant">Fair Market Valuation Range</span>
+<div class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight mt-0.5">
+                PKR 84.5 Lacs – PKR 87.0 Lacs
+              </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                (PKR 8,450,000 – PKR 8,700,000)
+              </div>
+</div>
+<!-- Price Recommendation Pill -->
+<div class="w-full md:w-auto bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant/30 shadow-xs flex flex-col text-left md:text-right">
+<span class="text-[10px] font-label-sm uppercase tracking-wider text-tertiary-container font-bold">Recommended Asking Price</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold text-slate-900">PKR 86.5 Lacs</span>
+<span class="text-[11px] text-emerald-700 font-label-sm font-semibold flex items-center md:justify-end gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Average time to sell: 6 days
+              </span>
+</div>
+</div>
+<!-- Trend line & market commentary -->
+<div class="mt-space-md grid grid-cols-1 sm:grid-cols-3 gap-space-sm text-left">
+<div class="p-space-sm rounded-lg bg-surface-container-low/40">
+<span class="text-[11px] text-on-surface-variant font-label-sm block">Demand Velocity</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold text-emerald-700 flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[15px]">trending_up</span> High (8.4/10)
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low/40">
+<span class="text-[11px] text-on-surface-variant font-label-sm block">Quarterly Trend</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold text-primary flex items-center gap-1 mt-0.5">
+                +1.2% in Punjab/ICT
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low/40">
+<span class="text-[11px] text-on-surface-variant font-label-sm block">Suggested Margin</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold text-on-surface mt-0.5">
+                ± PKR 50,000 buffer
+              </span>
+</div>
+</div>
+<!-- Inline mini interactive price adjustment hint -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/20 flex items-center justify-between text-on-surface-variant text-[12px]">
+<span class="flex items-center gap-1.5 font-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+              You will set and lock your final PKR asking price in Step 3.
+            </span>
+<span class="font-label-sm font-medium text-primary cursor-pointer hover:underline">View Price Histogram</span>
+</div>
+</div>
+<!-- Submission Bottom Action Bar -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-xl border border-outline-variant/60 bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+<span>Save Listing Draft</span>
+</button>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-xl py-3 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-semibold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group" type="button">
+<span>Continue to Step 3: Review Specs &amp; Pricing</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] pt-space-xs border-t border-outline-variant/20">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-700">lock</span>
+              Listing verified via 256-bit encryption
+            </span>
+<span>Step 4 Listing Fee: PKR 1,500 (Payable via JazzCash, Easypaisa, or 1Link)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

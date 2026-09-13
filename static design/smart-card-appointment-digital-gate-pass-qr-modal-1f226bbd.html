@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="max-w-[1440px] mx-auto px-margin md:px-margin-desktop py-space-lg w-full">
+<!-- Breadcrumbs Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+<a class="hover:text-primary transition-colors" data-path="browse-cars" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[15px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" data-path="customer-portal" href="#">My Garage &amp; Purchases</a>
+<span class="material-symbols-outlined text-[15px]">chevron_right</span>
+<span class="text-on-surface truncate max-w-[200px] md:max-w-none">Toyota Prado TX L (2022)</span>
+<span class="material-symbols-outlined text-[15px]">chevron_right</span>
+<span class="text-primary font-medium">Smart Card Issuance</span>
+</nav>
+<!-- Top Notice / Pakistani Civic-Tech Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">ICT Excise &amp; Taxation Integration</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">Govt of Pakistan API v4.2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Biometric verification protocol certified under NADRA e-Sahulat framework for citizen Bilal Ahmed.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-data-mono text-data-mono shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>SYNC ACTIVE: 2025-11-18 09:42 PKT</span>
+</div>
+</div>
+</div>
+<!-- Page Header & Action Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-lg">
+<div>
+<div class="flex flex-wrap items-center gap-space-sm mb-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Vehicle Registration &amp; Smart Card Issuance</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Biometric Complete • Appointment Confirmed
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Transaction Reference: <span class="font-data-mono font-semibold text-on-surface">TXN-PK-PRADO-90214</span> • Purchaser: <strong class="text-on-surface">Bilal Ahmed (CNIC: 35201-8392011-1)</strong>
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px]">calendar_clock</span>
+<span>Reschedule Slot</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[18px] text-tertiary-container">share</span>
+<span>WhatsApp Directions</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download Gate Pass PDF</span>
+</button>
+</div>
+</div>
+<!-- 4-Step Progress Tracker Timeline -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg mb-space-xl shadow-sm">
+<div class="flex items-center justify-between pb-space-md mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Transfer Life Cycle</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Excise Smart Card Pipeline (Islamabad Directorate)</h2>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<span>Target Completion: Nov 21, 2025</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md relative">
+<!-- Step 1: Cleared -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-space-md relative overflow-hidden">
+<div class="w-2 h-full bg-primary absolute left-0 top-0 bottom-0"></div>
+<div class="flex items-center justify-between pl-space-xs mb-space-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold">STAGE 01</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Done
+            </span>
+</div>
+<h3 class="pl-space-xs font-label-lg text-label-lg text-on-surface font-semibold">Biometric e-Slip Cleared</h3>
+<p class="pl-space-xs font-body-sm text-body-sm text-on-surface-variant mt-1">NADRA CFC Verification signed by Seller &amp; Buyer at F-7 Markaz.</p>
+<span class="pl-space-xs font-data-mono text-[11px] text-on-surface-variant mt-3">Completed Nov 15, 2025 • 16:40 PKT</span>
+</div>
+<!-- Step 2: Cleared -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-space-md relative overflow-hidden">
+<div class="w-2 h-full bg-primary absolute left-0 top-0 bottom-0"></div>
+<div class="flex items-center justify-between pl-space-xs mb-space-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold">STAGE 02</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Done
+            </span>
+</div>
+<h3 class="pl-space-xs font-label-lg text-label-lg text-on-surface font-semibold">ICT Excise File Submission</h3>
+<p class="pl-space-xs font-body-sm text-body-sm text-on-surface-variant mt-1">Digital dossier auto-transmitted to Excise Directorate database.</p>
+<span class="pl-space-xs font-data-mono text-[11px] text-on-surface-variant mt-3">Completed Nov 16, 2025 • 10:15 PKT</span>
+</div>
+<!-- Step 3: Active Scheduled -->
+<div class="flex flex-col bg-surface-container rounded-lg p-space-md relative overflow-hidden ring-2 ring-primary">
+<div class="w-2 h-full bg-primary-container absolute left-0 top-0 bottom-0"></div>
+<div class="flex items-center justify-between pl-space-xs mb-space-sm">
+<span class="text-label-sm font-label-sm text-primary font-bold">STAGE 03 • ACTIVE</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded bg-primary text-on-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary animate-ping"></span>
+              Scheduled
+            </span>
+</div>
+<h3 class="pl-space-xs font-label-lg text-label-lg text-on-surface font-semibold">File Inspection &amp; Card Printing</h3>
+<p class="pl-space-xs font-body-sm text-body-sm text-on-surface-variant mt-1">Physical physical file handover and smart card embossing.</p>
+<div class="pl-space-xs mt-3 flex items-center gap-1 text-primary font-semibold text-body-sm">
+<span class="material-symbols-outlined text-[16px]">event</span>
+<span>Thu, Nov 20, 2025 • 11:00 AM</span>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="flex flex-col bg-surface-container-low/60 rounded-lg p-space-md relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold">STAGE 04</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-medium text-on-surface-variant">
+              Pending
+            </span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface-variant font-semibold">Card Handover / Courier</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct desk collection or TCS Secure Tracked Dispatch to Bilal's residence.</p>
+<span class="font-data-mono text-[11px] text-on-surface-variant mt-3">Estimated: Nov 21, 2025</span>
+</div>
+</div>
+</div>
+<!-- Main Content Bento Layout (2-Column) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Primary Operational Dossier (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Appointment Dossier Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-start justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-primary font-semibold">Verified Slot</span>
+<span class="font-data-mono text-body-sm font-medium text-on-surface-variant">Ref: ICT-EXC-2025-APP-88410</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">Excise Directorate Visit Dossier</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fast-Track Biometric window reservation for registered vehicle transfer.</p>
+</div>
+<!-- Gate Pass Scannable QR -->
+<div class="flex flex-col items-center bg-surface-container-low p-2 rounded-xl text-center flex-shrink-0">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-lg p-1.5 flex items-center justify-center shadow-inner">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<path d="M0 0h30v30H0zm5 5v20h20V5zm35-5h30v30H40zm5 5v20h20V5zM0 40h30v30H0zm5 5v20h20V5zm45 0h10v10H50zm15 0h15v10H65zm-15 15h15v15H50zm15 15h15v15H65zm15-30h10v10H80zm0 15h10v25H80zm-40 0h10v10H40zm0 15h10v10H40zM10 10h10v10H10zm40 0h10v10H50zM10 50h10v10H10zm75-40h15v15H85z"></path>
+</svg>
+</div>
+<span class="font-data-mono text-[10px] text-on-surface-variant mt-1 font-bold">GATE PASS QR</span>
+</div>
+</div>
+<!-- Appointment Core Specs Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-low rounded-xl p-space-md mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">DESIGNATED OFFICE</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">ICT Excise &amp; Taxation Directorate</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sector H-9/4, Near Peshawar Morr, Islamabad</p>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">RESERVED WINDOW</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Thu, 20 Nov 2025 • 11:00 AM – 11:30 AM</p>
+<p class="font-body-sm text-body-sm text-primary font-medium">Counter 7 (Fast-Track Biometric Express)</p>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ASSIGNED FACILITATION OFFICER</span>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Inspector Zulfiqar Ali</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Excise Facilitation &amp; Verification Desk</p>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">EXCISE TOKEN SERIAL</span>
+<p class="font-data-mono text-label-lg font-bold text-on-surface mt-0.5">#TK-88410-ICT-2025</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Present at security entry kiosk</p>
+</div>
+</div>
+<!-- Location Snapshot & Directions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md p-space-sm bg-surface-container rounded-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">map</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold">14 km from Islamabad Club / Blue Area</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Approx 18 mins via Kashmir Highway / Srinagar Highway</p>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-1 px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary hover:bg-surface-container-high font-label-md text-label-md transition-all shadow-sm" href="https://maps.google.com" target="_blank">
+<span>Open in Google Maps</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Required Physical Documents Checklist -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Mandatory Compliance</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Items to Carry on Appointment Day</h3>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">5 of 5 Ready</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Please ensure you have all physical originals in the provided vehicle documentation portfolio file. Inspector Zulfiqar Ali will cross-reference the physical seals with the digital vault.
+          </p>
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1 -->
+<div class="flex items-start justify-between p-space-md bg-surface-container-low rounded-lg gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">check_box</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Original CNIC (Bilal Ahmed)</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-surface-container-high text-primary uppercase">Original Mandatory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">CNIC No: <span class="font-data-mono text-on-surface">35201-8392011-1</span> (Must be valid &amp; unexpired with microchip).</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium flex-shrink-0">In Possession</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start justify-between p-space-md bg-surface-container-low rounded-lg gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">check_box</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Printed NADRA Biometric e-Slip</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-surface-container text-on-surface font-data-mono">#ESAHULAT-ISB-2025-99812</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Digitally countersigned by seller Tariq Mehmood at CFC Islamabad.</p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1 text-label-sm text-primary font-semibold hover:underline flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">print</span>
+<span>Print Copy</span>
+</button>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start justify-between p-space-md bg-surface-container-low rounded-lg gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">check_box</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Japanese Import Documents &amp; Bill of Entry</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container text-on-surface-variant">Verified in Vault</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Customs GD (Karachi Port Clearance 2022) &amp; Original Japanese Export Certificate (Miri-sho).</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium flex-shrink-0">Supplied by Seller</span>
+</div>
+<!-- Item 4 -->
+<div class="flex items-start justify-between p-space-md bg-surface-container-low rounded-lg gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">check_box</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Paid Challan for ICT Lifetime Token Tax</span>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">Challan #88192 • PKR 82,500</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Paid via 1Link State Bank Treasury Portal on 16 Nov 2025.</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium flex-shrink-0">Paid &amp; Stamped</span>
+</div>
+<!-- Item 5 -->
+<div class="flex items-start justify-between p-space-md bg-surface-container-low rounded-lg gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">check_box</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">HBL Pay Order Consideration Clearance</span>
+<span class="font-data-mono text-label-sm text-on-surface font-medium">#PO-98214-HBL</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Marketplace Escrow Certificate confirming 100% funds disbursement upon biometric completion.</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium flex-shrink-0">Escrow Cleared</span>
+</div>
+</div>
+</div>
+<!-- Direct Seller Handover Acknowledgment Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary font-semibold">
+                TM
+              </div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Physical Possession Handover</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Concluded with Seller Tariq Mehmood at CFC F-7 Markaz</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-primary font-semibold">Formal Release Done</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm mt-space-md text-center">
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">key</span>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mt-1">2 Master Smart Keys</p>
+<span class="text-[10px] text-primary font-semibold">Received &amp; Verified</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">security</span>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mt-1">Immobilizer Remote</p>
+<span class="text-[10px] text-primary font-semibold">Tested &amp; Paired</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">menu_book</span>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mt-1">Japanese Manuals</p>
+<span class="text-[10px] text-primary font-semibold">Service Log Book</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">tire_repair</span>
+<p class="font-label-sm text-label-sm text-on-surface font-semibold mt-1">Spare Tire Lock Key</p>
+<span class="text-[10px] text-primary font-semibold">Tool Kit Complete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Vehicle Identity, Card Spec & Support (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Vehicle Identity & Registration Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<!-- Assigned Number Plate Visual Header -->
+<div class="mb-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">New Assigned Registration Series</span>
+<div class="mt-2 p-space-md bg-surface-container-low rounded-xl flex items-center justify-between shadow-inner">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm font-bold text-headline-sm">
+                  ICT
+                </div>
+<div>
+<span class="font-data-mono text-headline-md font-bold text-on-surface tracking-widest">AEL • 786</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Islamabad Capital Territory • 2025 Regular Series</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[32px]">directions_car</span>
+</div>
+</div>
+<!-- Vehicle Thumbnail & Quick Specs -->
+<div class="flex gap-space-md items-center pb-space-md mb-space-md bg-surface-container-low/50 p-space-sm rounded-lg">
+<img alt="Toyota Prado TX L 2022" class="w-24 h-16 object-cover rounded-lg shadow-sm flex-shrink-0" data-alt="Photorealistic studio shot of a pristine 2022 Toyota Land Cruiser Prado TX L in 070 Pearl White, three-quarter front view on neutral slate background, subtle studio rim lighting highlighting the modern front fascia and sleek chrome trim." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqu1mik5Pmab84Rj0UTPiHGgyb8BRAiOFu20CGXTdpXR9v3ia_1v31BqjFzgkx8_okFuqdXrPJ9DUhEYXucY1tNp-YnSk1IitycfNMVB0CKjsx9QJE8TUpAB_Qg30C4gW3sk0yvBltLgxywqigAR6DOTFH6cVBtVFWPteQJmPMe9NI208ggSmrZ3WGziPPAlVH2jsIESbLFvwGALcyIx8yTOSCHy24J67hgWDIliJGKu8ER_ENuPqzSg"/>
+<div class="min-w-0">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">2022 Toyota Land Cruiser Prado TX L</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">TX L Package • 2700cc Petrol • 4WD</p>
+<span class="font-data-mono text-[11px] text-on-surface-variant">Color: 070 Pearl White Metallic</span>
+</div>
+</div>
+<!-- Tabular Mechanical & Excise Registration Codes -->
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm mb-space-md">
+<div class="flex justify-between py-1.5 bg-surface-container-low/30 px-space-sm rounded">
+<span class="text-on-surface-variant">Chassis / Frame:</span>
+<span class="font-data-mono font-medium text-on-surface">MRHFE1***90214</span>
+</div>
+<div class="flex justify-between py-1.5 px-space-sm">
+<span class="text-on-surface-variant">Engine Number:</span>
+<span class="font-data-mono font-medium text-on-surface">2TR-FE-8812903</span>
+</div>
+<div class="flex justify-between py-1.5 bg-surface-container-low/30 px-space-sm rounded">
+<span class="text-on-surface-variant">Assembly / Category:</span>
+<span class="font-medium text-on-surface">Imported (CBU Japan)</span>
+</div>
+<div class="flex justify-between py-1.5 px-space-sm">
+<span class="text-on-surface-variant">Lifetime Token Tax:</span>
+<span class="font-medium text-primary font-data-mono">PAID (Clear 2025-2035)</span>
+</div>
+<div class="flex justify-between py-1.5 bg-surface-container-low/30 px-space-sm rounded">
+<span class="text-on-surface-variant">Ownership Record:</span>
+<span class="font-medium text-on-surface">2nd Owner Transfer (Bilal Ahmed)</span>
+</div>
+</div>
+<!-- Smart Card Technical Features -->
+<div class="p-space-md bg-surface-container rounded-xl">
+<div class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md font-semibold mb-2">
+<span class="material-symbols-outlined text-[18px] text-primary">credit_card</span>
+<span>ICT Microchip Smart Card Specifications</span>
+</div>
+<ul class="text-body-sm font-body-sm text-on-surface-variant space-y-1 pl-1">
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>ISO/IEC 14443 Type-A Contactless NFC Smart Chip</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Federal Monogram with Holographic Optical Variable Ink</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>UV Anti-Counterfeiting Ink &amp; Automated Micro-Text Guilloche</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Courier Alternative Option Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold">Prefer Courier Home Delivery?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Skip the in-person desk collection queue</p>
+</div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            If you cannot wait for printing on Thursday, we can have your embossed Smart Card dispatched via TCS Secure Express directly to your registered address with biometric verification upon delivery.
+          </p>
+<div class="p-space-sm bg-surface-container-low rounded-lg mb-space-md">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant mt-0.5">home_pin</span>
+<div class="text-body-sm font-body-sm">
+<span class="text-on-surface font-medium">Registered Courier Destination:</span>
+<p class="text-on-surface-variant">House 42-C, Sector J, DHA Phase 5, Lahore Cantt (or Islamabad Guest House)</p>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 px-space-md rounded-xl bg-surface-container text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors text-center">
+            Switch to Tracked Courier Delivery (+PKR 850)
+          </button>
+</div>
+<!-- Live Support & Excise Directorate Helpline -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold mb-space-sm">Designated Support Contacts</h3>
+<div class="flex flex-col gap-space-sm">
+<!-- Marketplace Dedicated Field Escort -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Faisal Rasheed</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marketplace Excise Liaison Officer</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-data-mono text-label-sm text-primary font-semibold hover:underline" href="tel:+923005519820">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>0300-5519820</span>
+</a>
+</div>
+<!-- ICT Excise Helpline -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">ICT Excise Directorate</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">General Helpline (9 AM - 4 PM)</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-data-mono text-label-sm text-on-surface font-semibold hover:underline" href="tel:0519265588">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>051-9265588</span>
+</a>
+</div>
+<!-- WhatsApp Direct Concierge -->
+<a class="mt-space-xs flex items-center justify-center gap-2 py-2.5 px-space-md rounded-xl bg-tertiary-container text-on-tertiary-container font-label-md text-label-md font-semibold hover:bg-tertiary transition-colors shadow-sm" href="https://whatsapp.com" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Open Concierge Chat on WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Help & Legal Disclaimer Footer Note -->
+<div class="mt-space-xl p-space-md bg-surface-container-low rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">info</span>
+<span>Appointment passes are strictly non-transferable. Failure to attend during the reserved 30-minute window will require automated rescheduling via NADRA e-Sahulat.</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<a class="text-primary hover:underline font-medium" href="#">Excise FAQs</a>
+<span>•</span>
+<a class="text-primary hover:underline font-medium" href="#">Document Guidelines</a>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer><div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[#0b1c30]/75 backdrop-blur-sm" id="gate-pass-modal">
+<div class="relative w-full max-w-[680px] my-auto bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/30 overflow-hidden flex flex-col text-on-surface">
+<!-- Green Government Security Accent Bar -->
+<div class="h-2 w-full bg-emerald-600"></div>
+<!-- Modal Header -->
+<div class="p-space-lg pb-space-md border-b border-outline-variant/20 bg-surface-container-low/40">
+<div class="flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-emerald-900/10 border border-emerald-600/30 flex items-center justify-center text-emerald-800 flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-300">Govt of Pakistan ICT Directorate</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary-fixed text-on-primary-fixed">AI Market Place Security Rail</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-snug">Digital Gate Pass &amp; Security Clearance</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Fast-Track Visitor Pass for ICT Excise Directorate, Sector H-9/4, Islamabad</p>
+</div>
+</div>
+<button aria-label="Close Modal" class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors flex-shrink-0" onclick="document.getElementById('gate-pass-modal').style.display='none'">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Active Status Indicator -->
+<div class="mt-space-sm flex flex-wrap items-center justify-between gap-2 pt-space-xs">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 font-label-sm text-label-sm font-bold">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+</span>
+<span>ACTIVE • APPOINTMENT CONFIRMED</span>
+</div>
+<div class="flex items-center gap-1.5 font-data-mono text-[12px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">schedule</span>
+<span>Active Window: <strong>20 Nov 2025 • 11:00 AM – 11:30 AM PKT</strong></span>
+</div>
+</div>
+</div>
+<!-- Modal Body -->
+<div class="p-space-lg space-y-space-md max-h-[75vh] overflow-y-auto">
+<!-- QR Section & Token Serial Presentation -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="relative p-3 bg-surface-container-lowest rounded-xl border-2 border-dashed border-primary/40 shadow-inner flex flex-col items-center flex-shrink-0">
+<!-- Scanning Target Reticles -->
+<div class="absolute top-1.5 left-1.5 w-3 h-3 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-1.5 right-1.5 w-3 h-3 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-1.5 left-1.5 w-3 h-3 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-1.5 right-1.5 w-3 h-3 border-b-2 border-r-2 border-primary"></div>
+<svg class="w-36 h-36 text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<path d="M0 0h30v30H0zm5 5v20h20V5zm35-5h30v30H40zm5 5v20h20V5zM0 40h30v30H0zm5 5v20h20V5zm45 0h10v10H50zm15 0h15v10H65zm-15 15h15v15H50zm15 15h15v15H65zm15-30h10v10H80zm0 15h10v25H80zm-40 0h10v10H40zm0 15h10v10H40zM10 10h10v10H10zm40 0h10v10H50zM10 50h10v10H10zm75-40h15v15H85z"></path>
+</svg>
+<span class="font-label-sm text-[9px] uppercase tracking-wider text-primary font-bold mt-2">Scan at Gate &amp; Counter 7</span>
+</div>
+<div class="flex-1 flex flex-col justify-center text-center sm:text-left">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Excise Security Token</span>
+<p class="font-data-mono text-headline-md font-bold text-primary tracking-tight mt-0.5">#TK-88410-ICT-2025</p>
+<!-- Simulated Barcode -->
+<div class="my-2 flex items-center justify-center sm:justify-start gap-[2px] h-7 px-1 py-1 bg-surface-container-lowest rounded border border-outline-variant/20 w-fit">
+<span class="w-1 h-full bg-on-surface inline-block"></span>
+<span class="w-0.5 h-full bg-on-surface inline-block"></span>
+<span class="w-1.5 h-full bg-on-surface inline-block"></span>
+<span class="w-0.5 h-full bg-on-surface inline-block"></span>
+<span class="w-2 h-full bg-on-surface inline-block"></span>
+<span class="w-0.5 h-full bg-on-surface inline-block"></span>
+<span class="w-1 h-full bg-on-surface inline-block"></span>
+<span class="w-2 h-full bg-on-surface inline-block"></span>
+<span class="w-0.5 h-full bg-on-surface inline-block"></span>
+<span class="w-1.5 h-full bg-on-surface inline-block"></span>
+<span class="w-1 h-full bg-on-surface inline-block"></span>
+<span class="w-0.5 h-full bg-on-surface inline-block"></span>
+<span class="w-2 h-full bg-on-surface inline-block"></span>
+<span class="w-1 h-full bg-on-surface inline-block"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium flex items-center justify-center sm:justify-start gap-1.5 text-emerald-800">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Valid for fast-track entry via Lane 2 (Security Turnstiles)</span>
+</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Present physical phone screen or printed A4 gate slip to Armed Escort desk.</p>
+</div>
+</div>
+<!-- Visitor & Vehicle Credentials Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-low/60 rounded-xl p-space-md border border-outline-variant/20 text-body-sm font-body-sm">
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">Visitor / Transferee</span>
+<p class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">Bilal Ahmed</p>
+<p class="font-data-mono text-[12px] text-on-surface-variant">CNIC: 35201-8392011-1</p>
+</div>
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">Vehicle Identity</span>
+<p class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">Toyota Land Cruiser Prado TX L</p>
+<p class="font-data-mono text-[12px] text-on-surface-variant">Chassis: MRHFE1***90214</p>
+</div>
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">Assigned Plate Series</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-bold text-[11px]">ICT</span>
+<span class="font-data-mono font-bold text-on-surface text-label-lg">AEL • 786</span>
+</div>
+</div>
+<div>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant">Desk &amp; Assigned Officer</span>
+<p class="font-label-lg text-label-lg font-semibold text-primary mt-0.5">Counter 7 (Fast-Track Biometric)</p>
+<p class="text-on-surface-variant text-[12px]">Inspector Zulfiqar Ali</p>
+</div>
+</div>
+<!-- Security Verification & Anti-Counterfeit Bar -->
+<div class="p-space-sm rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex flex-wrap items-center justify-between gap-2 text-label-sm font-label-sm">
+<span class="flex items-center gap-1 text-emerald-800 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> NADRA Biometric Slip Verified (Score: 99.2%)
+          </span>
+<span class="flex items-center gap-1 text-emerald-800 font-semibold">
+<span class="material-symbols-outlined text-[16px]">task_alt</span> Token Challan #88192 Paid
+          </span>
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">badge</span> Original CNIC Required
+          </span>
+</div>
+<div class="pt-1 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-data-mono text-on-surface-variant">
+<span>HASH: 3c8e11a2…fa09 • SHA-256</span>
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">shield</span> Certified ICT-2025-APP-88410
+          </span>
+</div>
+</div>
+<!-- Directions Reminder -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">navigation</span>
+<span>Sector H-9/4, Near Peshawar Morr, Islamabad</span>
+</div>
+<a class="text-primary font-semibold hover:underline inline-flex items-center gap-1 text-label-sm" href="https://maps.google.com" target="_blank">
+<span>Open in Maps</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+<!-- Modal Footer Actions -->
+<div class="p-space-lg pt-space-md border-t border-outline-variant/20 bg-surface-container-low/40 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<button class="w-full sm:w-auto px-space-md py-2.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors text-center" onclick="document.getElementById('gate-pass-modal').style.display='none'">
+        Close Window
+      </button>
+<div class="w-full sm:w-auto flex flex-wrap items-center gap-space-xs sm:gap-space-sm justify-end">
+<a class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-space-md py-2.5 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-md text-label-md font-semibold transition-colors shadow-sm" href="https://whatsapp.com" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Send to WhatsApp</span>
+</a>
+<button class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-space-md py-2.5 rounded-xl bg-surface-container-lowest hover:bg-surface-container-low border border-outline-variant/40 text-on-surface font-label-md text-label-md font-semibold transition-colors shadow-sm" onclick="window.print()">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Print Pass PDF</span>
+</button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md">
+<span class="material-symbols-outlined text-[18px]">wallet</span>
+<span>Save to Phone Wallet</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

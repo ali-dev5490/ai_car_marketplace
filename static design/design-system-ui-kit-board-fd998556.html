@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>AI Car Market Place</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#0b1c30","surface-variant":"#d3e4fe","primary":"#004ac6","tertiary-fixed-dim":"#ffb599","inverse-on-surface":"#eaf1ff","on-primary-container":"#eeefff","secondary":"#565e74","primary-fixed-dim":"#b4c5ff","on-primary-fixed-variant":"#003ea8","on-error-container":"#93000a","on-surface":"#0b1c30","surface-dim":"#cbdbf5","error":"#ba1a1a","surface-container-high":"#dce9ff","surface-container-highest":"#d3e4fe","tertiary":"#973400","inverse-surface":"#213145","tertiary-container":"#c04400","secondary-fixed":"#dae2fd","on-secondary-container":"#5c647a","on-secondary-fixed":"#131b2e","outline-variant":"#c3c6d7","on-secondary":"#ffffff","secondary-container":"#dae2fd","on-primary-fixed":"#00174b","secondary-fixed-dim":"#bec6e0","on-tertiary-fixed-variant":"#7f2b00","outline":"#737686","surface-container-lowest":"#ffffff","inverse-primary":"#b4c5ff","surface":"#f8f9ff","on-tertiary-container":"#ffede7","error-container":"#ffdad6","surface-tint":"#0053db","background":"#f8f9ff","on-secondary-fixed-variant":"#3f465c","on-primary":"#ffffff","primary-fixed":"#dbe1ff","tertiary-fixed":"#ffdbce","on-error":"#ffffff","primary-container":"#2563eb","surface-container":"#e5eeff","surface-container-low":"#eff4ff","on-surface-variant":"#434655","on-tertiary-fixed":"#370e00","surface-bright":"#f8f9ff","on-tertiary":"#ffffff"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-md":"1rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter-desktop":"1.5rem","space-xl":"2rem","space-sm":"0.5rem",gutter:"1rem",margin:"1rem","margin-desktop":"2rem"},fontFamily:{"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-lg":["Inter"],"data-mono":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"body-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"]},fontSize:{"body-sm":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"600"}],"data-mono":["13px",{lineHeight:"18px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.01em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.02em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.025em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 shadow-[0_1px_4px_rgba(15,23,42,0.03)]"><div class="h-20 max-w-[1440px] mx-auto px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-fit"><a class="flex items-center gap-space-sm group" data-path="browse-cars" href="#"><img alt="AI Car Market Place Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U1H2en-l7FVoNtI_-2ihdOn2S3fY03znKf2LUB7LCLKy7AKL5h80eL0m8k6DDdnBWdWfuHS5VJn8HzlF-ktwLnXUBgVlOGGe-S74dKdjZtHcFePUu25cCSBs_mLQWY_Sd-yXO5PtpYF0rsfhQyH-tzkhobQIrV9eM7bJU0jdpj2k4T5dICTul2huxeNREltZ5NzMpl2C2iHAtTHa6vHxmnDQjKC2ATl0ltdZFcWWSPx9hlsZBJkPO4rIQ"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none group-hover:text-primary transition-colors">AI Car Market Place</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden lg:inline-block leading-tight mt-0.5">Buy and sell cars with AI-assisted listings</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-label-lg border-b-2 border-primary"><a aria-current="page" class="py- space-sm transition-colors text-primary font-label-lg border-b-2 border-primary" data-path="browse-cars" href="#">Browse Cars</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="ai-search" href="#">AI Search</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="compare-cars" href="#">Compare</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface py-space-sm transition-colors" data-path="how-it-works" href="#">How It Works</a></nav><div class="flex items-center gap-space-sm lg:gap-space-md"><div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span><span>Lahore</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></button><div class="absolute left-0 mt-1.5 w-44 bg-surface-container-lowest border border-outline-variant/30 rounded-lg shadow-lg hidden group-hover:block z-50 py-1"><a class="block px-space-md py-1.5 text-on-surface hover:bg-surface-container-low font-label-md text-label-md" href="#">Lahore</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" href="#">Karachi</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">Islamabad</a><a class="block px-space-md py-1.5 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="browse-cars" href="#">All Pakistan</a></div></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" data-path="saved-cars" href="#"><span class="material-symbols-outlined text-[22px] leading-none">favorite</span><span class="absolute top-1 right-1 flex items-center justify-center w-4 h-4 bg-tertiary-container text-on-tertiary-container font-label-sm text-[10px] font-bold rounded-full">3</span></a><a class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-lg text-label-lg transition-colors shadow-sm" data-path="sell-car-ai" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>+ Sell with AI</span></a><div class="relative group pl-space-xs"><button class="flex items-center gap-space-sm p-1 rounded-xl hover:bg-surface-container-low transition-colors"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface leading-tight">Tariq M.</span><span class="font-label-sm text-[10px] text-primary font-semibold leading-tight">Verified Member</span></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant hidden md:inline-block">unfold_more</span></button><div class="absolute right-0 mt-1.5 w-56 bg-surface-container-lowest border border-outline-variant/30 rounded-xl shadow-xl hidden group-hover:block z-50 py-2"><div class="px-space-md py-2 border-b border-outline-variant/20 mb-1"><p class="font-label-md text-label-md text-on-surface font-semibold">Tariq Mehmood</p><p class="font-body-sm text-body-sm text-on-surface-variant truncate">tariq.m@example.com</p></div><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="customer-portal" href="#"><span class="material-symbols-outlined text-[18px]">directions_car</span>My Listings</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="payments" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Payments</a><a class="flex items-center gap-space-sm px-space-md py-2 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label-md text-label-md" data-path="enquiries-inbox" href="#"><span class="material-symbols-outlined text-[18px]">chat</span>Enquiries Inbox</a><div class="my-1 border-t border-outline-variant/20"></div><a class="flex items-center justify-between px-space-md py-2 text-primary hover:bg-surface-container-low font-label-md text-label-md" data-path="admin-switch" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>Admin Switch</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="max-w-[1440px] mx-auto px-gutter-desktop py-space-xl space-y-space-xl">
+<!-- Top Design System Spec Header Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-headline-sm">
+<span class="material-symbols-outlined text-[24px]">dataset</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface">Design System &amp; Component Specs</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              v1.4 Production Ready
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automotive Intelligence UI &amp; Transaction Specifications for Pakistani Marketplace Ecosystem</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-2 px-space-md py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md" id="copyTokensBtn" onclick="toggleTokensView()">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span>View JSON Tokens</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-lg bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Tailwind Config</span>
+</button>
+</div>
+</div>
+<!-- Collapsible Token Modal Panel (Interactive micro-state) -->
+<div class="hidden bg-surface-container-high rounded-xl p-space-lg shadow-inner" id="tokensViewPanel">
+<div class="flex justify-between items-center pb-space-sm">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-bold">Design Token Map (Exportable JSON)</span>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="toggleTokensView()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<pre class="bg-surface-container-lowest text-on-surface p-space-md rounded-lg font-data-mono text-data-mono overflow-x-auto">{
+  "theme": "Light Mode Utilitarian SaaS",
+  "palette": {
+    "primary": "#2563EB",
+    "primary-dark": "#1D4ED8",
+    "canvas": "#F8FAFC",
+    "surface": "#FFFFFF",
+    "surface-border": "#E2E8F0",
+    "accent-amber": "#F59E0B",
+    "emerald-success": "#10B981",
+    "destructive-rose": "#EF4444"
+  },
+  "typography": {
+    "headlineFont": "Plus Jakarta Sans",
+    "bodyFont": "Inter",
+    "dataFont": "Inter Mono / Tabular"
+  },
+  "region": "PK - PKR Lakhs &amp; Crores, Biometric &amp; Token Tax"
+}</pre>
+</div>
+<!-- Section 1: Foundations & Architecture -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Foundations 01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Color Palettes, Elevation &amp; Typographic Matrix</h2>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">WCAG AAA / High Contrast</span>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Palette Swatches (7 cols) -->
+<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Semantic Color Architecture</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Calibrated for daylight sunlight visibility</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-space-sm">
+<!-- Primary Blue -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-primary flex items-end p-2 text-on-primary">
+<span class="font-label-sm text-[10px]">#2563EB</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Primary Core</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Buttons, Links, Verified badges</p>
+</div>
+<!-- Primary Dark / Hover -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-on-primary-fixed-variant flex items-end p-2 text-on-primary">
+<span class="font-label-sm text-[10px]">#003EA8</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Primary Hover</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Active press &amp; high shadow</p>
+</div>
+<!-- Slate Dark / Text -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-on-background flex items-end p-2 text-inverse-on-surface">
+<span class="font-label-sm text-[10px]">#0B1C30</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Slate Deep 900</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Primary headings &amp; body</p>
+</div>
+<!-- Accent Orange CTA -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-tertiary-container flex items-end p-2 text-on-tertiary-container">
+<span class="font-label-sm text-[10px]">#C04400</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Accent Action</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">AI sell wizard, Buy Now CTA</p>
+</div>
+<!-- Emerald Success -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-[#059669] flex items-end p-2 text-white">
+<span class="font-label-sm text-[10px]">#10B981</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Emerald Success</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Paid, Clear, Token Tax verified</p>
+</div>
+<!-- Amber Pending -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-[#D97706] flex items-end p-2 text-white">
+<span class="font-label-sm text-[10px]">#F59E0B</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Amber Alert</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Pending slip, escrow lock</p>
+</div>
+<!-- Destructive Rose -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-error flex items-end p-2 text-on-error">
+<span class="font-label-sm text-[10px]">#BA1A1A</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Rose Error</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Suspended, fraud flag</p>
+</div>
+<!-- Surface Wash -->
+<div class="bg-surface-container rounded-lg p-space-sm space-y-space-xs">
+<div class="h-14 rounded-lg bg-surface flex items-end p-2 text-on-surface-variant">
+<span class="font-label-sm text-[10px]">#F8F9FF</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Background Wash</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Canvas body baseline</p>
+</div>
+</div>
+</div>
+<!-- Typography Matrix (5 cols) -->
+<div class="xl:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Typography Hierarchy</h3>
+<span class="font-label-sm text-label-sm text-secondary">Plus Jakarta &amp; Inter</span>
+</div>
+<div class="space-y-space-sm">
+<div class="pb-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface">PKR 2.85 Cr</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">headline-lg · 32px</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Display for vehicle hero pricing</p>
+</div>
+<div class="pb-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-md text-headline-md text-on-surface">Toyota Land Cruiser Prado TX</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">headline-md · 24px</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standard listing title &amp; modal headers</p>
+</div>
+<div class="pb-2">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Algorithmic Valuation Insight</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">headline-sm · 18px</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Widget cards &amp; sub-headings</p>
+</div>
+<div class="pb-2">
+<div class="flex items-baseline justify-between">
+<span class="font-body-md text-body-md text-on-surface">All excise smart-card parameters match OCR analysis.</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">body-md · 14px</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standard descriptive body copy</p>
+</div>
+<div class="pb-1">
+<div class="flex items-baseline justify-between">
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">ICT- Islamabad · Biometric Ready</span>
+<span class="font-data-mono text-data-mono text-on-surface-variant">label-sm · 11px</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Metadata chips, status counters, timestamps</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Interactive Status Badges Matrix -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Components 02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Status Badge Matrix &amp; Operational States</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Used across dealer dashboards &amp; public cards</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-space-md">
+<!-- Active -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">active</span>
+<span class="material-symbols-outlined text-[16px] text-[#059669]">check_circle</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span>
+              ACTIVE
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Public on search index</span>
+</div>
+<!-- Pending Payment -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">pending_payment</span>
+<span class="material-symbols-outlined text-[16px] text-[#D97706]">receipt</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFFBEB] text-[#92400E] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+              PENDING PAYMENT
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Awaiting JazzCash/Bank slip</span>
+</div>
+<!-- Paid & Verified -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">paid_verified</span>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              PAID &amp; VERIFIED
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Manual clearance confirmed</span>
+</div>
+<!-- Under Moderation -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">pending_moderation</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">manage_search</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EFF6FF] text-[#1E40AF] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+              UNDER MODERATION
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">OCR &amp; VIN screening</span>
+</div>
+<!-- Sold -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">sold</span>
+<span class="material-symbols-outlined text-[16px] text-indigo-600">done_all</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EEF2FF] text-[#3730A3] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-[#4F46E5]"></span>
+              SOLD
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Transferred via Biometric</span>
+</div>
+<!-- Paused -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">paused</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">pause_circle</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F1F5F9] text-[#334155] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              PAUSED
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Seller temporarily disabled</span>
+</div>
+<!-- Rejected -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">rejected</span>
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFF1F2] text-[#9F1239] font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+              REJECTED
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Document mismatch</span>
+</div>
+<!-- Suspended / Blocked -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">suspended</span>
+<span class="material-symbols-outlined text-[16px] text-error">gavel</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+              SUSPENDED
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Admin compliance hold</span>
+</div>
+<!-- Unpaid -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">unpaid</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">money_off</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+              UNPAID SLIP
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Invoice generated, unpaid</span>
+</div>
+<!-- AI Inspected -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ai_certified</span>
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold w-fit">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              AI INSPECTED 9.4/10
+            </div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Passed structural neural scan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Core Component Library Displays -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Components 03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Button Matrices &amp; Form Engine</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">States: Default, Active Hover, Loading &amp; Disabled</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Button Matrix (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Button Variants &amp; Micro-States</h3>
+<div class="space-y-space-sm">
+<!-- Primary Action -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Primary Blue Action</span>
+<span>btn-primary</span>
+</div>
+<div class="flex flex-wrap gap-2 items-center pt-1">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors font-label-md text-label-md shadow-sm">
+                  Search Cars
+                </button>
+<button class="px-space-md py-2 rounded-xl bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md shadow-sm">
+                  Hover State
+                </button>
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary opacity-80 font-label-md text-label-md flex items-center gap-1.5 cursor-wait">
+<svg class="animate-spin h-3.5 w-3.5 text-white" fill="none" viewbox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path>
+</svg>
+<span>Processing...</span>
+</button>
+</div>
+</div>
+<!-- Accent CTA (Sell with AI) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Accent CTA (Sell with AI)</span>
+<span>btn-accent</span>
+</div>
+<div class="flex flex-wrap gap-2 items-center pt-1">
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>+ Sell with AI</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md py-2 rounded-xl bg-tertiary text-on-tertiary font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+<span>Active Hover</span>
+</button>
+</div>
+</div>
+<!-- Secondary Outline / Ghost -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Secondary Neutral &amp; Ghost</span>
+<span>btn-secondary / btn-ghost</span>
+</div>
+<div class="flex flex-wrap gap-2 items-center pt-1">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md shadow-sm transition-colors">
+                  Compare Specs
+                </button>
+<button class="px-space-md py-2 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors">
+                  Clear Filters
+                </button>
+</div>
+</div>
+<!-- Destructive Action -->
+<div class="p-space-sm rounded-lg bg-surface-container-low space-y-space-xs">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Destructive Action (Admin Ban/Reject)</span>
+<span>btn-destructive</span>
+</div>
+<div class="flex flex-wrap gap-2 items-center pt-1">
+<button class="flex items-center gap-1 px-space-md py-2 rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-on-error font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Reject Listing</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Controls & Pak Market Validation (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Form Controls &amp; PKR Validation Engine</h3>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Live Interactive State</span>
+</div>
+<div class="space-y-space-md">
+<!-- City Segmented Switch -->
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">City Registry Quick Select</label>
+<div class="bg-surface-container-low p-1 rounded-xl flex flex-wrap gap-1 max-w-lg">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md font-semibold">Islamabad</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Lahore</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Karachi</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Rawalpindi</button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md">Peshawar</button>
+</div>
+</div>
+<!-- Currency & Dropdown inputs row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Expected Asking Price</label>
+<div class="relative rounded-xl overflow-hidden shadow-sm">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center font-label-md text-label-md text-on-surface-variant bg-surface-container-low px-2">PKR</span>
+<input class="w-full pl-14 pr-16 py-2 bg-surface-container-lowest text-on-surface font-data-mono text-body-md focus:outline-none focus:bg-surface-container-low transition-colors" type="text" value="2,85,00,000"/>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center font-label-sm text-label-sm text-primary font-bold">2.85 Crore</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Registration Status</label>
+<div class="relative">
+<select class="w-full px-3 py-2 bg-surface-container-low text-on-surface rounded-xl appearance-none font-body-md text-body-md focus:outline-none">
+<option>Islamabad (ICT) - Smart Card &amp; Biometric</option>
+<option>Punjab Registered</option>
+<option>Sindh Registered</option>
+<option>Unregistered / New Invoice</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-[18px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- OCR Document Dropzone -->
+<div class="space-y-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">AI Vehicle Scanner &amp; Excise OCR</label>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                  Auto-fill Enabled
+                </span>
+</div>
+<div class="rounded-xl p-space-md bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col items-center justify-center text-center cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-2">
+<span class="material-symbols-outlined text-[20px]">document_scanner</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Drop car photos or registration smart card here</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Vision AI extracts VIN, Engine Displacement, Chassis, and inspects paint depth</p>
+</div>
+</div>
+<!-- Input Error state presentation -->
+<div class="space-y-space-xs">
+<label class="font-label-sm text-label-sm text-error font-semibold">Bank Slip Transaction ID (JazzCash / Raast)</label>
+<input class="w-full px-3 py-2 bg-error-container/30 text-on-surface rounded-xl font-data-mono text-body-md focus:outline-none" type="text" value="TXN-9981-INVALID"/>
+<p class="font-body-sm text-[12px] text-error flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                Slip ID not yet reconciled in 1Link settlement stream. Please upload original transaction image.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Master Listing Card Specification -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Components 04</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Master Listing Card &amp; Algorithmic Scorecard</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Full-fidelity inspection representation</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- The Master Vehicle Card (Col 7) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all hover:shadow-xl">
+<!-- Image Section with Overlays -->
+<div class="relative w-full h-80 bg-surface-container">
+<img alt="Toyota Prado TX 2022 parked in Islamabad" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3YVygls1NplnqnEV3XuIHG4fyYdJvFuRpxgqW2tzAz3WiGaXdL8dvcBiOMOYIxs7kk_D6U6EMgiTs9DwuiCfjQXbYy_QjZV9PtsfHvJX9dF2Bq7ri1PEjptBx-64lEjAfzfRQ62KhrzAYc787NhKJ1rC8gRvfQD-YUP2TbiV2Gr2s-cnZSFEowgUh1hOq9KR3zN_nuydtj9NlSpORWvf-_pESTkopJU-vJ7zfQyiqlmhzu3orNfX2PQ"/>
+<!-- AI Score Tag (Top Left) -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">9.4 / 10 AI Inspected</span>
+</div>
+<!-- Location Chip (Top Right) -->
+<div class="absolute top-3 right-3 flex items-center gap-1 px-3 py-1 rounded-full bg-inverse-surface/85 text-inverse-on-surface backdrop-blur-md font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>Islamabad · F-7 / Blue Area</span>
+</div>
+<!-- Live Verification Floater (Bottom Left) -->
+<div class="absolute bottom-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFDF5]/95 text-[#065F46] font-label-sm text-label-sm font-semibold shadow-sm backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-[#059669] animate-pulse"></span>
+              Excise Smart Card Verified
+            </div>
+</div>
+<!-- Bottom Card Content -->
+<div class="p-space-lg space-y-space-md">
+<!-- Header Row: Title and Price -->
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-space-xs">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Toyota Pakistan · SUV</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Toyota Land Cruiser Prado TX L-Package</h3>
+</div>
+<div class="text-left sm:text-right">
+<div class="font-headline-lg text-headline-lg text-primary leading-tight">PKR 2.85 Cr</div>
+<div class="font-data-mono text-[11px] text-on-surface-variant font-medium">Est. Installment: PKR 4.1L/mo</div>
+</div>
+</div>
+<!-- 3-Column Micro-Spec Strip -->
+<div class="grid grid-cols-3 gap-2 bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex flex-col items-center justify-center p-1 text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Model Year</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">2022</span>
+</div>
+<div class="flex flex-col items-center justify-center p-1 text-center bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mileage</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">34,000 km</span>
+</div>
+<div class="flex flex-col items-center justify-center p-1 text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Powertrain</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">2.7L Petrol</span>
+</div>
+</div>
+<!-- Seller Information Strip -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-space-sm">
+<img alt="Verified Seller Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgtvnCLPHIpM2BD0qKOHESkfZNHtgjB5VmKlq18cCPV1j7dRUiMQmj4Kw0a3K9eLV32JXqwcFhL4FHG_iWx9PwDdbOQ5hHxQoqLZ7plzngsv2fLpjgxxyW01Q2rFoCgQiET03EpQAZDowVAxhP_2SDe84ZpVpe43D_YLfCP7Mkd5nH02Z90QCjWejPRc_MFZuic1dJbg7ggpPCHsmqQNkjM9xIWVO6XGtitzZVjG51I_ogiACg1kTx1g"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">Tariq Mehmood</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Biometric Verified">verified</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Verified Private Owner • ICT Registered</span>
+</div>
+</div>
+<!-- Quick action links -->
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-error hover:bg-surface-container transition-colors" title="Save Car">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Share Spec Sheet">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary hover:bg-on-primary-fixed-variant font-label-md text-label-md font-semibold transition-colors shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Direct Chat</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Diagnostic Scorecard Specs Breakdown (Col 5) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Inspection Diagnostics</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Algorithmic Health Audit</h3>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm leading-none font-bold">94</span>
+<span class="font-label-sm text-[9px] uppercase tracking-tighter opacity-80">/ 100</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg">
+<span class="font-semibold text-on-surface">Neural Vision Summary:</span> 100% genuine seal integrity on all pillars. Zero frame rust detected. Token tax fully cleared till Jun 2026.
+          </p>
+<!-- Component Metrics Progress Bars -->
+<div class="space-y-space-sm">
+<div>
+<div class="flex justify-between font-label-md text-label-md pb-1">
+<span class="text-on-surface font-semibold">Engine &amp; Powertrain Compression</span>
+<span class="font-data-mono text-primary font-bold">98% Perfect</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 98%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md pb-1">
+<span class="text-on-surface font-semibold">Transmission &amp; 4WD Transfer Case</span>
+<span class="font-data-mono text-primary font-bold">96% Smooth</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md pb-1">
+<span class="text-on-surface font-semibold">Exterior Paint &amp; Panel Thickness</span>
+<span class="font-data-mono text-on-surface-variant font-bold">91% (1 Dry Bumper Touch)</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-[#D97706] h-full rounded-full" style="width: 91%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md pb-1">
+<span class="text-on-surface font-semibold">Suspension &amp; Hydraulic Dampers</span>
+<span class="font-data-mono text-primary font-bold">94% Nominal</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94%;"></div>
+</div>
+</div>
+</div>
+<!-- Pak Verification Checklist -->
+<div class="pt-2 space-y-1.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm p-2 bg-surface-container-low rounded-lg">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-[#059669]">check_circle</span>
+                Islamabad Excise Token Tax Paid
+              </span>
+<span class="font-data-mono text-[11px] text-on-surface-variant">Cleared 2026</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm p-2 bg-surface-container-low rounded-lg">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-[#059669]">check_circle</span>
+                Physical Biometric Available on Spot
+              </span>
+<span class="font-data-mono text-[11px] text-[#059669] font-bold">NADRA Ready</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm p-2 bg-surface-container-low rounded-lg">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">receipt_long</span>
+                Bank Transfer Clearance Guarantee
+              </span>
+<span class="font-data-mono text-[11px] text-primary font-bold">1Link Escrow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Admin Moderation Modal & Empty States Component Specs -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Components 05</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Admin Modals, Alerts &amp; System Empty States</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Edge condition handling</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Admin Moderation Modal Preview (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-md space-y-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Admin Action: Moderation &amp; Sanction</h3>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Action against Listing #PK-88421 (Toyota Prado 2022)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant cursor-pointer">close</span>
+</div>
+<div class="space-y-space-sm">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Select Violation Category</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<label class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-2 cursor-pointer hover:bg-surface-container">
+<input checked="" class="mt-0.5 text-primary" name="mod_reason" type="radio"/>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Chassis Number Mismatch</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">OCR scan does not match excise smart card</div>
+</div>
+</label>
+<label class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-2 cursor-pointer hover:bg-surface-container">
+<input class="mt-0.5 text-primary" name="mod_reason" type="radio"/>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Unverified Payment Slip</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">Fake or altered bank receipt uploaded</div>
+</div>
+</label>
+</div>
+<div class="space-y-space-xs pt-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Administrative Remarks (Sent to Seller)</label>
+<textarea class="w-full p-space-sm bg-surface-container-low text-on-surface rounded-xl font-body-md text-body-md focus:outline-none" placeholder="Provide specific reason for seller re-upload..." rows="3">Your front chassis photo shows heavy digital tampering. Please upload a clear photo taken under natural daylight with registration book open.</textarea>
+</div>
+<!-- Modal Action Buttons -->
+<div class="flex items-center justify-end gap-space-sm pt-space-sm">
+<button class="px-space-md py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container">
+                Cancel
+              </button>
+<button class="px-space-md py-2 rounded-xl bg-error text-on-error font-label-md text-label-md hover:opacity-90 shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">block</span>
+<span>Confirm Suspension</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Showcase (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col items-center justify-center text-center space-y-space-sm min-h-[340px]">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined text-[32px]">directions_car</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">No Vehicles Match Criteria</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+            We couldn't find any certified cars matching 'Islamabad + Petrol + Below 1.5 Cr' in current active listings.
+          </p>
+<div class="flex items-center gap-2 pt-2">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-on-primary-fixed-variant transition-colors">
+              Reset Filters
+            </button>
+<button class="px-space-md py-2 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+              Save Alert
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline UI Kit Micro-Interactivity Script -->
+<script>
+    function toggleTokensView() {
+      const panel = document.getElementById('tokensViewPanel');
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+      } else {
+        panel.classList.add('hidden');
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 mt-space-xl"><div class="max-w-[1440px] mx-auto px-gutter-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20"><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">document_scanner</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">AI Document OCR</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Automated verification for smart card and excise documents.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Pak Verified Sellers</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Identity and biometric confirmation for every active seller.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">account_balance</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Bank &amp; JazzCash Verification</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Manual transaction clearance via authorized Pakistani rails.</p></div></div><div class="flex items-start gap-space-sm"><div class="p-2.5 rounded-lg bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[24px]">price_check</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-semibold">0% Hidden Fees</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Algorithmic fair pricing and complete fee transparency.</p></div></div></div><div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-lg py-space-xl"><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Marketplace</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Browse All Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="ai-search" href="#">AI Smart Search</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="compare-cars" href="#">Vehicle Comparison</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="certified-inspection" href="#">Inspection Reports</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Selling</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="sell-car-ai" href="#">Sell with AI Assistant</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="valuation-tool" href="#">Car Valuation Tool</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dealer-program" href="#">Dealer Solutions</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="customer-portal" href="#">Manage My Ads</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Admin &amp; Portals</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="admin-switch" href="#">Admin Console</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="payments" href="#">Payment Verification</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="enquiries-inbox" href="#">Message Center</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Top Cities</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Lahore Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Karachi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Islamabad Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Rawalpindi Cars</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="browse-cars" href="#">Peshawar Cars</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Legal &amp; Trust</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="terms-conditions" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="escrow-rules" href="#">Escrow Protection</a></div></div><div class="pt-space-md border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 AI Car Market Place Pakistan. All rights reserved. Engineered for transparent automotive commerce.</div><div class="flex items-center gap-space-md"><span>PKR Transactions Supported</span><span>•</span><span>Excise &amp; Biometric Integrations</span></div></div></div></footer>
+<script src="js/pages.js"></script>
+<script src="js/app.js"></script>
+</body></html>

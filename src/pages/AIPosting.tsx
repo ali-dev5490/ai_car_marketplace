@@ -4,6 +4,8 @@ import { Sparkles, Upload, Image as ImageIcon, CheckCircle2, ShieldCheck, Activi
 import { motion, AnimatePresence } from 'motion/react';
 import { Car } from '../types';
 import { COUNTRIES, findPakistanCity, searchPakistanCities } from '../data/pakistanCities';
+import { authHeaders } from '../lib/authApi';
+import { useAuth } from '../context/AuthContext';
 
 type LocationStatus = 'idle' | 'locating' | 'filled' | 'denied' | 'error';
 
@@ -72,6 +74,7 @@ const DEMO_PRESETS = [
 
 export default function AIPosting() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [stage, setStage] = useState<'upload' | 'scanning' | 'results'>('upload');
   const [scanProgress, setScanProgress] = useState(0);
   const [scanLog, setScanLog] = useState('Booting AI Car Scanner Engine...');
@@ -394,8 +397,8 @@ export default function AIPosting() {
       engine_cc: model.toLowerCase().includes('alto') ? 660 : model.toLowerCase().includes('civic') ? 1800 : model.toLowerCase().includes('sportage') ? 2000 : 1300,
       registered_city: city.trim(),
       condition,
-      seller_name: sellerName,
-      phone,
+      seller_name: sellerName || user?.name || 'Seller',
+      phone: phone || user?.phone || '',
       description,
       features: specs?.features || ['ABS', 'Airbags', 'Bluetooth'],
       images: uploadedImages
@@ -404,13 +407,13 @@ export default function AIPosting() {
     try {
       const res = await fetch('/api/cars', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders(),
         body: JSON.stringify(carListingData)
       });
 
       if (res.ok) {
         const savedCar = await res.json();
-        navigate(`/cars/${savedCar.id}`);
+        navigate(`/account/payments?listing=${savedCar.id}`);
       } else {
         const errBody = await res.json().catch(() => ({}));
         alert(errBody.error || `Failed to post vehicle (${res.status}). Verify details.`);

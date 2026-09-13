@@ -1,4 +1,5 @@
 import { Car } from '../types';
+import { getToken } from './authApi';
 
 function applyCarFilters(cars: Car[], params: URLSearchParams): Car[] {
   let result = [...cars];
@@ -53,7 +54,10 @@ async function loadStaticCars(): Promise<Car[]> {
 export async function fetchCars(queryString = ''): Promise<Car[]> {
   const qs = queryString.replace(/^\?/, '');
   try {
-    const res = await fetch(`/api/cars${qs ? `?${qs}` : ''}`);
+    const token = getToken();
+    const res = await fetch(`/api/cars${qs ? `?${qs}` : ''}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    });
     if (res.ok) return res.json();
   } catch {
     // fall through
@@ -64,7 +68,10 @@ export async function fetchCars(queryString = ''): Promise<Car[]> {
 
 export async function fetchCarById(id: number | string): Promise<Car> {
   try {
-    const res = await fetch(`/api/cars/${id}`);
+    const token = getToken();
+    const res = await fetch(`/api/cars/${id}`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    });
     if (res.ok) return res.json();
   } catch {
     // fall through

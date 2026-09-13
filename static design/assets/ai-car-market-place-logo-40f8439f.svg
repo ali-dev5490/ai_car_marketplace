@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+  <rect width="40" height="40" y="4" rx="10" fill="#2563EB"/>
+  <path d="M12 24L16 16H24L28 24H12Z" fill="#FFFFFF" fill-opacity="0.9"/>
+  <path d="M10 24H30C31.1046 24 32 24.8954 32 26V29C32 29.5523 31.5523 30 31 30H29C29 31.6569 27.6569 33 26 33C24.3431 33 23 31.6569 23 30H17C17 31.6569 15.6569 33 14 33C12.3431 33 11 31.6569 11 30H9C8.44772 30 8 29.5523 8 29V26C8 24.8954 8.89543 24 10 24Z" fill="#FFFFFF"/>
+  <circle cx="14" cy="30" r="1.5" fill="#2563EB"/>
+  <circle cx="26" cy="30" r="1.5" fill="#2563EB"/>
+  <path d="M26 12L27.5 15L30.5 16.5L27.5 18L26 21L24.5 18L21.5 16.5L24.5 15L26 12Z" fill="#F59E0B"/>
+  <text x="50" y="27" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="18" fill="#0F172A" letter-spacing="-0.03em">AI Car Market</text>
+  <text x="50" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="600" font-size="9" fill="#64748B" letter-spacing="0.08em" text-transform="uppercase">Pakistan · Verified Cars</text>
+</svg>
