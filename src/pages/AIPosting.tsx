@@ -433,7 +433,7 @@ export default function AIPosting() {
           </div>
           <h1 className="text-3xl font-extrabold text-[#0F172A] tracking-tight font-sans">Post Your Car with AI</h1>
           <p className="text-slate-500 mt-1.5 text-sm max-w-lg mx-auto">
-            Upload 1 to 10 car photos. Our mock visual neural scanner will extract exact make, model, variant, condition, and market prices from all perspectives.
+            Upload 1 to 10 car photos. Gemini reads each angle and fills make, model, variant, condition, and a Pakistan market price range.
           </p>
         </div>
 

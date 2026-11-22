@@ -28,12 +28,16 @@ export default function Compare({ compareList, removeFromCompare, clearCompare }
           setAllCars(data);
           
           // Seed initial selections from compareList
+          const tidy = (car: Car) => {
+            const variant = car.variant || '';
+            return variant.length > 0 && variant.length <= 42 && !/[{}]/.test(variant);
+          };
+
           if (compareList.length > 0) {
             setCar1(compareList[0]);
             setSelectedId1(compareList[0].id);
           } else {
-            // Pick default 1
-            const default1 = data.find(c => c.model === 'Civic') || data[0];
+            const default1 = data.find(c => c.model === 'Civic' && tidy(c)) || data.find(c => c.model === 'Civic') || data[0];
             setCar1(default1);
             setSelectedId1(default1.id);
           }
@@ -42,8 +46,11 @@ export default function Compare({ compareList, removeFromCompare, clearCompare }
             setCar2(compareList[1]);
             setSelectedId2(compareList[1].id);
           } else {
-            // Pick default 2
-            const default2 = data.find(c => c.model === 'Corolla' && c.id !== (compareList[0]?.id || 0)) || data[1];
+            const taken = compareList[0]?.id;
+            const default2 = data.find(c => c.model === 'Corolla' && tidy(c) && c.id !== taken)
+              || data.find(c => c.model === 'Corolla' && c.id !== taken)
+              || data.find(c => c.id !== taken)
+              || data[1];
             setCar2(default2);
             setSelectedId2(default2.id);
           }

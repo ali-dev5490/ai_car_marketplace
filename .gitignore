@@ -1,19 +1,32 @@
+# Dependencies and build output
 node_modules/
 build/
 dist/
 coverage/
-.DS_Store
 *.log
-.env*
-!.env.example
 
-# Local / large artifacts
+# Secrets. Keep the example file tracked.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Local tooling
+.DS_Store
+.idea/
+.vscode/
 .vercel/
 .venv/
+venv/
 **/__pycache__/
 *.pyc
+
+# Generated or bulky local artifacts
 car scraper/data.zip
 car scraper/data/images/
+data/images/
 public/cars-data.json
 api/index.cjs
-

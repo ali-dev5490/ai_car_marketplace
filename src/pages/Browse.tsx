@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Search, SlidersHorizontal, ArrowUpDown, RefreshCw, Milestone, Fuel, Gauge, MapPin, Heart, Sparkles, ChevronDown } from 'lucide-react';
 import { Car } from '../types';
 import { fetchCars } from '../lib/api';
+import { onListingImageError } from '../lib/listingImage';
 
 interface BrowseProps {
   favorites: number[];
@@ -377,10 +378,7 @@ export default function Browse({ favorites, toggleFavorite, isFavorite }: Browse
                         src={car.images[0]}
                         alt={`${car.make} ${car.model}`}
                         referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          e.currentTarget.onerror = null;
-                          e.currentTarget.src = car.images[1] || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800';
-                        }}
+                        onError={onListingImageError}
                         className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <button

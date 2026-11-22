@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Phone, Heart, Share2, MapPin, CheckCircle2, AlertTriangle, ArrowLeft, BarChart2, Star, ShieldCheck, HelpCircle, Activity } from 'lucide-react';
 import { Car } from '../types';
 import { fetchCarById, fetchCars } from '../lib/api';
+import { onListingImageError } from '../lib/listingImage';
 
 interface CarDetailsProps {
   toggleFavorite: (id: number) => void;
@@ -105,7 +106,7 @@ export default function CarDetails({
     { label: 'Engine & Transmission', value: aiReport.engine, color: 'bg-emerald-500' },
     { label: 'Body Paint & Exterior Structure', value: aiReport.body, color: 'bg-blue-500' },
     { label: 'Interior Comfort & Accessories', value: aiReport.interior, color: 'bg-indigo-500' },
-    { label: 'Suspension, Chasis & Tyres', value: aiReport.tyres, color: 'bg-teal-500' }
+    { label: 'Suspension, Chassis & Tyres', value: aiReport.tyres, color: 'bg-teal-500' }
   ] : [];
 
   return (
@@ -128,10 +129,7 @@ export default function CarDetails({
                   src={activeImage}
                   alt={`${car.make} ${car.model}`}
                   referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = car.images[1] || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800';
-                  }}
+                  onError={onListingImageError}
                   className="h-full w-full object-cover"
                 />
                 <button
@@ -159,10 +157,7 @@ export default function CarDetails({
                       src={img}
                       alt="car thumbnail"
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800';
-                      }}
+                      onError={onListingImageError}
                       className="h-full w-full object-cover"
                     />
                   </button>
@@ -415,7 +410,7 @@ export default function CarDetails({
               {similarCars.map(c => (
                 <div key={c.id} className="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col h-full">
                   <div className="relative h-36 w-full overflow-hidden bg-slate-100">
-                    <img src={c.images[0]} alt={c.model} referrerPolicy="no-referrer" className="h-full w-full object-cover" />
+                    <img src={c.images[0]} alt={c.model} referrerPolicy="no-referrer" onError={onListingImageError} className="h-full w-full object-cover" />
                   </div>
                   <div className="p-4 flex-1 flex flex-col">
                     <span className="text-[9px] font-bold text-slate-400 uppercase">{c.make}</span>
@@ -444,7 +439,7 @@ export default function CarDetails({
               {betterValueCars.map(c => (
                 <div key={c.id} className="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col h-full">
                   <div className="relative h-36 w-full overflow-hidden bg-slate-100">
-                    <img src={c.images[0]} alt={c.model} referrerPolicy="no-referrer" className="h-full w-full object-cover" />
+                    <img src={c.images[0]} alt={c.model} referrerPolicy="no-referrer" onError={onListingImageError} className="h-full w-full object-cover" />
                     <div className="absolute top-2.5 left-2.5 bg-emerald-600 text-white text-[8px] font-bold px-2 py-0.5 rounded uppercase">
                       Value Option
                     </div>

@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { Sparkles, Send, Filter, Check, ArrowRight, Gauge, HelpCircle, Activity, Camera, Image, X, Sliders, ChevronRight, RefreshCw, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Car } from '../types';
+import { onListingImageError } from '../lib/listingImage';
 
 interface SearchTurn {
   id: string;
@@ -269,7 +270,7 @@ export default function AISearch() {
                       {turn.results.map((car) => (
                         <div key={car.id} className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm shrink-0 w-64 snap-align-start hover:border-blue-500/40 transition-all">
                           <div className="h-32 w-full relative bg-slate-100">
-                            <img src={car.images[0]} alt={car.model} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+                            <img src={car.images[0]} alt={car.model} referrerPolicy="no-referrer" onError={onListingImageError} className="w-full h-full object-cover" />
                             <span className="absolute bottom-2 left-2 bg-slate-900/85 text-white text-[9px] font-bold px-1.5 py-0.5 rounded backdrop-blur-sm shadow-sm">
                               {car.city}
                             </span>
@@ -454,6 +455,7 @@ export default function AISearch() {
                           src={car.images[0]} 
                           alt={car.model} 
                           referrerPolicy="no-referrer"
+                          onError={onListingImageError}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
                         />
                         <span className="absolute bottom-3 left-3 bg-slate-900/85 text-white text-[10px] font-bold px-2 py-0.5 rounded-lg backdrop-blur-sm shadow-sm">
