@@ -4,6 +4,7 @@ import { Search, Sparkles, TrendingUp, ShieldCheck, Milestone, Fuel, Gauge, Hear
 import { motion } from 'motion/react';
 import { Car } from '../types';
 import { fetchCars } from '../lib/api';
+import { onListingImageError } from '../lib/listingImage';
 
 interface HomeProps {
   toggleFavorite: (id: number) => void;
@@ -258,10 +259,7 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
                     src={car.images[0]}
                     alt={`${car.make} ${car.model}`}
                     referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = car.images[1] || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800';
-                    }}
+                    onError={onListingImageError}
                     className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3 bg-[#2563EB] text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md shadow-blue-500/20">
@@ -358,6 +356,7 @@ export default function Home({ toggleFavorite, isFavorite }: HomeProps) {
                   src={car.images[0]}
                   alt={`${car.make} ${car.model}`}
                   referrerPolicy="no-referrer"
+                  onError={onListingImageError}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-[#EA580C] text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md shadow-sm">

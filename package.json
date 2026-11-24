@@ -1,7 +1,8 @@
 {
-  "name": "react-example",
+  "name": "ai-car-marketplace",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "AI-powered used-car marketplace with Gemini search, photo listings, comparison, and market analytics.",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",

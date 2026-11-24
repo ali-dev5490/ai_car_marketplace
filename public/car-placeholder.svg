@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="Car photo unavailable">
+  <rect width="800" height="500" fill="#e2e8f0"/>
+  <g fill="none" stroke="#64748b" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M150 320h500l-55-100H230z"/>
+    <path d="M250 220l40-55h180l55 55"/>
+    <circle cx="255" cy="335" r="38" fill="#e2e8f0"/>
+    <circle cx="545" cy="335" r="38" fill="#e2e8f0"/>
+  </g>
+  <text x="400" y="430" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="28" fill="#475569">Photo unavailable</text>
+</svg>

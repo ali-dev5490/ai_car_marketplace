@@ -13,6 +13,7 @@ import AIPosting from './pages/AIPosting';
 import Compare from './pages/Compare';
 import SellerDashboard from './pages/SellerDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import NotFound from './pages/NotFound';
 
 import { Car } from './types';
 
@@ -128,6 +129,7 @@ export default function App() {
               } />
               <Route path="/seller" element={<SellerDashboard />} />
               <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 

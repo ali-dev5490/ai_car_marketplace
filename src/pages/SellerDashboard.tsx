@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Sparkles, BarChart2, MessageSquare, Phone, MapPin, CheckCircle2, ChevronRight, TrendingUp, AlertCircle, ShoppingBag } from 'lucide-react';
 import { Car } from '../types';
 import { fetchCars } from '../lib/api';
+import { onListingImageError } from '../lib/listingImage';
 
 export default function SellerDashboard() {
   const [sellerCars, setSellerCars] = useState<Car[]>([]);
@@ -15,14 +16,10 @@ export default function SellerDashboard() {
         if (data && Array.isArray(data)) {
           // Filter out listings belonging to seller Muhammad Usman or similar,
           // or just show the top few and any newly added ones!
-          const usrListings = data.filter(c => c.seller_name.includes('Usman') || c.id > 300);
-          
-          if (usrListings.length === 0) {
-            // Pick a few from standard list as mock seller listings so the dashboard is preloaded
-            setSellerCars(data.slice(0, 3));
-          } else {
-            setSellerCars(usrListings);
-          }
+          const owned = data.filter(c => c.seller_name.includes('Usman'));
+          // Demo account: a short list, not every high id in the scraped inventory.
+          const demoListings = (owned.length > 0 ? owned : data.slice(0, 4)).slice(0, 6);
+          setSellerCars(demoListings);
         }
       })
       .catch(err => console.error(err))
@@ -98,10 +95,10 @@ export default function SellerDashboard() {
                       className="border border-slate-200/60 rounded-2xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/40 hover:bg-white/60 transition-all"
                     >
                       <div className="flex items-center space-x-4">
-                        <img src={car.images[0]} alt={car.model} referrerPolicy="no-referrer" className="h-16 w-24 object-cover rounded-xl border border-slate-200" />
+                        <img src={car.images[0]} alt={car.model} referrerPolicy="no-referrer" onError={onListingImageError} className="h-16 w-24 object-cover rounded-xl border border-slate-200 bg-slate-100" />
                         <div>
                           <span className="text-[10px] font-bold text-slate-400 uppercase">{car.make}</span>
-                          <h4 className="font-extrabold text-sm text-[#0F172A] leading-tight">{car.model} <span className="text-slate-500 font-medium text-xs">{car.variant}</span></h4>
+                          <h4 className="font-extrabold text-sm text-[#0F172A] leading-tight line-clamp-2">{car.model} <span className="text-slate-500 font-medium text-xs">{car.variant}</span></h4>
                           <span className="text-xs text-[#2563EB] font-extrabold block mt-1">{(car.price / 100000).toFixed(1)} Lakh</span>
                         </div>
                       </div>

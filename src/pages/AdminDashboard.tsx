@@ -55,7 +55,7 @@ export default function AdminDashboard() {
         <div className="flex justify-between items-center mb-8 border-b border-slate-200/50 pb-5">
           <div>
             <h1 className="text-3xl font-extrabold text-[#0F172A] tracking-tight">Admin System Console</h1>
-            <p className="text-slate-500 mt-1 text-sm">Monitor system health parameters, SQLite indexing, and AI parsing activities.</p>
+            <p className="text-slate-500 mt-1 text-sm">Monitor inventory mix, listing volume, and AI-assisted marketplace activity.</p>
           </div>
           <div className="bg-slate-950/90 border border-white/10 text-teal-400 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
             <Cpu className="h-4 w-4 animate-pulse text-teal-400" />
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
               <div className="glass-panel rounded-2xl p-5 border border-white/40 shadow-xl backdrop-blur-xl">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">System Health</span>
                 <span className="text-3xl font-black text-emerald-600 mt-1 block">99.9%</span>
-                <span className="text-xs text-slate-500 block mt-2">SQLite & Gemini Latency</span>
+                <span className="text-xs text-slate-500 block mt-2">API and Gemini latency</span>
               </div>
             </div>
 
