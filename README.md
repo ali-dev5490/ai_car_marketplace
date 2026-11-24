@@ -4,7 +4,7 @@ Pakistani used-car marketplace with conversational search, photo-to-listing draf
 
 **Live demo:** [https://ai-car-marketplace-eta.vercel.app](https://ai-car-marketplace-eta.vercel.app)
 
-**Built by:** [Your Name](https://www.upwork.com/) — replace this with your name and Upwork profile before you publish the repo.
+**Built by:** Mubashar Ali
 
 ## Screenshots
 
@@ -156,4 +156,4 @@ After deploy, `https://YOUR_APP.vercel.app/api/cars` should return the catalog J
 
 ## License
 
-[MIT](LICENSE). Copyright 2026 [Your Name]. Replace the copyright holder in `LICENSE` before you make the repository public.
+[MIT](LICENSE). Copyright 2026 Mubashar Ali.
